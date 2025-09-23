@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تطبيق ويب الاشتراك</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --primary-bg: #182949;
+        --secondary-bg: #3b527c;
+        --accent-color: #7b8eb2;
+        --text-color: #d3a77b;
+        --border-color: #4a5c7a;
+        --button-hover: #3b527c;
+        --input-bg: #182949;
+        --input-border: #7b8eb2;
+        --modal-bg: rgba(0, 0, 0, 0.7);
+        --transition-speed: 0.4s;
+        --touch-target-min-size: 44px;
+      }
+
+      body {
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        padding-top: 64px;
+        height: 100vh;
+        overflow: hidden; /* لمنع التمرير المزدوج */
+      }
+
+      #canvas-container {
+        width: 100%;
+        height: calc(
+          100vh - 64px
+        ); /* ارتفاع العرض الكامل مطروحًا منه ارتفاع شريط التنقل */
+        position: relative;
+        background-color: #000000;
+      }
+
+      canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      .modal-container {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 20vw;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--modal-bg);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .modal-content {
+        background-color: var(--secondary-bg);
+        padding: 1.5rem;
+        border-radius: 1rem;
+        width: 90%;
+        max-width: 500px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow-y: auto;
+        max-height: 90vh;
+      }
+
+    
+
+      .tab-button.active {
+        background-color: var(--accent-color);
+        color: var(--primary-bg);
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        background-color: var(--input-bg);
+        border: 1px solid var(--input-border);
+        color: #d3a77b;
+        transition: border-color var(--transition-speed);
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: var(--text-color);
+      }
+
+      .primary-button {
+        width: 100%;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        background-color: var(--accent-color);
+        color: var(--primary-bg);
+        font-weight: bold;
+        transition: background-color var(--transition-speed);
+      }
+
+      .primary-button:hover {
+        background-color: var(--text-color);
+      }
+
+      .nav-button {
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        background-color: var(--secondary-bg);
+        color: var(--text-color);
+        transition: background-color var(--transition-speed);
+        cursor: pointer;
+        border: none;
+      }
+
+      .nav-button:hover {
+        background-color: var(--accent-color);
+      }
+
+      
+
+      .plan-card h3 {
+        color: var(--accent-color);
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+
+      .plan-card p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        color: var(--accent-color);
+      }
+
+      .plan-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: right;
+        width: 100%;
+      }
+
+      .plan-card li {
+        margin-bottom: 0.5rem;
+        color: #d3a77b;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+
+      .export-menu {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        background-color: var(--secondary-bg);
+        padding: 1rem;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        flex-wrap: wrap;
+      }
+
+      .export-menu select,
+      .export-menu button,
+      .export-menu input {
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        border: 1px solid var(--border-color);
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background-color var(--transition-speed);
+      }
+
+      .export-menu input {
+        cursor: text;
+      }
+
+      .export-menu select:hover,
+      .export-menu button:hover {
+        background-color: var(--accent-color);
+      }
+
+      .export-menu input:focus {
+        outline: none;
+        border-color: var(--text-color);
+      }
+
+      .export-menu select option {
+        background-color: var(--primary-bg);
+        color: #d3a77b;
+      }
+
+      #video-player-modal .modal-content {
+        width: 90%;
+        max-width: 800px;
+        height: auto;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #video-player {
+        width: 100%;
+        height: auto;
+        max-height: 70vh;
+        border-radius: 0.5rem;
+        background-color: black;
+      }
+
+      /* إصلاح أيقونة الأزرار */
+      .export-menu button svg {
+        fill: currentColor;
+      }
+
+      #status-message {
+        position: fixed;
+        bottom: 100px; /* فوق قائمة التصدير */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(60, 179, 113, 0.85); /* لون أخضر شفاف */
+        color: #d3a77b;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        display: none;
+        z-index: 1000;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      }
+
+      @keyframes fadein {
+        from {
+          bottom: 80px;
+          opacity: 0;
+        }
+        to {
+          bottom: 100px;
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeout {
+        from {
+          bottom: 100px;
+          opacity: 1;
+        }
+        to {
+          bottom: 120px;
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-primary-bg text-text-color font-sans">
+    <!-- شريط التنقل الثابت في الأعلى -->
+    <nav class="fixed top-0 left-0 w-full bg-secondary-bg shadow-lg z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="text-2xl font-bold text-accent-color">
+          <a href="#" class="no-underline">خدمتي</a>
+        </div>
+        <div class="space-x-4 flex items-center">
+          <button id="plans-button" class="nav-button">الخطط</button>
+          <button id="register-button" class="nav-button">التسجيل</button>
+          <button id="export-button" class="nav-button">تصدير</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- حاوية نموذج الـ 3D -->
+    <div id="canvas-container">
+      <canvas id="three-canvas"></canvas>
+    </div>
+
+    <!-- حاوية تسجيل الدخول/التسجيل العائمة -->
+    <div id="auth-modal" class="modal-container">
+      <div class="modal-content">
+        <button
+          id="auth-close"
+          class="absolute top-4 right-4 text-white text-2xl"
+          style="line-height: 1"
+        >
+          &times;
+        </button>
+
+        <div class="flex justify-center mb-4 space-x-2">
+          <button id="login-tab" class="tab-button active">تسجيل الدخول</button>
+          <button id="register-tab" class="tab-button">إنشاء حساب جديد</button>
+        </div>
+
+        <!-- نموذج تسجيل الدخول -->
+        <div id="login-form-container" class="space-y-4">
+          <form id="login-form" class="space-y-4">
+            <div>
+              <label
+                for="login-email"
+                class="block mb-2 text-sm text-text-color"
+                >البريد الإلكتروني</label
+              >
+              <input
+                type="email"
+                id="login-email"
+                class="form-input"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="login-password"
+                class="block mb-2 text-sm text-text-color"
+                >كلمة المرور</label
+              >
+              <input
+                type="password"
+                id="login-password"
+                class="form-input"
+                required
+              />
+            </div>
+            <div class="text-left text-sm">
+              <a href="#" class="text-accent-color hover:underline"
+                >نسيت كلمة المرور؟</a
+              >
+            </div>
+            <button type="submit" class="primary-button">تسجيل الدخول</button>
+          </form>
+        </div>
+
+        <!-- نموذج التسجيل -->
+        <div id="register-form-container" class="space-y-4 hidden">
+          <form id="register-form" class="space-y-4">
+            <div>
+              <label
+                for="register-email"
+                class="block mb-2 text-sm text-text-color"
+                >البريد الإلكتروني</label
+              >
+              <input
+                type="email"
+                id="register-email"
+                class="form-input"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="register-password"
+                class="block mb-2 text-sm text-text-color"
+                >كلمة المرور</label
+              >
+              <input
+                type="password"
+                id="register-password"
+                class="form-input"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="register-confirm-password"
+                class="block mb-2 text-sm text-text-color"
+                >تأكيد كلمة المرور</label
+              >
+              <input
+                type="password"
+                id="register-confirm-password"
+                class="form-input"
+                required
+              />
+            </div>
+            <div class="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                id="terms-checkbox"
+                class="w-4 h-4 text-accent-color bg-gray-700 rounded border-gray-600 focus:ring-accent-color focus:ring-2"
+                required
+              />
+              <label for="terms-checkbox" class="text-sm text-text-color"
+                >أوافق على
+                <a href="#" class="text-accent-color hover:underline"
+                  >الشروط وسياسة الخصوصية</a
+                ></label
+              >
+            </div>
+            <button type="submit" class="primary-button">تسجيل</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- حاوية الخطط العائمة -->
+    <div id="plans-modal" class="modal-container">
+      <div class="modal-content max-w-4xl">
+        <button
+          id="plans-close"
+          class="absolute top-4 right-4 text-white text-2xl"
+          style="line-height: 1"
+        >
+          &times;
+        </button>
+        <h2 class="text-3xl font-bold text-center mb-6 text-accent-color">
+          اختر خطتك
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- باقة مجانية -->
+          <div class="plan-card">
+            <div>
+              <h3>مجاني</h3>
+              <p class="text-white text-lg">مجاني</p>
+              <ul class="text-sm mt-4">
+                <li>
+                  <span class="text-accent-color">&#10003;</span> 5 فيديوهات
+                  شهريًا
+                </li>
+                <li>
+                  <span class="text-accent-color">&#10003;</span> 20 صورة شهريًا
+                </li>
+                <li><span class="text-accent-color">&#10003;</span> دقة 2K</li>
+                <li>
+                  <span class="text-accent-color">&#10003;</span> جهاز واحد
+                </li>
+                <li>
+                  <span class="text-accent-color">&#10003;</span> مع إعلانات
+                </li>
+              </ul>
+            </div>
+            <div class="mt-4 w-full">
+              <!-- Placeholder for AdSense -->
+              <ins
+                class="adsbygoogle"
+                style="display: block"
+                data-ad-client="ca-pub-4300181789937712"
+                data-ad-slot="1234567890"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
+          </div>
+
+          <!-- اشتراك شهري أساسي -->
+          <div class="plan-card">
+            <div>
+              <h3>أساسي</h3>
+              <p class="text-white text-lg">$5 / شهريًا</p>
+              <ul class="text-sm mt-4">
+                <li>
+                  <span class="text-accent-color">&#10003;</span> 250 فيديو
+                  شهريًا
+                </li>
+                <li>
+                  <span class="text-accent-color">&#10003;</span> 1000 صورة
+                  شهريًا
+                </li>
+                <li><span class="text-accent-color">&#10003;</span> دقة 4K</li>
+                <li><span class="text-accent-color">&#10003;</span> 3 أجهزة</li>
+                <li>
+                  <span class="text-accent-color">&#10003;</span> بدون إعلانات
+                </li>
+              </ul>
+            </div>
+            <button class="primary-button mt-4">اشترك</button>
+          </div>
+
+          <!-- اشتراك سنوي أساسي -->
+          <div class="plan-card">
+            <div>
+              <h3>أساسي</h3>
+              <p class="text-white text-lg">$50 / سنويًا</p>
+              <ul class="text-sm mt-4">
+                <li>
+                  <span class="text-accent-color">&#10003;</span> 250 فيديو
+                  شهريًا
+                </li>
+                <li>
+                  <span class="text-accent-color">&#10003;</span> 1000 صورة
+                  شهريًا
+                </li>
+                <li><span class="text-accent-color">&#10003;</span> دقة 4K</li>
+                <li><span class="text-accent-color">&#10003;</span> 3 أجهزة</li>
+                <li>
+                  <span class="text-accent-color">&#10003;</span> بدون إعلانات
+                </li>
+              </ul>
+            </div>
+            <button class="primary-button mt-4">اشترك</button>
+          </div>
+
+          <!-- اشتراك احترافي -->
+          <div class="plan-card">
+            <div>
+              <h3>احترافي</h3>
+              <p class="text-white text-lg">$100 / سنويًا</p>
+              <ul class="text-sm mt-4">
+                <li>
+                  <span class="text-accent-color">&#10003;</span> 1000 فيديو
+                  شهريًا
+                </li>
+                <li>
+                  <span class="text-accent-color">&#10003;</span> 5000 صورة
+                  شهريًا
+                </li>
+                <li><span class="text-accent-color">&#10003;</span> دقة 8K</li>
+                <li>
+                  <span class="text-accent-color">&#10003;</span> 10 أجهزة
+                </li>
+                <li>
+                  <span class="text-accent-color">&#10003;</span> بدون إعلانات
+                </li>
+              </ul>
+            </div>
+            <button class="primary-button mt-4">اشترك</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- قائمة MediaRecorder (صف مستقل) -->
+    <div class="export-menu media" id="mediaMenu">
+      <select id="export-format">
+        <option value="png">PNG</option>
+        <option value="jpg">JPG</option>
+        <option value="webm" class="subscriber-only">WEBM</option>
+        <option value="mp4" class="subscriber-only">MP4</option>
+      </select>
+      <select id="export-dimensions">
+        <!-- أبعاد عامة -->
+        <option value="1920x1080">1920x1080 (HD)</option>
+        <option value="1280x720">1280x720 (HD)</option>
+        <!-- أبعاد الإنستغرام -->
+        <option value="1080x1920">1080x1920</option>
+        <option value="1080x1080">1080x1080</option>
+        <option value="1080x1350">1080x1350</option>
+        <option value="1080x566">1080x566</option>
+        <!-- أبعاد فيسبوك -->
+        <option value="1200x630">1200x630</option>
+        <!-- أبعاد تويتر -->
+        <option value="1600x900">1600x900</option>
+        <!-- أبعاد لينكدإن -->
+        <option value="1200x627">1200x627</option>
+        <!-- أبعاد يوتيوب -->
+        <option value="1280x720">1280x720</option>
+      </select>
+      <div
+        id="video-duration-container"
+        class="flex-row items-center gap-2"
+        style="display: none"
+      >
+        <label for="video-duration" class="text-sm text-white"
+          >المدة (ث):</label
+        >
+        <input
+          type="number"
+          id="video-duration"
+          value="5"
+          min="1"
+          class="w-20 text-center"
+        />
+      </div>
+      <button id="capture-button" class="flex items-center justify-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="currentColor"
+        >
+          <path
+            d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"
+          />
+        </svg>
+      </button>
+      <button
+        id="play-button"
+        style="display: none"
+        class="flex items-center justify-center"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="currentColor"
+        >
+          <path
+            d="M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- رسالة تأكيد عائمة -->
+    <div id="status-message" style="display: none"></div>
+
+    <!-- عارض الفيديو المنبثق -->
+    <div id="video-player-modal" class="modal-container">
+      <div class="modal-content">
+        <button
+          id="video-close"
+          class="absolute top-4 right-4 text-white text-2xl"
+          style="line-height: 1"
+        >
+          &times;
+        </button>
+        <h2 class="text-2xl font-bold mb-4">تشغيل الفيديو المسجل</h2>
+        <video id="video-player" controls autoplay></video>
+      </div>
+    </div>
+
+    <!-- أزلنا سطر تضمين PayPal SDK لأنه يسبب خطأ في بيئة iFrame -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4300181789937712"
+      crossorigin="anonymous"
+    ></script>
+    <script src="libs/threejs/build/three.min.js"></script>
+    <script src="libs/threejs/modules/js/loaders/GLTFLoader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+      import {
+        getAuth,
+        signInAnonymously,
+        signInWithCustomToken,
+      } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+      import { getFirestore } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+      // متغيرات عامة
+      const appId =
+        typeof __app_id !== "undefined" ? __app_id : "default-app-id";
+      const firebaseConfig =
+        typeof __firebase_config !== "undefined"
+          ? JSON.parse(__firebase_config)
+          : null;
+      const initialAuthToken =
+        typeof __initial_auth_token !== "undefined"
+          ? __initial_auth_token
+          : null;
+
+      let firebaseApp, db, auth;
+      let userId;
+      let isPlansModalInitialized = false;
+
+      // متغيرات MediaRecorder
+      let mediaRecorder;
+      let recordedChunks = [];
+      let isRecording = false;
+      let videoBlob = null;
+
+      // متغيرات Three.js
+      let scene, camera, renderer, controls, model;
+      let originalRendererSize = new THREE.Vector2();
+
+      // وظيفة لعرض رسالة حالة
+      function showStatusMessage(message) {
+        const statusMessageDiv = document.getElementById("status-message");
+        statusMessageDiv.innerText = message;
+        statusMessageDiv.style.display = "block";
+        setTimeout(() => {
+          statusMessageDiv.style.display = "none";
+        }, 3000);
+      }
+
+      // وظيفة تبديل عرض الحاويات
+      function toggleModal(modalId, show) {
+  const modal = document.getElementById(modalId);
+
+  if (show) {
+    modal.style.display = "flex";
+
+    if (modalId === "plans-modal" && !isPlansModalInitialized) {
+      initPlansModal();
+      isPlansModalInitialized = true;
+    }
+
+    // إضافة مستمع للنقر خارج النافذة
+    setTimeout(() => {
+      document.addEventListener("click", outsideClickListener);
+    }, 0);
+  } else {
+    modal.style.display = "none";
+    document.removeEventListener("click", outsideClickListener);
+  }
+
+  function outsideClickListener(event) {
+    const clickedInside = modal.contains(event.target);
+    const triggerBtn = document.querySelector(`[data-modal="${modalId}"]`);
+
+    if (!clickedInside && (!triggerBtn || !triggerBtn.contains(event.target))) {
+      modal.style.display = "none";
+      document.removeEventListener("click", outsideClickListener);
+    }
+  }
+}
+
+      // وظيفة تبديل قائمة التصدير
+      function toggleExportMenu() {
+        const menu = document.getElementById("mediaMenu");
+        if (menu.style.display === "none" || menu.style.display === "") {
+          menu.style.display = "flex";
+        } else {
+          menu.style.display = "none";
+        }
+      }
+
+      // وظيفة تهيئة عناصر نافذة الخطط (AdSense)
+      function initPlansModal() {
+        try {
+          console.warn("مكتبة PayPal SDK غير مدعومة في هذه البيئة.");
+
+          if (window.adsbygoogle && window.adsbygoogle.length > 0) {
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+          } else {
+            console.warn("adsbygoogle غير متوفر بعد، لن يتم دفع الإعلان.");
+          }
+        } catch (error) {
+          console.error("خطأ في تهيئة عناصر نافذة الخطط:", error);
+        }
+      }
+
+      // وظيفة تهيئة مشهد 3D
+      function init3DScene() {
+        const canvasContainer = document.getElementById("canvas-container");
+        const canvas = document.getElementById("three-canvas");
+
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(
+          75,
+          canvasContainer.offsetWidth / canvasContainer.offsetHeight,
+          0.1,
+          1000
+        );
+        renderer = new THREE.WebGLRenderer({
+          canvas: canvas,
+          antialias: true,
+          alpha: true,
+        });
+        renderer.setSize(
+          canvasContainer.offsetWidth,
+          canvasContainer.offsetHeight
+        );
+        renderer.setClearColor(0x000000, 0);
+
+        // حفظ الحجم الأصلي للعرض
+        renderer.getSize(originalRendererSize);
+
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(5, 5, 5);
+        scene.add(directionalLight);
+
+        const loader = new THREE.GLTFLoader();
+        loader.load(
+          "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/DamagedHelmet/glTF/DamagedHelmet.gltf",
+          function (gltf) {
+            model = gltf.scene;
+            scene.add(model);
+
+            const box = new THREE.Box3().setFromObject(model);
+            const center = box.getCenter(new THREE.Vector3());
+            const size = box.getSize(new THREE.Vector3());
+            const maxDim = Math.max(size.x, size.y, size.z);
+            const fov = camera.fov * (Math.PI / 180);
+            let cameraZ = Math.abs(maxDim / 2 / Math.tan(fov / 2));
+            cameraZ *= 1.5;
+
+            camera.position.set(center.x, center.y, center.z + cameraZ);
+            camera.lookAt(center);
+          },
+          undefined,
+          function (error) {
+            console.error("خطأ في تحميل النموذج:", error);
+          }
+        );
+
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.25;
+        controls.screenSpacePanning = false;
+
+        function animate() {
+          requestAnimationFrame(animate);
+          controls.update();
+          renderer.render(scene, camera);
+        }
+
+        window.addEventListener("resize", () => {
+          const width = canvasContainer.offsetWidth;
+          const height = canvasContainer.offsetHeight;
+          renderer.setSize(width, height);
+          camera.aspect = width / height;
+          camera.updateProjectionMatrix();
+          renderer.getSize(originalRendererSize); // تحديث الحجم الأصلي
+        });
+
+        animate();
+      }
+
+      // وظيفة بدء التسجيل
+      async function startCapture() {
+        if (isRecording) return;
+
+        const formatSelect = document.getElementById("export-format");
+        const dimensionsSelect = document.getElementById("export-dimensions");
+        const durationInput = document.getElementById("video-duration");
+        const captureButton = document.getElementById("capture-button");
+        const playButton = document.getElementById("play-button");
+
+        const format = formatSelect.value;
+        const dimensions = dimensionsSelect.value.split("x");
+        const width = parseInt(dimensions[0]);
+        const height = parseInt(dimensions[1]);
+        const duration = parseInt(durationInput.value);
+
+        renderer.setSize(width, height);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+
+        playButton.style.display = "none";
+        if (videoBlob) {
+          URL.revokeObjectURL(videoBlob);
+          videoBlob = null;
+        }
+
+        // تحديد نوع MIME المناسب
+        const mimeType = format === "mp4" ? "video/mp4" : "video/webm";
+
+        try {
+          const stream = renderer.domElement.captureStream(60); // 60 إطارًا في الثانية
+          mediaRecorder = new MediaRecorder(stream, { mimeType: mimeType });
+          recordedChunks = [];
+
+          mediaRecorder.ondataavailable = (event) => {
+            if (event.data.size > 0) {
+              recordedChunks.push(event.data);
+            }
+          };
+
+          mediaRecorder.onstop = () => {
+            const blobType = format === "mp4" ? "video/mp4" : "video/webm";
+            videoBlob = new Blob(recordedChunks, { type: blobType });
+
+            // تنزيل الفيديو تلقائيا
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(videoBlob);
+            link.download = `3d-export.${format}`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            captureButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z" /></svg>`;
+            captureButton.disabled = false;
+            playButton.style.display = "inline-flex";
+
+            // إعادة حجم العرض إلى الحجم الأصلي بعد الانتهاء
+            renderer.setSize(
+              originalRendererSize.width,
+              originalRendererSize.height
+            );
+            camera.aspect =
+              originalRendererSize.width / originalRendererSize.height;
+            camera.updateProjectionMatrix();
+
+            showStatusMessage("تم تنزيل الفيديو بنجاح!");
+          };
+
+          mediaRecorder.start();
+          isRecording = true;
+          captureButton.innerHTML = "جاري التسجيل...";
+          captureButton.disabled = true;
+
+          setTimeout(() => {
+            if (isRecording) {
+              stopCapture();
+            }
+          }, duration * 1000);
+        } catch (error) {
+          console.error("خطأ في بدء التسجيل:", error);
+          showStatusMessage("خطأ في التسجيل.");
+          // إعادة الحالة الأصلية للأزرار
+          captureButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z" /></svg>`;
+          captureButton.disabled = false;
+          isRecording = false;
+        }
+      }
+
+      // وظيفة إيقاف التسجيل
+      function stopCapture() {
+        if (!isRecording) return;
+        mediaRecorder.stop();
+        isRecording = false;
+      }
+
+      // وظيفة تشغيل الفيديو
+      function playVideo() {
+        if (videoBlob) {
+          const videoElement = document.getElementById("video-player");
+          const videoModal = document.getElementById("video-player-modal");
+          videoElement.src = URL.createObjectURL(videoBlob);
+          videoModal.style.display = "flex";
+        }
+      }
+
+      // وظيفة لالتقاط صورة
+      function captureImage() {
+        const formatSelect = document.getElementById("export-format");
+        const dimensionsSelect = document.getElementById("export-dimensions");
+        const format = formatSelect.value;
+        const dimensions = dimensionsSelect.value.split("x");
+        const width = parseInt(dimensions[0]);
+        const height = parseInt(dimensions[1]);
+
+        // ضبط أبعاد العرض
+        renderer.setSize(width, height);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.render(scene, camera);
+
+        // التقاط الصورة
+        const imgData = renderer.domElement.toDataURL(`image/${format}`);
+
+        // إعادة حجم العرض إلى الحجم الأصلي
+        renderer.setSize(
+          originalRendererSize.width,
+          originalRendererSize.height
+        );
+        camera.aspect =
+          originalRendererSize.width / originalRendererSize.height;
+        camera.updateProjectionMatrix();
+        renderer.render(scene, camera);
+
+        // تنزيل الصورة
+        const link = document.createElement("a");
+        link.href = imgData;
+        link.download = `3d-export.${format}`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        showStatusMessage("تم تنزيل الصورة بنجاح!");
+      }
+
+      // تهيئة  وربط الأحداث عند تحميل الصفحة
+      window.onload = async function () {
+        const authModal = document.getElementById("auth-modal");
+        const plansModal = document.getElementById("plans-modal");
+        const registerButton = document.getElementById("register-button");
+        const plansButton = document.getElementById("plans-button");
+        const exportButton = document.getElementById("export-button");
+        const authCloseButton = document.getElementById("auth-close");
+        const plansCloseButton = document.getElementById("plans-close");
+        const loginTab = document.getElementById("login-tab");
+        const registerTab = document.getElementById("register-tab");
+        const loginFormContainer = document.getElementById(
+          "login-form-container"
+        );
+        const registerFormContainer = document.getElementById(
+          "register-form-container"
+        );
+        const loginForm = document.getElementById("login-form");
+        const registerForm = document.getElementById("register-form");
+        const exportFormatSelect = document.getElementById("export-format");
+        const videoDurationContainer = document.getElementById(
+          "video-duration-container"
+        );
+        const captureButton = document.getElementById("capture-button");
+        const playButton = document.getElementById("play-button");
+        const videoCloseButton = document.getElementById("video-close");
+
+        // تهيئة Firebase
+        if (firebaseConfig) {
+          try {
+            firebaseApp = initializeApp(firebaseConfig);
+            auth = getAuth(firebaseApp);
+            db = getFirestore(firebaseApp);
+
+            if (initialAuthToken) {
+              try {
+                const userCredential = await signInWithCustomToken(
+                  auth,
+                  initialAuthToken
+                );
+                console.log("تم تسجيل الدخول بنجاح.");
+                userId = userCredential.user.uid;
+              } catch (error) {
+                console.error("خطأ في تسجيل الدخول:", error.message);
+                await signInAnonymously(auth);
+                userId = auth.currentUser.uid;
+                console.log("تم تسجيل الدخول كمستخدم مجهول.", userId);
+              }
+            } else {
+              await signInAnonymously(auth);
+              userId = auth.currentUser.uid;
+              console.log("تم تسجيل الدخول بشكل مجهول.", userId);
+            }
+          } catch (error) {
+            console.error("خطأ في تهيئة Firebase:", error.message);
+          }
+        } else {
+          console.error("لم يتم العثور على تهيئة Firebase.");
+        }
+
+        registerButton.addEventListener("click", () =>
+          toggleModal("auth-modal", true)
+        );
+        plansButton.addEventListener("click", () =>
+          toggleModal("plans-modal", true)
+        );
+        exportButton.addEventListener("click", toggleExportMenu);
+        authCloseButton.addEventListener("click", () =>
+          toggleModal("auth-close", false)
+        );
+        plansCloseButton.addEventListener("click", () =>
+          toggleModal("plans-modal", false)
+        );
+        videoCloseButton.addEventListener("click", () =>
+          toggleModal("video-player-modal", false)
+        );
+
+        captureButton.addEventListener("click", () => {
+          const format = exportFormatSelect.value;
+          if (format === "png" || format === "jpg") {
+            captureImage();
+          } else {
+            if (!isRecording) {
+              startCapture();
+            } else {
+              stopCapture();
+            }
+          }
+        });
+
+        playButton.addEventListener("click", playVideo);
+
+        function switchTab(tab) {
+          if (tab === "login") {
+            loginTab.classList.add("active");
+            registerTab.classList.remove("active");
+            loginFormContainer.classList.remove("hidden");
+            registerFormContainer.classList.add("hidden");
+          } else {
+            registerTab.classList.add("active");
+            loginTab.classList.remove("active");
+            registerFormContainer.classList.remove("hidden");
+            loginFormContainer.classList.add("hidden");
+          }
+        }
+
+        loginTab.addEventListener("click", () => switchTab("login"));
+        registerTab.addEventListener("click", () => switchTab("register"));
+
+        exportFormatSelect.addEventListener("change", (e) => {
+          const isVideo = e.target.value === "webm" || e.target.value === "mp4";
+          videoDurationContainer.style.display = isVideo ? "flex" : "none";
+          playButton.style.display = "none";
+
+          if (isVideo) {
+            captureButton.innerHTML = `تسجيل`;
+          } else {
+            captureButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z" /></svg>`;
+          }
+        });
+
+        loginForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const email = document.getElementById("login-email").value;
+          const password = document.getElementById("login-password").value;
+          console.log("بيانات تسجيل الدخول:", { email, password });
+        });
+
+        registerForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const email = document.getElementById("register-email").value;
+          const password = document.getElementById("register-password").value;
+          const confirmPassword = document.getElementById(
+            "register-confirm-password"
+          ).value;
+          if (password !== confirmPassword) {
+            console.error("كلمات المرور لا تتطابق!");
+            return;
+          }
+          console.log("بيانات التسجيل:", { email, password });
+        });
+
+        init3DScene();
+      };
+    </script>
+  </body>
+</html>

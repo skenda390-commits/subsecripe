@@ -1,0 +1,4212 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Interactive 3D Viewer – عارض نماذج ثلاثية الأبعاد تفاعلي | 4Dads.pro</title>
+
+    <!-- وصف ميتا باللغتين -->
+    <meta
+      name="description"
+      content="اكتشف عارض نماذج ثلاثية الأبعاد تفاعلي على 4Dads.pro – تحكم متقدم في الألوان والإضاءة، تخصيص خلفية، وتصدير صيغ متعددة | 3D model viewer with advanced controls, color & lighting customizer." />
+
+    <!-- الكلمات الدلالية (اختياريّة الاستخدام) -->
+    <meta
+      name="keywords"
+      content="
+    3D model viewer, Interactive 3D viewer, 3D viewer online, 3D model customizer, 3D lighting editor,
+    عارض نماذج ثلاثية الأبعاد, تخصيص الألوان في 3D, إعداد خلفية 3D, تصدير تصميم ثلاثي الأبعاد, 3D viewer controls" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="عارض تفاعلي للنماذج ثلاثية الأبعاد مع أدوات تحكم متقدمة لتخصيص الألوان والخلفيات والإضاءة. يتيح إضافة النصوص والصور وتصدير التصاميم بتنسيقات متعددة. مثالي للمصممين ومحترفي النماذج ثلاثية الأبعاد." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&family=Almarai:wght@300;400;700;81&family=Amiri:wght@400;700&family=Noto+Kufi+Arabic:wght@100;200;300;400;500;600;700;800;900&family=Changa:wght@200;300;400;500;600;700;800&family=Lalezar&family=Mada:wght@200;300;400;500;600;700;800;900&family=Rakkas&family=Reem+Kufi:wght@400;700&family=Lateef:wght@200;300;400;500;600;700;800&family=Ruwudu:wght@400;500;600;700&family=Badeen+Display&family=Cairo:wght@200;300;400;500;700;800;900&family=Kufam:wght@400;500;600;700;800;900&family=Aref+Ruqaa:wght@400;700&family=Qahiri&family=Marhey:wght@300;400;500;600;700&family=Amiri+Quran&family=Oi&family=Aref+Ruqaa+Ink:wght@400;700&family=Reem+Kufi+Fun:wght@400;700&family=Vibes&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="css/subscribe.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <!-- <script src="https://accounts.google.com/gsi/client" async defer></script> -->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ar_AR/sdk.js"></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4300181789937712"
+      crossorigin="anonymous"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AXgPoRNaqSHSwGjkABv89PBIkQxVwz-7ZCX5EoBkkG2UYqTYDhZ9W_3ajWWr17ij30QW7QLLBZIYbYve&currency=USD"></script>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="service-worker" href="/service-worker.js" />
+    <!--<link rel="stylesheet" href="/css/styles.css" />-->
+    <!--<link rel="stylesheet" href="fonts.css" />-->
+    <link rel="stylesheet" href="arabicFonts.css" />
+    <link rel="icon" href="/content/img/ui/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="57x57" href="img/icons/57.png" alt="أيقونة التطبيق 57x57" />
+    <link rel="apple-touch-icon" sizes="60x60" href="img/icons/60.png" alt="أيقونة التطبيق 60x60" />
+    <link rel="apple-touch-icon" sizes="72x72" href="img/icons/72.png" alt="أيقونة التطبيق 72x72" />
+    <link rel="apple-touch-icon" sizes="76x76" href="img/icons/76.png" alt="أيقونة التطبيق 76x76" />
+    <link rel="apple-touch-icon" sizes="114x114" href="img/icons/114.png" alt="أيقونة التطبيق 114x114" />
+    <link rel="apple-touch-icon" sizes="120x120" href="img/icons/120.png" alt="أيقونة التطبيق 120x120" />
+    <link rel="apple-touch-icon" sizes="144x144" href="img/icons/144.png" alt="أيقونة التطبيق 144x144" />
+    <link rel="apple-touch-icon" sizes="152x152" href="img/icons/152.png" alt="أيقونة التطبيق 152x152" />
+    <link rel="apple-touch-icon" sizes="152x152" href="img/icons/512.png" alt="أيقونة التطبيق 512x512" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/180.png" alt="أيقونة التطبيق 180x180" />
+    <link rel="icon" type="image/png" sizes="192x192" href="img/icons/192.png" alt="أيقونة التطبيق 192x192" />
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/32.png" alt="أيقونة التطبيق 32x32" />
+    <link rel="icon" type="image/png" sizes="96x96" href="img/icons/96.png" alt="أيقونة التطبيق 96x96" />
+    <link rel="icon" type="image/png" sizes="16x16" href="img/icons/16.png" alt="أيقونة التطبيق 16x16" />
+    <meta name="msapplication-TileColor" content="#d3a77b" />
+    <meta name="msapplication-TileImage" content="img/icons/144.png" alt="أيقونة التطبيق 144x144" />
+    <meta name="theme-color" content="#182949" />
+    <link rel="apple-touch-icon" href="/img/icons/icon.svg" alt="أيقونة التطبيق" />
+    <link rel="icon" type="image/x-icon" href="/img/ui/favicon.ico" alt="أيقونة التطبيق" />
+
+    <script src="libs/hammer/hammer.min.js"></script>
+    <script src="libs/threejs/build/three.min.js"></script>
+    <script src="libs/threejs/modules/js/controls/OrbitControls.min.js"></script>
+    <script src="libs/threejs/modules/js/loaders/GLTFLoader.js"></script>
+    <script src="libs/fabric/fabric.min.js"></script>
+
+    <style>
+      :root {
+        /* Custom subscription app theme */
+        --primary-bg: 212 47% 17%;
+        --secondary-bg: 214 26% 33%;
+        --accent-color: 213 23% 56%;
+        --text-color: 40 32% 66%;
+        --border-color: 214 24% 40%;
+        --button-hover: 214 26% 33%;
+        --input-bg: 212 47% 17%;
+        --input-border: 213 23% 56%;
+        --modal-bg: 0 0% 0% / 0.7;
+        --gradient-primary: linear-gradient(135deg, hsl(var(--primary-bg)), hsl(var(--secondary-bg)));
+        --gradient-accent: linear-gradient(90deg, hsl(var(--accent-color)), hsl(var(--text-color)));
+        --shadow-elegant: 0 20px 40px -10px hsl(var(--primary-bg) / 0.4);
+        --shadow-glow: 0 0 30px hsl(var(--accent-color) / 0.3);
+        --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+        /* Design system colors */
+        --background: var(--primary-bg);
+        --foreground: var(--text-color);
+        --card: var(--secondary-bg);
+        --card-foreground: var(--text-color);
+        --popover: var(--secondary-bg);
+        --popover-foreground: var(--text-color);
+        --primary: var(--accent-color);
+        --primary-foreground: 0 0% 100%;
+        --secondary: var(--secondary-bg);
+        --secondary-foreground: var(--text-color);
+        --muted: var(--border-color);
+        --muted-foreground: var(--text-color);
+        --accent: var(--accent-color);
+        --accent-foreground: 0 0% 100%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 100%;
+        --border: var(--border-color);
+        --input: var(--input-bg);
+        --ring: var(--accent-color);
+        --radius: 0.75rem;
+      }
+
+      .dark {
+        /* Already optimized for dark theme above */
+        --background: var(--primary-bg);
+        --foreground: var(--text-color);
+        --card: var(--secondary-bg);
+        --card-foreground: var(--text-color);
+        --popover: var(--secondary-bg);
+        --popover-foreground: var(--text-color);
+        --primary: var(--accent-color);
+        --primary-foreground: 0 0% 100%;
+        --secondary: var(--secondary-bg);
+        --secondary-foreground: var(--text-color);
+        --muted: var(--border-color);
+        --muted-foreground: var(--text-color);
+        --accent: var(--accent-color);
+        --accent-foreground: 0 0% 100%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 100%;
+        --border: var(--border-color);
+        --input: var(--input-bg);
+        --ring: var(--accent-color);
+      }
+      #container {
+        display: flex;
+        flex-grow: 1;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+      }
+
+      @media (orientation: landscape) {
+        #container {
+          flex-direction: row;
+        }
+      }
+
+      #threejs-container,
+      #canvas {
+        flex-grow: 1;
+        transition: all var(--transition-speed) ease-in-out;
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        min-width: 0;
+        flex-basis: auto;
+        z-index: 1;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 2px dashed rgba(255, 255, 255, 0.2);
+        color: white;
+        font-size: 1.2rem;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      }
+
+      #image-editor-container {
+        display: block;
+        flex-direction: column;
+        background-color: rgba(245, 247, 255, 0.5);
+        border-left: 1px solid var(--border-color);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        flex-shrink: 0;
+        transition: all var(--transition-speed) ease-in-out;
+        z-index: 10;
+        position: absolute;
+        height: var(--editor-height-mobile);
+        width: 100%;
+        bottom: 0;
+        transform: translateY(0);
+        opacity: 1;
+        bottom: 8%;
+      }
+
+      @media (orientation: landscape) {
+        #image-editor-container {
+          height: 100%;
+          width: var(--editor-width-desktop);
+          right: 0;
+          top: 0;
+          bottom: 8%;
+          transform: translateX(0);
+          border-left: 1px solid var(--border-color);
+          border-top: none;
+        }
+      }
+
+      #image-editor-container.hidden {
+        opacity: 0;
+        pointer-events: none;
+        border: none;
+        box-shadow: none;
+      }
+
+      @media (orientation: landscape) {
+        #image-editor-container.hidden {
+          transform: translateX(100%);
+        }
+      }
+
+      @media (orientation: portrait) {
+        #image-editor-container.hidden {
+          transform: translateY(100%);
+        }
+      }
+
+      #image-editor-container:not(.hidden) ~ #threejs-container,
+      #image-editor-container:not(.hidden) ~ #canvas {
+        transition: all var(--transition-speed) ease-in-out;
+      }
+
+      @media (orientation: landscape) {
+        #image-editor-container:not(.hidden) ~ #threejs-container,
+        #image-editor-container:not(.hidden) ~ #canvas {
+          width: calc(100% - var(--editor-width-desktop));
+          left: 0;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      @media (orientation: portrait) {
+        #image-editor-container:not(.hidden) ~ #threejs-container,
+        #image-editor-container:not(.hidden) ~ #canvas {
+          height: calc(100% - var(--editor-height-mobile));
+          top: 0;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      #bottom-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: var(--bottom-bar-height);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 1000;
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+        padding: 0 10px;
+      }
+
+      /* تنسيقات العناصر الأخرى */
+      .top-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: var(--top-bar-height);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 2000;
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+        padding: 0 10px;
+      }
+
+      .top-bar button {
+        background-color: #182949;
+        color: #d3a77b;
+        border: solid 2px #d3a77b;
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      /* .button-container {
+          position: absolute;
+          z-index: 30;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+      } */
+
+      /* الحاوية العامة لعناصر التحكم */
+      .controls {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        z-index: 1000;
+        display: none;
+        flex-direction: row;
+        gap: 1px;
+        color: #d3a77b;
+        font-size: 12px;
+        height: fit-content;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .controls.show,
+      .controls.active {
+        display: block;
+      }
+
+      /* تموضع مخصص لعناصر التحكم */
+      #background-controls {
+        top: 34%;
+        left: 200px;
+      }
+
+      #ground-controls {
+        top: 33%;
+        left: 350px;
+      }
+
+      /* تأثير التحويم على الأزرار */
+      .controls button:hover,
+      .controls-grid button:hover {
+        background-color: #586c85;
+        border-color: #d3a77b;
+        color: #d3a77b;
+        transform: scale(1.05);
+      }
+
+      .controls button:hover svg,
+      .controls-grid button:hover svg {
+        fill: #d3a77b;
+        color: #d3a77b;
+      }
+
+      /* الحاويات الفرعية */
+      .controls-grid,
+      .ground-controls,
+      .background-controls,
+      .model-controls {
+        display: flex;
+        border-radius: 5px;
+        gap: 1px;
+        justify-content: center;
+        max-width: 600px;
+        margin: auto;
+      }
+
+      .controls-grid .gradient {
+        display: flex;
+        flex-direction: row;
+        gap: 1px;
+      }
+
+      /* تنسيق عناصر الإدخال والأزرار */
+      input[type="color"],
+      input[type="file"],
+      button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        background-color: #344464;
+        border: 2px solid #d3a77b;
+        color: #d3a77b;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      /* مظهر زر اختيار اللون */
+      .color-picker {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        display: inline-block;
+      }
+
+      .color-picker input[type="color"] {
+        position: absolute;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+      }
+
+      .color-picker-label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: #344464;
+        border: 2px solid #d3a77b;
+        border-radius: 5px;
+      }
+
+      .color-picker-label svg {
+        fill: #d3a77b;
+        width: 24px;
+        height: 24px;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .color-inputs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        gap: 2px;
+        margin-bottom: 10px;
+      }
+
+      .controls-grid button,
+      .controls-grid {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+      }
+
+      .gradient input {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 48px;
+      }
+
+      #skybox-thumbnails {
+        position: fixed;
+        top: 0;
+        right: -100px;
+        width: 75px;
+        height: 100vh;
+        background-color: #344464;
+        border-color: #d3a77b;
+        color: rgb#d3a77b;
+        border-radius: 5px;
+        box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.5);
+        transition: right 0.3s ease;
+        overflow-y: auto;
+        z-index: 1000;
+      }
+
+      #skybox-thumbnails.active {
+        right: 0;
+      }
+
+      .skybox-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 5px;
+      }
+      #skybox-thumbnails img {
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        transition: border-color 0.3s ease;
+      }
+
+      #skybox-thumbnails img:hover {
+        border-color: #d3a77b;
+      }
+
+      #model-skybox-picker {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 8px;
+      }
+      #texture-thumbnails {
+        position: fixed;
+        top: 0;
+        left: -100px;
+        width: 75px;
+        height: 100vh;
+        background-color: #344464;
+        border-color: #d3a77b;
+        color: rgb#d3a77b;
+        border-radius: 5px;
+        box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.5);
+        transition: right 0.3s ease;
+        overflow-y: auto;
+        z-index: 1000;
+      }
+
+      #texture-thumbnails.active {
+        left: 0;
+      }
+
+      .texture-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 5px;
+      }
+
+      #texture-thumbnails img {
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        transition: border-color 0.3s ease;
+      }
+
+      #texture-thumbnails img:hover {
+        border-color: #222222;
+      }
+
+      #model-texture-picker {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 5px;
+      }
+
+      .range-input label {
+        display: block;
+        margin-bottom: 10px;
+        color: #d3a77b;
+        font-size: 12px;
+        font-weight: bold;
+        text-align: center; /* توسيط النص في المنتصف */
+        width: 100%;
+      }
+
+      .range-input {
+        width: 100px;
+        height: 50px;
+        position: relative;
+        margin: 5px 10px;
+        padding: 10px 10px;
+        background: #182949;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .gradient {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        margin-right: 1px;
+      }
+
+      .gradient .rect {
+        width: 10px;
+        height: 10px;
+        background-color: 0x586c85;
+        border-radius: 2px;
+      }
+
+      .color-input {
+        display: none;
+      }
+
+      .bottom-slide.active {
+        bottom: 0;
+      }
+
+      .sidebar {
+        width: 150px;
+        padding: 1px;
+        display: none;
+        position: fixed;
+        top: 0;
+        left: -100px;
+        height: 100vh;
+        background-color: #586c85;
+        overflow-y: auto;
+        z-index: 999;
+        transition: left 0.3s ease;
+      }
+
+      .sidebar.active {
+        display: block;
+        left: 0;
+      }
+      /********************************/
+
+      input[type="range"] {
+        width: 80%; /* تقليل عرض شريط التمرير ليكون أقل من الزر */
+        height: 25px;
+        background: transparent;
+        border: none;
+        outline: none;
+        -webkit-appearance: none;
+        margin: 0 auto; /* توسيط المنزلق */
+        display: block; /* لتفعيل التوسيط */
+      }
+
+      /* تخصيص شكل شريط التمرير */
+      input[type="range"]::-webkit-slider-runnable-track {
+        height: 10px; /* تقليل سماكة الشريط */
+        background: #586c85;
+        width: 90%; /* تصغير عرض الشريط ليكون داخل المربع */
+        border-radius: 5px;
+        border: 2px solid #d3a77b;
+      }
+
+      /* تخصيص زر السحب */
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        background: #d3a77b;
+        border-radius: 50%;
+        cursor: pointer;
+        margin-top: -3px;
+      }
+
+      input[type="range"]::-moz-range-track {
+        height: 6px;
+        background: #cfbaa5;
+        width: 50px;
+        border-radius: 5px;
+        border: 1px solid #d3a77b;
+      }
+
+      input[type="range"]::-moz-range-thumb {
+        width: 12px;
+        height: 12px;
+        background: #d3a77b;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .icon-button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: #344464;
+        color: #182949;
+        border: 2px solid #d3a77b;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 80%;
+        height: 40px;
+        text-align: center;
+      }
+
+      .Ground-grid button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: #182949;
+        color: #d3a77b;
+        border: 2px solid #d3a77b;
+        border-radius: 5px;
+        padding: px;
+        margin: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 120px;
+        height: 50px;
+        text-align: center;
+      }
+      .Ground-grid button:hover {
+        background-color: #d3a77b;
+        border-color: #586c85;
+        color: #586c85;
+        transform: scale(1.05);
+      }
+
+      #btn-toggle-filters {
+        display: none;
+        position: absolute;
+        top: 10px;
+        right: 0;
+        z-index: 10;
+        padding: 5px 11px;
+        background: #344464;
+        color: #d3a77b;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      #filter-buttons-container {
+        display: none;
+        position: fixed;
+        bottom: 15%;
+        height: calc(100% - 50px);
+        background: #182949;
+        overflow-y: auto;
+        padding: 5px;
+        box-sizing: border-box;
+        z-index: 2002;
+        /*display: flex;*/
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      #filterToggle {
+        display: inline-flex; /* inline so it stays on the same row */
+        align-items: center;
+        justify-content: center;
+        margin: 0 5px; /* horizontal gap like other buttons */
+        padding: 8px 8px;
+        font-size: 16px;
+      }
+      #filterSlider {
+        display: none;
+        position: fixed;
+        z-index: 2002;
+        flex-wrap: nowrap;
+        background-color: #182949;
+        color: #d3a77b;
+        border: solid 2px #d3a77b;
+        justify-content: start;
+        padding: 10px;
+        bottom: 15%;
+        gap: 8px;
+        background: #f9f9f9;
+        max-height: 280px;
+        overflow-y: auto;
+      }
+
+      .filter-thumb {
+        z-index: 2002;
+        text-align: center;
+        width: 80px;
+      }
+
+      .filter-thumb img:hover {
+        transform: scale(1.05);
+      }
+
+      .filter-thumb div {
+        text-align: center;
+      }
+
+      #upload-btn,
+      #video-upload-btn {
+        display: none;
+      }
+      /* القائمة العائمة للنصوص */
+      #floating-menu {
+        display: flex !important;
+
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        /* background: #344464; */
+        /* border: 1px solid #d3a77b; */
+        border-radius: 5px;
+        padding: 5px;
+        z-index: 5;
+        white-space: nowrap;
+        overflow-x: auto;
+      }
+      #floating-menu button {
+        /* background: #182949; */
+        /* border: none; */
+        color: #d3a77b;
+        width: 36px;
+        height: 36px;
+        padding: 2px 2px;
+        margin: 2px;
+        border-radius: 3px;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      #floating-menu button:hover {
+        background: #d3a77b;
+        color: #182949;
+      }
+
+      /* لوحة الستكرات */
+      #stickers-panel {
+        width: 100%;
+        position: fixed;
+        bottom: 90px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #344464;
+        border: 1px solid #d3a77b;
+        color: #d3a77b;
+        display: none;
+        padding: 1px;
+        z-index: 2002;
+        max-height: 250px;
+        overflow-y: auto;
+      }
+      #stickers-panel .sticker-item {
+        border: solid 1px #d3a77b;
+        background: #586c85;
+        color: #d3a77b;
+        width: 30px;
+        height: 30px;
+        margin: 1px;
+        cursor: pointer;
+        padding: 1px;
+      }
+
+      #font-buttons-container {
+        background-color: #182949;
+        display: none;
+        position: fixed;
+        flex-wrap: nowrap;
+        justify-content: flex-start; /* تعديل لمحاذاة البداية */
+        align-items: center;
+        gap: 10px;
+        overflow-x: auto; /* التمرير الأفقي */
+        padding: 5px;
+        white-space: nowrap;
+        z-index: 2002;
+        bottom: 15%;
+      }
+
+      /* زر الخط */
+      .font-btn {
+        flex: 0 0 auto;
+        padding: 5px;
+        margin: 2px;
+        min-width: 60px; /* بدلاً من width ثابتة */
+        height: 30px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        color: #efc776;
+        border: 1px solid #efc776;
+        background-color: #254667;
+        transition: background-color 0.3s;
+        display: flex;
+        justify-content: center;
+        /* white-space: nowrap; */
+        /* overflow: hidden; */
+        text-overflow: ellipsis;
+        z-index: 2002;
+        bottom: 15%;
+      }
+
+      /* تغيير لون الزر عند التحويم */
+      .font-btn:hover {
+        color: #254667;
+        border: 1px solid #182949;
+        background-color: #efc776;
+      }
+
+      /* منتقيات اللون */
+      #color-picker,
+      #bg-color-picker {
+        display: none;
+        position: absolute;
+        z-index: 10;
+      }
+      /* تنسيق البار السفلي الذي يحتوي على قائمة الأزرار */
+      .animate-buttons {
+        position: fixed;
+        bottom: 220px;
+        left: 0;
+        width: 100%;
+        background-color: 0xf1f1f1;
+        padding: 5px;
+        margin: 5px;
+        display: none; /* مخفية افتراضياً */
+        z-index: 999;
+      }
+      .animate-buttons ul {
+        list-style: none;
+        left: 50%;
+        margin: 5px;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /* .animate-buttons li {
+      margin: 5px;
+      } */
+      .animate-buttons button {
+        background-color: #182949;
+        color: #efc776;
+        /*left: 50%;*/
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      /* تنسيقات قائمة عرض النماذج */
+      #model-list-overlay {
+        display: none;
+        position: fixed;
+        top: 100px;
+        left: 10px;
+        right: 10px;
+        bottom: 100px;
+        /*background: rgba(0,0,0,0.5);*/
+        z-index: 10;
+        overflow-y: auto;
+      }
+      #model-list-container {
+        background: #efc776;
+        margin: 5px;
+        padding: 5px;
+        border-radius: 5px;
+        max-width: 80%;
+      }
+      #model-search {
+        width: 90%;
+        margin: 5px;
+        padding: 5px;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      #model-grid {
+        display: grid;
+        grid-gap: 20px;
+      }
+      @media (max-width: 599px) {
+        #model-grid {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        #model-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (min-width: 601px) and (max-width: 1024px) {
+        #model-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (min-width: 1025px) {
+        #model-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+      .model-card {
+        opacity: 80%;
+        top: 100px;
+        cursor: pointer;
+        text-align: center;
+      }
+      .model-card img {
+        width: 80%;
+        border-radius: 5px;
+      }
+
+      /* القوائم السفلية المخفية بشكل افتراضي */
+      .bottom-menu {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px;
+        margin: 5px;
+        margin: 5px;
+        width: 70%;
+        height: 50px;
+        display: none; /* مخفية افتراضيًا */
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        z-index: 99;
+      }
+      /* قائمة MediaRecorder تظهر في صف مستقل أعلى */
+      .bottom-menu.media {
+        bottom: 60px;
+      }
+      /* قائمة ccapture تظهر في صف مستقل أسفل */
+      .bottom-menu.ccapture {
+        bottom: 0;
+      }
+      button {
+        padding: 5px;
+        margin: 5px;
+        border: solid 2px #d3a77b;
+        background: #182949;
+        color: #182949;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: 0.3s;
+      }
+
+      select {
+        padding: 5px;
+        margin: 5px;
+        border: 2px solid #d3a77b;
+        border-radius: 3px;
+        font-size: 14px;
+        background: #182949;
+        color: #d3a77b;
+      }
+
+      /* تنسيقات القائمة السفلية */
+      .bottom-controls {
+        position: fixed;
+        bottom: -100px;
+        left: 0;
+        width: 60%;
+        background: rgba(24, 41, 73, 0.9);
+        padding: 5px;
+        margin: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        transition: bottom 0.3s ease;
+        z-index: 1000;
+        flex-wrap: wrap;
+      }
+
+      .bottom-controls.show {
+        padding: 5px;
+        margin: 5px;
+        bottom: 0;
+      }
+
+      .bottom-controls button {
+        background: #586c85;
+        color: #d3a77b;
+        border: none;
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+      }
+
+      .bottom-controls button:hover {
+        background: #586c85;
+      }
+
+      /* تنسيقات زر التحكم */
+      .toggle-controls-btn {
+        position: fixed;
+        top: 20px;
+        right: 70px;
+        z-index: 1001;
+        background: #586c85;
+        color: #d3a77b;
+        border: none;
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .toggle-controls-btn:hover {
+        background: #d3a77b;
+      }
+
+      /* تعديل موضع زر التصدير */
+      #export-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+      }
+      lang-switcher {
+        margin-bottom: 30px;
+      }
+      .lang-dropdown {
+        padding: 10px 20px;
+        border: 2px solid #d3a77b;
+        border-radius: 4px;
+        background-color: #182949;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .lang-dropdown:hover {
+        background-color: #182949;
+        color: #efc776;
+      }
+
+      .action-btn {
+        padding: 12px 24px;
+        margin: 10px 5px;
+        cursor: pointer;
+        background-color: #344464;
+        color: #d3a77b;
+        border: 2px solid #d3a77b;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+
+      .action-btn:hover {
+        background-color: #d3a77b;
+        color: #182949;
+      }
+
+      [data-tooltip] {
+        position: relative;
+      }
+
+      [data-tooltip]:hover::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #182949;
+        color: #d3a77b;
+        padding: 6px 12px;
+        border: 2px solid #d3a77b;
+        border-radius: 4px;
+        font-size: 14px;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+
+      .tooltip {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px 10px;
+        background-color: #182949;
+        color: #d3a77b;
+        border: 1px solid #d3a77b;
+        border-radius: 5px;
+        white-space: nowrap;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .title {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px 10px;
+        background-color: #182949;
+        color: #d3a77b;
+        border: 1px solid #d3a77b;
+        border-radius: 5px;
+        white-space: nowrap;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .button:hover .tooltip {
+        opacity: 1;
+      }
+
+      .button:hover .title {
+        opacity: 1;
+      }
+
+      /* RTL التنسيقات الخاصة باللغة العربية */
+      /*
+[lang="ar"] body {
+    direction: rtl;
+    font-family: 'Arial', sans-serif;
+}*/
+    </style>
+    <!-- <script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+<script src="arabic-support.js"></script> -->
+  </head>
+  <body>
+    <header>
+      <div id="container"></div>
+      <div id="threejs-container"></div>
+      <canvas id="canvas"></canvas>
+      <div class="top-bar">
+        <!-- التاب العلوي -->
+
+        <a class="lang-switcher">
+          <select id="languageSelector" class="lang-dropdown">
+            <option value="auto" data-i18n-tooltip="lang-auto">En</option>
+            <option value="ar" data-i18n-tooltip="lang-ar">Ar</option>
+            <option value="en" data-i18n-tooltip="lang-en">En</option>
+            <option value="es" data-i18n-tooltip="lang-es">Es</option>
+            <option value="fr" data-i18n-tooltip="lang-fr">Fr</option>
+            <option value="zh" data-i18n-tooltip="lang-zh">Zh</option>
+            <option value="ru" data-i18n-tooltip="lang-ru">Ru</option>
+            <option value="hi" data-i18n-tooltip="lang-hi">Hi</option>
+          </select>
+        </a>
+        <button id="login-btn" class="action-btn" style="margin-right: 10px" onclick="showRegistrationModal();">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+            <path
+              d="M200-246q54-53 125.5-83.5T480-360q83 0 154.5 30.5T760-246v-514H200v514Zm280-194q58 0 99-41t41-99q0-58-41-99t-99-41q-58 0-99 41t-41 99q0 58 41 99t99 41ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm69-80h422q-44-39-99.5-59.5T480-280q-56 0-112.5 20.5T269-200Zm211-320q-25 0-42.5-17.5T420-580q0-25 17.5-42.5T480-640q25 0 42.5 17.5T540-580q0 25-17.5 42.5T480-520Zm0 17Z" />
+          </svg>
+        </button>
+
+        <button id="toggle-sidebar-button" class="toggleSidbarButton" data-i18n-tooltip="toggle-sidebar-button">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+            <path
+              d="m422-232 207-248H469l29-227-185 267h139l-30 208ZM320-80l40-280H160l360-520h80l-40 320h240L400-80h-80Zm151-390Z" />
+          </svg>
+        </button>
+
+        <button onclick="toggleExportMenus()" data-i18n-tooltip="export-button">
+          <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#d3a77b">
+            <path
+              d="M146.67-160q-27 0-46.84-19.83Q80-199.67 80-226.67v-506.66q0-27 19.83-46.84Q119.67-800 146.67-800h506.66q27 0 46.84 19.83Q720-760.33 720-733.33V-530l160-160v420L720-430v203.33q0 27-19.83 46.84Q680.33-160 653.33-160H146.67Zm0-66.67h506.66v-506.66H146.67v506.66Zm0 0v-506.66 506.66Z" />
+          </svg>
+        </button>
+        <button id="toggleAnimateButton" data-i18n-tooltip="animate-button">
+          <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#d3a77b">
+            <path
+              d="M315.33-289.33q-27.5 0-47.08-19.59-19.58-19.58-19.58-47.08v-248q0-27.5 19.58-47.08 19.58-19.59 47.08-19.59h43.34L392-704h178l33.33 33.33h43.34q27.5 0 47.08 19.59 19.58 19.58 19.58 47.08v248q0 27.5-19.58 47.08-19.58 19.59-47.08 19.59H315.33Zm0-66.67h331.34v-248H315.33v248Zm165.45-56.67q27.55 0 47.05-19.61 19.5-19.62 19.5-47.17t-19.61-47.05Q508.1-546 480.55-546t-47.05 19.62Q414-506.76 414-479.22q0 27.55 19.62 47.05 19.62 19.5 47.16 19.5Zm-120.11-532q29.56-8.43 59.56-11.88 30-3.45 60.44-3.45 93.33 0 177.16 33.5 83.84 33.5 148.34 92.79 64.5 59.28 105.5 139.5 41 80.21 49 172.88H894q-6.33-76-39.33-141.84-33-65.83-84.84-115.33Q718-828 650.33-858.33q-67.66-30.34-143.66-35L578-822l-47.33 47.33-170-170ZM600-15.33Q570.6-6.9 540.77-3.45 510.93 0 480.67 0q-94 0-177.5-33.5t-148.21-92.72q-64.7-59.21-105.83-139.33Q8-345.67-.67-438.67h67.28q6.72 76 39.56 141.84Q139-231 190.83-181.5q51.84 49.5 119.5 79.83Q378-71.33 454-66.67L382.67-138 430-185.33l170 170ZM481.33-480Z" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- قائمة MediaRecorder (صف مستقل) -->
+      <div class="bottom-menu media" id="mediaMenu">
+        <select id="export-format">
+          <option value="png">PNG</option>
+          <option value="jpg">JPG</option>
+          <option value="webm" class="subscriber-only">WEBM</option>
+          <option value="mp4" class="subscriber-only">MP4</option>
+        </select>
+        <select id="export-dimensions">
+          <!-- أبعاد عامة -->
+          <option value="1920x1080">1920x1080 (HD)</option>
+          <option value="1280x720">1280x720 (HD)</option>
+          <!-- أبعاد الإنستغرام -->
+          <option value="1080x1920">1080x1920</option>
+          <option value="1080x1080">1080x1080</option>
+          <option value="1080x1350">1080x1350</option>
+          <option value="1080x566">1080x566</option>
+          <!-- أبعاد فيسبوك -->
+          <option value="1200x630">1200x630</option>
+          <!-- أبعاد تويتر -->
+          <option value="1600x900">1600x900</option>
+          <!-- أبعاد لينكدإن -->
+          <option value="1200x627">1200x627</option>
+          <!-- أبعاد يوتيوب -->
+          <option value="1280x720">1280x720</option>
+        </select>
+        <button onclick="exportMedia()">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+            <path
+              d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z" />
+          </svg>
+        </button>
+      </div>
+      <div class="animate-buttons" id="animateButtons" data-i18n-tooltip="animate-button">
+        <ul>
+          <li>
+            <button id="btn-model-rotate" class="animate-bar" data-i18n-tooltip="btn-model-rotate">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#d3a77b">
+                <path
+                  d="M440-80q-50-5-96-24.5T256-156l56-58q29 21 61.5 34t66.5 18v82Zm80 0v-82q104-15 172-93.5T760-438q0-117-81.5-198.5T480-718h-8l64 64-56 56-160-160 160-160 56 58-62 62h6q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-438q0 137-91 238.5T520-80ZM198-214q-32-42-51.5-88T122-398h82q5 34 18 66.5t34 61.5l-58 56Zm-76-264q6-51 25-98t51-86l58 56q-21 29-34 61.5T204-478h-82Z" />
+              </svg>
+              <span></span>
+            </button>
+          </li>
+          <li>
+            <button id="btn-model-reverse" class="animate-bar" data-i18n-tooltip="btn-model-reverse">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#d3a77b">
+                <path
+                  d="M522-80v-82q34-5 66.5-18t61.5-34l56 58q-42 32-88 51.5T522-80Zm-80 0Q304-98 213-199.5T122-438q0-75 28.5-140.5t77-114q48.5-48.5 114-77T482-798h6l-62-62 56-56 160 160-160 160-56-56 64-64h-8q-117 0-198.5 81.5T202-438q0 104 68 182.5T442-162v82Zm322-134-58-56q21-29 34-61.5t18-66.5h82q-5 50-24.5 96T764-214Zm76-264h-82q-5-34-18-66.5T706-606l58-56q32 39 51 86t25 98Z" />
+              </svg>
+              <span></span>
+            </button>
+          </li>
+          <li>
+            <button id="btn-scene-rotate" class="animate-bar" data-i18n-tooltip="btn-scene-rotate">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#d3a77b">
+                <path
+                  d="m360-160-56-56 70-72q-128-17-211-70T80-480q0-83 115.5-141.5T480-680q169 0 284.5 58.5T880-480q0 62-66.5 111T640-296v-82q77-20 118.5-49.5T800-480q0-32-85.5-76T480-600q-149 0-234.5 44T160-480q0 24 51 57.5T356-372l-52-52 56-56 160 160-160 160 56 56 62-62h6q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-438q0 137-91 238.5T520-80Z" />
+              </svg>
+              <span></span>
+            </button>
+          </li>
+          <li>
+            <button id="btn-model-swing" class="animate-bar" data-i18n-tooltip="btn-model-swing">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#d3a77b">
+                <path
+                  d="M160-160v-80h110l-16-14q-52-46-73-105t-21-119q0-111 66.5-197.5T400-790v84q-72 26-116 88.5T240-478q0 45 17 87.5t53 78.5l10 10v-98h80v240H160Zm400-10v-84q72-26 116-88.5T720-482q0-45-17-87.5T650-648l-10-10v98h-80v-240h240v80H690l16 14q49 49 71.5 106.5T800-482q0 111-66.5 197.5T560-170Z" />
+              </svg>
+              <span></span>
+            </button>
+          </li>
+          <li>
+            <button id="btn-model-hover" class="animate-bar" data-i18n-tooltip="btn-model-hover">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#d3a77b">
+                <path
+                  d="M320-160q-117 0-198.5-81.5T40-440q0-107 70.5-186.5T287-718l-63-66 56-56 160 160-160 160-56-57 59-59q-71 14-117 69t-46 127q0 83 58.5 141.5T320-240h120v80H320Zm200-360v-280h360v280H520Zm0 360v-280h360v280H520Zm80-80h200v-120H600v120Z" />
+              </svg>
+              <span></span>
+            </button>
+          </li>
+          <li>
+            <button id="btn-model-jump" class="animate-bar" data-i18n-tooltip="btn-model-jump">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#d3a77b">
+                <path
+                  d="m280-120-56-56 63-66q-106-12-176.5-91.5T40-520q0-117 81.5-198.5T320-800h120v80H320q-83 0-141.5 58.5T120-520q0 72 46 127t117 69l-59-59 56-57 160 160-160 160Zm240-40v-280h360v280H520Zm0-360v-280h360v280H520Zm80-80h200v-120H600v120Z" />
+              </svg>
+              <span></span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <div id="image-editor-container">
+      <div class="floating-menu" id="floating-menu">
+        <button id="btn-bring-front" data-i18n-tooltip="btn-bring-front">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+            <path
+              d="M360-280q-33 0-56.5-23.5T280-360v-400q0-33 23.5-56.5T360-840h400q33 0 56.5 23.5T840-760v400q0 33-23.5 56.5T760-280H360Zm0-80h400v-400H360v400ZM200-200v80q-33 0-56.5-23.5T120-200h80Zm-80-80v-80h80v80h-80Zm0-160v-80h80v80h-80Zm0-160v-80h80v80h-80Zm160 480v-80h80v80h-80Zm160 0v-80h80v80h-80Zm160 0v-80h80v80h-80Z" />
+          </svg>
+        </button>
+        <button id="btn-send-back" data-i18n-tooltip="btn-send-back">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+            <path
+              d="M200-120q-33 0-56.5-23.5T120-200v-480h80v480h480v80H200Zm160-240v80q-33 0-56.5-23.5T280-360h80Zm-80-80v-80h80v80h-80Zm0-160v-80h80v80h-80Zm80-160h-80q0-33 23.5-56.5T360-840v80Zm80 480v-80h80v80h-80Zm0-480v-80h80v80h-80Zm160 0v-80h80v80h-80Zm0 480v-80h80v80h-80Zm160-480v-80q33 0 56.5 23.5T840-760h-80Zm0 400h80q0 33-23.5 56.5T760-280v-80Zm0-80v-80h80v80h-80Zm0-160v-80h80v80h-80Z" />
+          </svg>
+        </button>
+        <button id="btn-copy" data-i18n-tooltip="btn-copy">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+            <path
+              d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z" />
+          </svg>
+        </button>
+        <button id="btn-delete" data-i18n-tooltip="btn-delete">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+            <path
+              d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
+          </svg>
+        </button>
+
+        <button id="btn-text-color" data-i18n-tooltip="btn-text-color">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+            <path
+              d="m247-904 57-56 343 343q23 23 23 57t-23 57L457-313q-23 23-57 23t-57-23L153-503q-23-23-23-57t23-57l190-191-96-96Zm153 153L209-560h382L400-751Zm360 471q-33 0-56.5-23.5T680-360q0-21 12.5-45t27.5-45q9-12 19-25t21-25q11 12 21 25t19 25q15 21 27.5 45t12.5 45q0 33-23.5 56.5T760-280ZM80 0v-160h800V0H80Z" />
+          </svg>
+        </button>
+
+        <button id="btn-font" data-i18n-tooltip="btn-font">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+            <path d="M280-160v-520H80v-120h520v120H400v520H280Zm360 0v-320H520v-120h360v120H760v320H640Z" />
+          </svg>
+        </button>
+
+        <button id="filterToggle" data-i18n-tooltip="filterToggle">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+            <path
+              d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560L200-200Zm481-120H481v-60h200v60ZM220-600h80v80h60v-80h80v-60h-80v-80h-60v80h-80v60Z" />
+          </svg>
+        </button>
+        <button id="startCrop">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+            <path
+              d="M680-40v-160H280q-33 0-56.5-23.5T200-280v-400H40v-80h160v-160h80v640h640v80H760v160h-80Zm0-320v-320H360v-80h320q33 0 56.5 23.5T760-680v320h-80Z" />
+          </svg>
+        </button>
+        <button id="crop" style="display: none">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+            <path
+              d="M760-120 480-400l-94 94q8 15 11 32t3 34q0 66-47 113T240-80q-66 0-113-47T80-240q0-66 47-113t113-47q17 0 34 3t32 11l94-94-94-94q-15 8-32 11t-34 3q-66 0-113-47T80-720q0-66 47-113t113-47q66 0 113 47t47 113q0 17-3 34t-11 32l494 494v40H760ZM600-520l-80-80 240-240h120v40L600-520ZM240-640q33 0 56.5-23.5T320-720q0-33-23.5-56.5T240-800q-33 0-56.5 23.5T160-720q0 33 23.5 56.5T240-640Zm240 180q8 0 14-6t6-14q0-8-6-14t-14-6q-8 0-14 6t-6 14q0 8 6 14t14 6ZM240-160q33 0 56.5-23.5T320-240q0-33-23.5-56.5T240-320q-33 0-56.5 23.5T160-240q0 33 23.5 56.5T240-160Z" />
+          </svg>
+        </button>
+
+        <button id="undoBtn" data-i18n-tooltip="undoBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+            <path
+              d="M280-200v-80h284q63 0 109.5-40T720-420q0-60-46.5-100T564-560H312l104 104-56 56-200-200 200-200 56 56-104 104h252q97 0 166.5 63T800-420q0 94-69.5 157T564-200H280Z" />
+          </svg>
+        </button>
+        <button id="redoBtn" data-i18n-tooltip="redoBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+            <path
+              d="M396-200q-97 0-166.5-63T160-420q0-94 69.5-157T396-640h252L544-744l56-56 200 200-200 200-56-56 104-104H396q-63 0-109.5 40T240-420q0 60 46.5 100T396-280h284v80H396Z" />
+          </svg>
+        </button>
+      </div>
+
+      <canvas id="3dcanvas"></canvas>
+      <!-- مرفق اختيار صورة -->
+      <!-- <input type="file" id="upload" accept="image/*" style="display:none" /> -->
+
+      <canvas style="display: none" id="canvas_crop"></canvas>
+
+      <!-- شريط الفلاتر المنزلق -->
+      <div
+        id="filterSlider"
+        style="
+          display: none;
+          background-color: #182949;
+          font-color: #d3a77b;
+          color: #d3a77b;
+          border: solid 2px #d3a77b;
+          flex-wrap: nowrap;
+          gap: 12px;
+          padding: 10px;
+        "></div>
+
+      <div id="font-buttons-container">
+        <button
+          class="font-btn tajawal-regular"
+          data-font="Tajawal"
+          style="font-family: &quot;Tajawal&quot;, sans-serif">
+          تجوال
+        </button>
+        <button
+          class="font-btn almarai-regular"
+          data-font="Almarai"
+          style="font-family: &quot;Almarai&quot;, sans-serif">
+          مرايا
+        </button>
+        <button class="font-btn amiri-regular" data-font="Amiri" style="font-family: &quot;Amiri&quot;, serif">
+          أميري
+        </button>
+        <button
+          class="font-btn noto-kufi-arabic-regular"
+          data-font="Noto Kufi Arabic"
+          style="font-family: &quot;Noto Kufi Arabic&quot;, sans-serif">
+          الكوفة
+        </button>
+        <button class="font-btn changa-regular" data-font="Changa" style="font-family: &quot;Changa&quot;, sans-serif">
+          تغيير
+        </button>
+        <button
+          class="font-btn lalezar-regular"
+          data-font="Lalezar"
+          style="font-family: &quot;Lalezar&quot;, system-ui">
+          ليزر
+        </button>
+        <button class="font-btn mada-regular" data-font="Mada" style="font-family: &quot;Mada&quot;, sans-serif">
+          مدى
+        </button>
+        <button class="font-btn rakkas-regular" data-font="Rakkas" style="font-family: &quot;Rakkas&quot;, serif">
+          رقاص
+        </button>
+        <button
+          class="font-btn reem-kufi-regular"
+          data-font="Reem Kufi"
+          style="font-family: &quot;Reem Kufi&quot;, sans-serif">
+          ريم
+        </button>
+        <button class="font-btn lateef-regular" data-font="Lateef" style="font-family: &quot;Lateef&quot;, serif">
+          لطيف
+        </button>
+        <button class="font-btn ruwudu-regular" data-font="Ruwudu" style="font-family: &quot;Ruwudu&quot;, serif">
+          روضة
+        </button>
+        <button
+          class="font-btn badeen-display-regular"
+          data-font="Badeen Display"
+          style="font-family: &quot;Badeen Display&quot;, system-ui">
+          بدين
+        </button>
+        <button class="font-btn cairo-regular" data-font="Cairo" style="font-family: &quot;Cairo&quot;, sans-serif">
+          القاهرة
+        </button>
+        <button class="font-btn kufam-regular" data-font="Kufam" style="font-family: &quot;Kufam&quot;, sans-serif">
+          كوفام
+        </button>
+        <button
+          class="font-btn aref-ruqaa-regular"
+          data-font="Aref Ruqaa"
+          style="font-family: &quot;Aref Ruqaa&quot;, serif">
+          رقعة
+        </button>
+        <button
+          class="font-btn fustat-regular"
+          data-font="Fustat-Regular"
+          style="font-family: &quot;Fustat-Regular&quot;, sans-serif">
+          فتات
+        </button>
+        <button class="font-btn zain-regular" data-font="Zain" style="font-family: &quot;Zain&quot;, sans-serif">
+          زين
+        </button>
+        <button class="font-btn alkalami-regular" data-font="Alkalami" style="font-family: &quot;Alkalami&quot;, serif">
+          الكلمي
+        </button>
+        <button class="font-btn katibeh-regular" data-font="Katibeh" style="font-family: &quot;Katibeh&quot;, serif">
+          كتيبة
+        </button>
+        <button
+          class="font-btn cairo-play-regular"
+          data-font="Cairo Play"
+          style="font-family: &quot;Cairo Play&quot;, sans-serif">
+          كايرو
+        </button>
+        <button
+          class="font-btn beiruti-regular"
+          data-font="Beiruti"
+          style="font-family: &quot;Beiruti&quot;, sans-serif">
+          بيروت
+        </button>
+        <button class="font-btn qahiri-regular" data-font="Qahiri" style="font-family: &quot;Qahiri&quot;, sans-serif">
+          قاهري
+        </button>
+        <button class="font-btn marhey-regular" data-font="Marhey" style="font-family: &quot;Marhey&quot;, sans-serif">
+          مرح
+        </button>
+        <button
+          class="font-btn amiri-quran-regular"
+          data-font="Amiri Quran"
+          style="font-family: &quot;Amiri Quran&quot;, serif">
+          اميري
+        </button>
+        <button class="font-btn oi-regular" data-font="Oi" style="font-family: &quot;Oi&quot;, serif">مرحي</button>
+        <button
+          class="font-btn aref-ruqaa-ink-regular"
+          data-font="Aref Ruqaa Ink"
+          style="font-family: &quot;Aref Ruqaa Ink&quot;, serif">
+          رقعه
+        </button>
+        <button
+          class="font-btn reem-kufi-fun-regular"
+          data-font="Reem Kufi Fun"
+          style="font-family: &quot;Reem Kufi Fun&quot;, sans-serif">
+          كوفي
+        </button>
+        <button class="font-btn vibes-regular" data-font="Vibes" style="font-family: &quot;Vibes&quot;, system-ui">
+          فايب
+        </button>
+      </div>
+    </div>
+
+    <div id="bottom-bar">
+      <button id="add-images-btn" data-i18n-tooltip="add-images-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+          <path
+            d="M480-260q75 0 127.5-52.5T660-440q0-75-52.5-127.5T480-620q-75 0-127.5 52.5T300-440q0 75 52.5 127.5T480-260Zm0-80q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29ZM160-120q-33 0-56.5-23.5T80-200v-480q0-33 23.5-56.5T160-760h126l74-80h240l74 80h126q33 0 56.5 23.5T880-680v480q0 33-23.5 56.5T800-120H160Zm0-80h640v-480H638l-73-80H395l-73 80H160v480Zm320-240Z" /></svg
+        ><span class="bottomBar"></span>
+      </button>
+      <button id="add-text-btn" data-i18n-tooltip="add-text-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+          <path d="M420-160v-520H200v-120h560v120H540v520H420Z" /></svg
+        ><span class="bottomBar"></span>
+      </button>
+      <button id="add-stickers-btn" data-i18n-tooltip="add-stickers-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+          <path
+            d="M40-40v-240h80v-400H40v-240h240v80h400v-80h240v240h-80v400h80v240H680v-80H280v80H40Zm240-160h400v-80h80v-400h-80v-80H280v80h-80v400h80v80Zm32-120 136-360h64l136 360h-62l-32-92H408l-32 92h-64Zm114-144h108l-52-150h-4l-52 150ZM120-760h80v-80h-80v80Zm640 0h80v-80h-80v80Zm0 640h80v-80h-80v80Zm-640 0h80v-80h-80v80Zm80-640Zm560 0Zm0 560Zm-560 0Z" /></svg
+        ><span class="bottomBar"></span>
+      </button>
+      <button id="toggle-canvas-btn" data-i18n-tooltip="toggle-canvas-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+          <path
+            d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-480H200v480Zm280-80q-82 0-146.5-44.5T240-440q29-71 93.5-115.5T480-600q82 0 146.5 44.5T720-440q-29 71-93.5 115.5T480-280Zm0-60q56 0 102-26.5t72-73.5q-26-47-72-73.5T480-540q-56 0-102 26.5T306-440q26 47 72 73.5T480-340Zm0-100Zm0 60q25 0 42.5-17.5T540-440q0-25-17.5-42.5T480-500q-25 0-42.5 17.5T420-440q0 25 17.5 42.5T480-380Z" /></svg
+        ><span class="bottomBar"></span>
+      </button>
+      <button id="btn-show-models" data-i18n-tooltip="btn-show-models">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+          <path
+            d="M80-140v-320h320v320H80Zm80-80h160v-160H160v160Zm60-340 220-360 220 360H220Zm142-80h156l-78-126-78 126ZM863-42 757-148q-21 14-45.5 21t-51.5 7q-75 0-127.5-52.5T480-300q0-75 52.5-127.5T660-480q75 0 127.5 52.5T840-300q0 26-7 50.5T813-204L919-98l-56 56ZM660-200q42 0 71-29t29-71q0-42-29-71t-71-29q-42 0-71 29t-29 71q0 42 29 71t71 29ZM320-380Zm120-260Z" /></svg
+        ><span class="bottomBar"></span>
+      </button>
+
+      <input type="file" id="upload-btn" multiple accept="image/*" />
+    </div>
+    <!-- لوحة عرض النماذج -->
+    <div id="model-list-overlay">
+      <div id="model-list-container">
+        <input type="text" id="model-search" data-i18n-key="model-search" placeholder="Search for a model..." />
+        <div id="model-grid"></div>
+      </div>
+    </div>
+    <!-- لوحة الستكرات -->
+    <div id="stickers-panel"></div>
+
+    <!-- منتقيات اللون -->
+    <input type="color" id="color-picker" />
+    <input type="color" id="bg-color-picker" />
+
+    <div class="sidebar">
+      <div class="Ground-grid">
+        <span class="range-input" data-i18n-key="Ground-grid">Ground-grid</span>
+        <input type="checkbox" id="toggleVisibility" checked />
+        <button id="toggler" data-i18n-key="toggler">Ground</button>
+      </div>
+      <!-- استبدال جميع عناصر button بـ div مع تصحيح الهيكل -->
+      <div class="range-input">
+        <label for="light-vertical" class="range-label" data-i18n-key="light-vertical">light-vertical</label>
+        <input type="range" id="light-vertical" min="-10" max="10" step="0.1" value="0" />
+      </div>
+
+      <div class="range-input">
+        <label for="table-light" class="range-label" data-i18n-key="table-light">table-light</label>
+        <input type="range" id="table-light" min="0" max="5" step="0.1" value="3" />
+      </div>
+
+      <div class="range-input">
+        <label for="fov" class="range-label" data-i18n-key="fov">fov</label>
+        <input type="range" id="fov" min="0.1" max="1.5" step="0.1" value="0.7" />
+      </div>
+
+      <div class="range-input">
+        <label for="color" class="range-label" data-i18n-key="color">color</label>
+        <input type="color" id="color" value="#d3a77b" />
+      </div>
+
+      <div class="range-input">
+        <label for="metalness" class="range-label" data-i18n-key="metalness">metalness</label>
+        <input type="range" id="metalness" min="0" max="1" step="0.1" value="0.1" />
+      </div>
+
+      <div class="range-input">
+        <label for="roughness" class="range-label" data-i18n-key="roughness">roughness</label>
+        <input type="range" id="roughness" min="0" max="1" step="0.1" value="0.1" />
+      </div>
+
+      <div class="range-input">
+        <label for="env-intensity" class="range-label" data-i18n-key="env-intensity">env-intensity</label>
+        <input type="range" id="env-intensity" min="-50" max="50" step="5" value="0" />
+      </div>
+
+      <div class="range-input">
+        <label for="model-x" class="range-label" data-i18n-key="model-x">model-x</label>
+        <input type="range" id="model-x" min="-10" max="10" step="2" value="0" />
+      </div>
+
+      <div class="range-input">
+        <label for="model-y" class="range-label" data-i18n-key="model-y">model-y</label>
+        <input type="range" id="model-y" min="-10" max="10" step="1" value="0" />
+      </div>
+
+      <div class="range-input">
+        <label for="model-z" class="range-label" data-i18n-key="model-z">model-z</label>
+        <input type="range" id="model-z" min="-10" max="10" step="1" value="-2" />
+      </div>
+
+      <div class="range-input">
+        <label for="ground-y" class="range-label" data-i18n-key="ground-y">ground-y</label>
+        <input type="range" id="ground-y" min="-10" max="10" step="1" value="0" />
+      </div>
+
+      <div class="range-input">
+        <label for="camera-x" class="range-label" data-i18n-key="camera-x">camera-x</label>
+        <input type="range" id="camera-x" min="-10" max="10" step="1" value="-1" />
+      </div>
+
+      <div class="range-input">
+        <label for="camera-y" class="range-label" data-i18n-key="camera-y">camera-y</label>
+        <input type="range" id="camera-y" min="-10" max="10" step="1" value="2" />
+      </div>
+
+      <div class="range-input">
+        <label for="camera-z" class="range-label" data-i18n-key="camera-z">camera-z</label>
+        <input type="range" id="camera-z" min="-10" max="10" step="1" value="4" />
+      </div>
+    </div>
+    <div id="model-controls" class="controls">
+      <div class="controls-grid">
+        <div class="color-picker">
+          <input type="color" id="model-color-picker" onchange="model-color-picker()" />
+          <label for="model-color-picker" class="color-picker-label" data-i18n-tooltip="model-color-picker">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+              <path
+                d="M252.33-912.67 300-960l346.12 346.12q23.21 23.21 23.21 56.96 0 33.76-23 56.59l-182 182q-23 23-55 23t-55-23l-182-182q-23-22.85-23-56.63t23-56.63l189.34-189.74-109.34-109.34Zm157 157L213-559.33h392.67L409.33-755.67Zm345.19 475q-30.85 0-52.69-21.93Q680-324.53 680-355.33q0-18.57 9.5-39.79 9.5-21.21 23.83-42.21 8.34-12.67 19.34-27 11-14.34 22-27 11 12.66 22 27 11 14.33 19.33 27 14.33 21 23.83 42.21 9.5 21.22 9.5 39.79 0 30.8-21.97 52.73-21.98 21.93-52.84 21.93ZM80 .67v-134h800v134H80Z" />
+            </svg>
+          </label>
+        </div>
+
+        <div>
+          <button id="model-texture-picker" data-i18n-tooltip="model-texture-picker">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+              <path
+                d="M480-260q75 0 127.5-52.5T660-440q0-75-52.5-127.5T480-620q-75 0-127.5 52.5T300-440q0 75 52.5 127.5T480-260Zm0-80q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29ZM160-120q-33 0-56.5-23.5T80-200v-480q0-33 23.5-56.5T160-760h126l74-80h240l74 80h126q33 0 56.5 23.5T880-680v480q0 33-23.5 56.5T800-120H160Zm0-80h640v-480H638l-73-80H395l-73 80H160v480Zm320-240Z" />
+            </svg>
+          </button>
+          <input type="file" id="model-texture-input" accept="image/*" />
+        </div>
+
+        <div class="gradient">
+          <input type="color" id="gradient-model-1" data-i18n-tooltip="model-gradient" />
+          <input type="color" id="gradient-model-2" data-i18n-tooltip="model-gradient" />
+          <input type="color" id="gradient-model-3" data-i18n-tooltip="model-gradient" />
+        </div>
+
+        <div>
+          <button id="reset-model" data-i18n-tooltip="reset-model">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+              <path
+                d="M520-330v-60h160v60H520Zm60 210v-50h-60v-60h60v-50h60v160h-60Zm100-50v-60h160v60H680Zm40-110v-160h60v50h60v60h-60v50h-60Zm111-280h-83q-26-88-99-144t-169-56q-117 0-198.5 81.5T200-480q0 72 32.5 132t87.5 98v-110h80v240H160v-80h94q-62-50-98-122.5T120-480q0-75 28.5-140.5t77-114q48.5-48.5 114-77T480-840q129 0 226.5 79.5T831-560Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="background-controls" class="controls">
+      <div class="controls-grid">
+        <div class="color-picker">
+          <input type="color" id="background-color-picker" data-i18n-tooltip="background-color-picker" />
+          <label for="background-color-picker" data-i18n-tooltip="background-color-picker" class="color-picker-label">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+              <path
+                d="M252.33-912.67 300-960l346.12 346.12q23.21 23.21 23.21 56.96 0 33.76-23 56.59l-182 182q-23 23-55 23t-55-23l-182-182q-23-22.85-23-56.63t23-56.63l189.34-189.74-109.34-109.34Zm157 157L213-559.33h392.67L409.33-755.67Zm345.19 475q-30.85 0-52.69-21.93Q680-324.53 680-355.33q0-18.57 9.5-39.79 9.5-21.21 23.83-42.21 8.34-12.67 19.34-27 11-14.34 22-27 11 12.66 22 27 11 14.33 19.33 27 14.33 21 23.83 42.21 9.5 21.22 9.5 39.79 0 30.8-21.97 52.73-21.98 21.93-52.84 21.93ZM80 .67v-134h800v134H80Z" />
+            </svg>
+          </label>
+        </div>
+
+        <div>
+          <button id="background-image-picker" data-i18n-tooltip="background-image-picker">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+              <path
+                d="M480-260q75 0 127.5-52.5T660-440q0-75-52.5-127.5T480-620q-75 0-127.5 52.5T300-440q0 75 52.5 127.5T480-260Zm0-80q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29ZM160-120q-33 0-56.5-23.5T80-200v-480q0-33 23.5-56.5T160-760h126l74-80h240l74 80h126q33 0 56.5 23.5T880-680v480q0 33-23.5 56.5T800-120H160Zm0-80h640v-480H638l-73-80H395l-73 80H160v480Zm320-240Z" />
+            </svg>
+          </button>
+          <input type="file" id="background-image-input" accept="image/*" />
+        </div>
+        <div>
+          <button id="show-skybox-thumbnails" data-i18n-tooltip="show-skybox-thumbnails">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+              <path
+                d="M480-80q-121 0-216.5-63.5T120-308q-11-5-20-9t-18-9q-20-11-31-29t-11-41v-168q0-23 11-41t31-29q9-5 18-9t20-9q48-101 143.5-164.5T480-880q121 0 216.5 63.5T840-652q11 5 20 9t18 9q20 11 31 29.5t11 40.5v168q0 22-11 40.5T878-326q-9 5-18 9t-20 9q-48 101-143.5 164.5T480-80Zm0-80q69 0 131-28.5T718-268q-59 14-118.5 21T480-240q-60 0-119.5-7T242-268q45 51 107 79.5T480-160Zm0-320Zm0-320q-69 0-131 28.5T242-692q59-14 118.5-21t119.5-7q60 0 119.5 7T718-692q-45-51-107-79.5T480-800Zm0 480q107 0 200.5-20T840-396v-168q-66-36-159.5-56T480-640q-107 0-200.5 20T120-564v168q66 36 159.5 56T480-320Z" />
+            </svg>
+          </button>
+          <div id="skybox-thumbnails">
+            <div class="skybox-grid">
+              <img src="skybox/skybox1.jpg" alt="Skybox 1" />
+              <img src="skybox/skybox2.jpg" alt="Skybox 2" />
+              <img src="skybox/skybox3.jpg" alt="Skybox 3" />
+            </div>
+          </div>
+        </div>
+        <div class="gradient">
+          <input type="color" id="gradient-background-1" data-i18n-tooltip="background-gradient" />
+          <input type="color" id="gradient-background-2" data-i18n-tooltip="background-gradient" />
+          <input type="color" id="gradient-background-3" data-i18n-tooltip="background-gradient" />
+        </div>
+        <div>
+          <button id="reset-background" data-i18n-tooltip="reset-background">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+              <path
+                d="M520-330v-60h160v60H520Zm60 210v-50h-60v-60h60v-50h60v160h-60Zm100-50v-60h160v60H680Zm40-110v-160h60v50h60v60h-60v50h-60Zm111-280h-83q-26-88-99-144t-169-56q-117 0-198.5 81.5T200-480q0 72 32.5 132t87.5 98v-110h80v240H160v-80h94q-62-50-98-122.5T120-480q0-75 28.5-140.5t77-114q48.5-48.5 114-77T480-840q129 0 226.5 79.5T831-560Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="ground-controls" class="controls">
+      <div class="controls-grid">
+        <div>
+          <div class="color-picker">
+            <input type="color" id="ground-color-picker" data-i18n-tooltip="ground-color-picker" />
+            <label for="ground-color-picker" data-i18n-tooltip="ground-color-picker" class="color-picker-label">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path
+                  d="M252.33-912.67 300-960l346.12 346.12q23.21 23.21 23.21 56.96 0 33.76-23 56.59l-182 182q-23 23-55 23t-55-23l-182-182q-23-22.85-23-56.63t23-56.63l189.34-189.74-109.34-109.34Zm157 157L213-559.33h392.67L409.33-755.67Zm345.19 475q-30.85 0-52.69-21.93Q680-324.53 680-355.33q0-18.57 9.5-39.79 9.5-21.21 23.83-42.21 8.34-12.67 19.34-27 11-14.34 22-27 11 12.66 22 27 11 14.33 19.33 27 14.33 21 23.83 42.21 9.5 21.22 9.5 39.79 0 30.8-21.97 52.73-21.98 21.93-52.84 21.93ZM80 .67v-134h800v134H80Z" />
+              </svg>
+            </label>
+          </div>
+        </div>
+        <div>
+          <button id="show-texture-thumbnails" data-i18n-tooltip="show-texture-thumbnails">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+              <path
+                d="M176-120q-19-4-35.5-20.5T120-176l664-664q21 5 36 20.5t21 35.5L176-120Zm-56-252v-112l356-356h112L120-372Zm0-308v-80q0-33 23.5-56.5T200-840h80L120-680Zm560 560 160-160v80q0 33-23.5 56.5T760-120h-80Zm-308 0 468-468v112L484-120H372Z" />
+            </svg>
+          </button>
+        </div>
+        <div>
+          <button id="ground-texture-picker" data-i18n-tooltip="ground-texture-picker">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+              <path
+                d="M480-260q75 0 127.5-52.5T660-440q0-75-52.5-127.5T480-620q-75 0-127.5 52.5T300-440q0 75 52.5 127.5T480-260Zm0-80q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29ZM160-120q-33 0-56.5-23.5T80-200v-480q0-33 23.5-56.5T160-760h126l74-80h240l74 80h126q33 0 56.5 23.5T880-680v480q0 33-23.5 56.5T800-120H160Zm0-80h640v-480H638l-73-80H395l-73 80H160v480Zm320-240Z" />
+            </svg>
+          </button>
+          <input type="file" id="ground-texture-input" accept="image/*" />
+        </div>
+        <div>
+          <button id="reset-ground" data-i18n-tooltip="reset-ground">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d3a77b">
+              <path
+                d="M520-330v-60h160v60H520Zm60 210v-50h-60v-60h60v-50h60v160h-60Zm100-50v-60h160v60H680Zm40-110v-160h60v50h60v60h-60v50h-60Zm111-280h-83q-26-88-99-144t-169-56q-117 0-198.5 81.5T200-480q0 72 32.5 132t87.5 98v-110h80v240H160v-80h94q-62-50-98-122.5T120-480q0-75 28.5-140.5t77-114q48.5-48.5 114-77T480-840q129 0 226.5 79.5T831-560Z" />
+            </svg>
+          </button>
+        </div>
+        <div>
+          <div class="gradient">
+            <input type="color" id="gradient-ground-1" data-i18n-tooltip="ground-gradient" />
+            <input type="color" id="gradient-ground-2" data-i18n-tooltip="ground-gradient" />
+            <input type="color" id="gradient-ground-3" data-i18n-tooltip="ground-gradient" />
+          </div>
+        </div>
+      </div>
+      <div id="texture-thumbnails">
+        <div class="texture-grid">
+          <img src="textures/black.jpg" alt="Texture 1" />
+          <img src="textures/blue.jpg" alt="Texture 2" />
+          <img src="textures/gold.jpg" alt="Texture 3" />
+        </div>
+      </div>
+    </div>
+    <div id="model-controls" class="controls" style="display: none">
+      <input type="color" id="model-color-picker" data-i18n-tooltip="model-color-picker" />
+      <button id="model-texture-picker" data-i18n-tooltip="model-texture-picker"></button>
+      <input type="file" id="model-texture-input" accept="image/*" style="display: none" />
+      <button id="reset-model" data-i18n-tooltip="reset-model"></button>
+    </div>
+    <div id="ground-controls" class="controls" style="display: none">
+      <input type="color" id="ground-color-picker" data-i18n-tooltip="ground-color-picker" />
+      <button id="ground-texture-picker" data-i18n-tooltip="ground-texture-picker"></button>
+      <input type="file" id="ground-texture-input" accept="image/*" style="display: none" />
+      <button id="reset-ground" data-i18n-tooltip="reset-ground"></button>
+    </div>
+    <div id="background-controls" class="controls" style="display: none">
+      <input type="color" id="background-color-picker" data-i18n-tooltip="background-color-picker" />
+      <button id="background-image-picker" data-i18n-tooltip="background-image-picker"></button>
+      <input type="file" id="background-image-input" accept="image/*" style="display: none" />
+      <button id="reset-background" data-i18n-tooltip="reset-background"></button>
+    </div>
+
+    <script>
+      let stickersPanel = document.getElementById("stickers-panel");
+      for (let i = 1; i <= 265; i++) {
+        let img = document.createElement("img");
+        img.src = `img/stickers/${i}.png`;
+        img.className = "sticker-item";
+        img.alt = `ستيكر ${i}`;
+        stickersPanel.appendChild(img);
+      }
+      /* --- وظائف عرض النماذج --- */
+      function renderModelGrid(filter = "") {
+        const grid = document.getElementById("model-grid");
+        grid.innerHTML = "";
+        models
+          .filter((m) => m.name.indexOf(filter) !== -1)
+          .forEach((modelItem) => {
+            const card = document.createElement("div");
+            card.className = "model-card";
+            card.innerHTML = `<img src="models/${modelItem.folder}/preview.webp" alt="${modelItem.name}" />
+                    <p>${modelItem.name}</p>`;
+            card.addEventListener("click", function (e) {
+              e.stopPropagation();
+              loadModel(modelItem.folder);
+              document.getElementById("model-list-overlay").style.display = "none";
+            });
+            grid.appendChild(card);
+          });
+      }
+
+      document.getElementById("btn-show-models").addEventListener("click", function (e) {
+        e.stopPropagation();
+        renderModelGrid();
+        document.getElementById("model-list-overlay").style.display = "block";
+      });
+
+      document.getElementById("model-search").addEventListener("input", function (e) {
+        const filter = e.target.value;
+        renderModelGrid(filter);
+      });
+
+      //   ==============================
+
+      // عند اختيار لون جديد، يتم تطبيقه على مادة الأرضية
+      document.getElementById("model-color-picker").addEventListener("change", function (event) {
+        const color = event.target.value;
+        model.material.color.set(color);
+      });
+
+      // =========================
+
+      // كود الوظائف المطلوبة
+      function modelColorPicker() {
+        // تنفيذ تغيير لون النموذج
+        console.log("تغيير لون النموذج");
+      }
+
+      function modelTextureInput() {
+        // تنفيذ إضافة نسيج للنموذج
+        console.log("إضافة نسيج للنموذج");
+      }
+
+      function resetModel() {
+        // تنفيذ إعادة تعيين النموذج
+        console.log("إعادة تعيين النموذج");
+      }
+
+      function addTouchListeners(buttonId, func) {
+        const button = document.getElementById(buttonId);
+        button.addEventListener("touchstart", func);
+        button.addEventListener("click", func); // للحفاظ على وظيفة النقر العادية على الكمبيوتر
+      }
+
+      // إضافة مستمعي الأحداث للمس للأزرار
+      addTouchListeners("model-color-picker", modelColorPicker);
+      addTouchListeners("model-texture-input", modelTextureInput);
+      addTouchListeners("reset-model", resetModel);
+
+      // =================================
+
+      // كود الوظائف المطلوبة
+      function modelColorPicker() {
+        // تنفيذ تغيير لون النموذج
+        console.log("تغيير لون النموذج");
+      }
+
+      function modelTextureInput() {
+        // تنفيذ إضافة نسيج للنموذج
+        console.log("إضافة نسيج للنموذج");
+      }
+
+      function resetModel() {
+        // تنفيذ إعادة تعيين النموذج
+        console.log("إعادة تعيين النموذج");
+      }
+
+      function addTouchListeners(buttonId, func) {
+        const button = document.getElementById(buttonId);
+        button.addEventListener("touchstart", func);
+        button.addEventListener("click", func); // للحفاظ على وظيفة النقر العادية على الكمبيوتر
+      }
+
+      // إضافة مستمعي الأحداث للمس للأزرار
+      addTouchListeners("model-color-picker", modelColorPicker);
+      addTouchListeners("model-texture-input", modelTextureInput);
+      addTouchListeners("reset-model", resetModel);
+
+      // -----------------------------
+
+      // إغلاق القوائم عند النقر خارجها
+      document.addEventListener("click", (event) => {
+        const clickedElement = event.target;
+
+        // التحقق مما إذا كان النقر خارج القوائم وأزرار الفتح
+        if (!animateButtons.contains(clickedElement) && !toggleAnimateButton.contains(clickedElement)) {
+          animateButtons.style.display = "none";
+        }
+
+        if (!mediaMenu.contains(clickedElement) && !toggleExportButton.contains(clickedElement)) {
+          mediaMenu.style.display = "none";
+        }
+
+        // التحقق مما إذا كان ccaptureMenu موجودًا قبل محاولة إخفائه
+        if (ccaptureMenu && !ccaptureMenu.contains(clickedElement) && !toggleExportButton.contains(clickedElement)) {
+          ccaptureMenu.style.display = "none";
+        }
+      });
+      const toggleAnimateButton = document.getElementById("toggleAnimateButton");
+      const animateButtons = document.getElementById("animateButtons");
+
+      toggleAnimateButton.addEventListener("click", () => {
+        // تبديل الحالة: إذا كانت القائمة مخفية يتم عرضها، وإذا كانت معروضة يتم إخفاؤها
+        if (animateButtons.style.display === "none" || animateButtons.style.display === "") {
+          animateButtons.style.display = "block";
+        } else {
+          animateButtons.style.display = "none";
+        }
+      });
+
+      const sidebar = document.querySelector(".sidebar");
+      const toggleButton = document.getElementById("toggle-sidebar-button");
+      toggleButton.addEventListener("click", function (event) {
+        event.stopPropagation();
+        sidebar.classList.toggle("active");
+      });
+      document.addEventListener("click", function (event) {
+        const isClickInsideSidebar = sidebar.contains(event.target);
+        const isClickOnToggleButton = toggleButton.contains(event.target);
+        if (!isClickInsideSidebar && !isClickOnToggleButton) {
+          sidebar.classList.remove("active");
+        }
+      });
+      sidebar.addEventListener("click", function (event) {
+        event.stopPropagation();
+      });
+      document.getElementById("model-color-picker").addEventListener("change", function (event) {
+        const color = event.target.value;
+        model.material.color.set(color);
+      });
+      function modelColorPicker() {
+        console.log("تغيير لون النموذج");
+      }
+      function modelTextureInput() {
+        console.log("إضافة نسيج للنموذج");
+      }
+      function resetModel() {
+        console.log("إعادة تعيين النموذج");
+      }
+      function addTouchListeners(buttonId, func) {
+        const button = document.getElementById(buttonId);
+        button.addEventListener("touchstart", func);
+        button.addEventListener("click", func);
+      }
+
+      addTouchListeners("model-color-picker", modelColorPicker);
+      addTouchListeners("model-texture-input", modelTextureInput);
+      addTouchListeners("reset-model", resetModel);
+
+      document.getElementById("background-color-picker").addEventListener("change", function (event) {
+        const color = event.target.value;
+        background.material.color.set(color);
+      });
+
+      document.getElementById("ground-color-picker").addEventListener("change", function (event) {
+        const color = event.target.value;
+        ground.material.color.set(color);
+      });
+      function createGradientTexture(color1, color2, color3) {
+        const canvas = document.createElement("canvas");
+        canvas.width = 1024;
+        canvas.height = 1024;
+        const ctx = canvas.getContext("2d");
+
+        const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        gradient.addColorStop(0, color1);
+        gradient.addColorStop(0.5, color2);
+        if (color3) gradient.addColorStop(1, color3);
+
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        return new THREE.CanvasTexture(canvas);
+      }
+
+      function applyModelGradient() {
+        const color1 = document.getElementById("gradient-model-1").value;
+        const color2 = document.getElementById("gradient-model-2").value;
+        const color3 = document.getElementById("gradient-model-3").value;
+
+        const gradientTexture = createGradientTexture(color1, color2, color3);
+        if (selectedPart) {
+          if (!selectedPart.material.isCloned) {
+            selectedPart.material = selectedPart.material.clone();
+            selectedPart.material.isCloned = true;
+          }
+          selectedPart.material.map = gradientTexture;
+          selectedPart.material.needsUpdate = true;
+        }
+      }
+
+      function applyBackgroundGradient() {
+        const color1 = document.getElementById("gradient-background-1").value;
+        const color2 = document.getElementById("gradient-background-2").value;
+        const color3 = document.getElementById("gradient-background-3").value;
+
+        const gradientTexture = createGradientTexture(color1, color2, color3);
+        scene.background = gradientTexture;
+      }
+
+      function applyGroundGradient() {
+        const color1 = document.getElementById("gradient-ground-1").value;
+        const color2 = document.getElementById("gradient-ground-2").value;
+        const color3 = document.getElementById("gradient-ground-3").value;
+
+        const gradientTexture = createGradientTexture(color1, color2, color3);
+        ground.material.map = gradientTexture;
+        ground.material.needsUpdate = true;
+      }
+
+      document.getElementById("gradient-model-1").addEventListener("input", applyModelGradient);
+      document.getElementById("gradient-model-2").addEventListener("input", applyModelGradient);
+      document.getElementById("gradient-model-3").addEventListener("input", applyModelGradient);
+
+      document.getElementById("gradient-background-1").addEventListener("input", applyBackgroundGradient);
+      document.getElementById("gradient-background-2").addEventListener("input", applyBackgroundGradient);
+      document.getElementById("gradient-background-3").addEventListener("input", applyBackgroundGradient);
+
+      document.getElementById("gradient-ground-1").addEventListener("input", applyGroundGradient);
+      document.getElementById("gradient-ground-2").addEventListener("input", applyGroundGradient);
+      document.getElementById("gradient-ground-3").addEventListener("input", applyGroundGradient);
+
+      function enableGestureControls(elementId) {
+        const element = document.getElementById(elementId);
+        const hammer = new Hammer(element);
+
+        hammer.on("doubletap", function () {
+          element.classList.toggle("show");
+          console.log("تم تفعيل اللمس المزدوج على: " + elementId);
+        });
+
+        hammer.on("press", function () {
+          element.classList.toggle("show");
+          console.log("تم تفعيل اللمس المطول على: " + elementId);
+        });
+      }
+
+      enableGestureControls("model-controls");
+      enableGestureControls("background-controls");
+      enableGestureControls("ground-controls");
+
+      let scene, camera, renderer, controls, raycaster, directionalLight, ambientLight;
+      let model,
+        ground,
+        grid,
+        selectedPart = null,
+        defaultModel = null;
+      let currentLoader; // GLTFLoader المستخدم لتحميل النماذج
+      const textureLoader = new THREE.TextureLoader(); // لتحميل القوام (الكود الأول)
+      const loader = new THREE.TextureLoader(); // لتحميل القوام (الكود الثاني)
+      const container = document.getElementById("threejs-container");
+      let fabricTexture;
+      let printMesh = null;
+      let rotationSpeed = 0;
+      let mouse = new THREE.Vector2();
+      let capturerCCapture = null;
+
+      // متغيرات الحركة
+      let swing = false,
+        hover = false,
+        jump = false;
+      // مصفوفة النماذج – قم بتعديلها لتطابق أسماء المجلدات الفرعية لديك
+      const models = [
+        {
+          folder: "crewneck-sweatshirt-mockup",
+          name: "crewneck-sweatshirt-mockup"
+        },
+        { folder: "full-zip-hoodie-mockup", name: "full-zip-hoodie-mockup" },
+        {
+          folder: "mens-crewneck-sweatshirt-mockup",
+          name: "mens-crewneck-sweatshirt-mockup"
+        },
+        {
+          folder: "long-sleeve-v-neck-shirt-mockup",
+          name: "long-sleeve-v-neck-shirt-mockup"
+        },
+        {
+          folder: "mens-round-neck-sweatshirt-mockup",
+          name: "mens-round-neck-sweatshirt-mockup"
+        },
+        { folder: "Oversized-hoodie", name: "Oversized-hoodie" },
+        { folder: "Oversized-hoodie-mockup", name: "Oversized-hoodie-mockup" },
+        { folder: "Raglan-hoodie-mockup", name: "Raglan-hoodie-mockup" },
+        { folder: "Raglan-t-shirt-mockup", name: "Raglan-t-shirt-mockup" },
+        {
+          folder: "Round-neck-long-sleeve-raglan-t-shirt",
+          name: "Round-neck-long-sleeve-raglan-t-shirt"
+        },
+        {
+          folder: "round-neck-long-sleeve-raglan-t-shirt-mockup",
+          name: "round-neck-long-sleeve-raglan-t-shirt-mockup"
+        },
+        {
+          folder: "Short-sleeve-cropped-hoodie",
+          name: "Short-sleeve-cropped-hoodie"
+        },
+        {
+          folder: "Sleeveless-hoodie-mockup",
+          name: "Sleeveless-hoodie-mockup"
+        },
+        {
+          folder: "Sleeveless-zip-hoodie-mockup",
+          name: "Sleeveless-zip-hoodie-mockup"
+        },
+        { folder: "Tank-top-mockup", name: "Tank-top-mockup" },
+        { folder: "Tshirt-mockup", name: "Tshirt-mockup" },
+        { folder: "Women's-crop-tank-top", name: "Women's-crop-tank-top" },
+        {
+          folder: "Women's-deep-v-neck-tshirt",
+          name: "Women's-deep-v-neck-tshirt"
+        },
+        { folder: "Women's-hoodie-mockup", name: "Women's-hoodie-mockup" },
+        {
+          folder: "Women's-slim-fit-v-neck-tshirt",
+          name: "Women's-slim-fit-v-neck-tshirt"
+        },
+        { folder: "Women's-tank-top", name: "Women's-tank-top" },
+        { folder: "Women's-tank-top-mockup", name: "Women's-tank-top-mockup" },
+        { folder: "Women's-tshirt", name: "Women's-tshirt" },
+        { folder: "womens-t-shirt-mockup", name: "womens-t-shirt-mockup" },
+        { folder: "Women-tank-top-mockup", name: "Women-tank-top-mockup" },
+        { folder: "0", name: "0" },
+        {
+          folder: "Modelled-boxy-hoodie-mockup",
+          name: "Modelled-boxy-hoodie-mockup"
+        },
+        { folder: "Womens-tshirt", name: "Womens-tshirt" },
+        {
+          folder: "sweatshirt-womens-mockup",
+          name: "sweatshirt-womens-mockup"
+        },
+        { folder: "womens-tshirt-mockup", name: "womens-tshirt-mockup" }
+      ];
+
+      // تهيئة currentLoader لاستخدام GLTFLoader (لتفعيل التحميل الديناميكي)
+      currentLoader = new THREE.GLTFLoader();
+
+      /**
+       * تحميل النموذج ثلاثي الأبعاد من مجلد محدد وإضافته إلى المشهد.
+       * - يقوم بتعيين المواد، توسيط النموذج، وضبط الإعدادات الافتراضية.
+       * @param {string} folderName اسم مجلد النموذج
+       */
+      function loadModel(folderName) {
+        if (model) {
+          scene.remove(model);
+        }
+        currentLoader.load(
+          `models/${folderName}/model.gltf`,
+          function (gltf) {
+            model = gltf.scene;
+
+            // مسح التدوير والموضع الأولي للنموذج
+            model.rotation.set(0, 0, 0);
+            model.position.set(0, 0, 0);
+
+            // حساب صندوق الإحاطة (Box3) لضبط حجم النموذج بشكل مناسب
+            const box = new THREE.Box3().setFromObject(model);
+            const size = new THREE.Vector3();
+            box.getSize(size);
+            const maxDim = Math.max(size.x, size.y, size.z);
+            const scaleFactor = 3 / maxDim;
+            model.scale.set(scaleFactor, scaleFactor, scaleFactor);
+
+            // توسيط النموذج بشكل دقيق في منتصف المشهد
+            box.setFromObject(model);
+            const center = new THREE.Vector3();
+            box.getCenter(center);
+            model.position.copy(center).multiplyScalar(-1);
+
+            // رفع النموذج للأعلى لتجنب التداخل مع حاوية image-editor-container
+            model.position.y = 1.0; // زيادة قيمة الارتفاع للأعلى
+
+            // ضبط المواد لكل جزء من النموذج
+            model.traverse((child) => {
+              if (child.isMesh) {
+                child.castShadow = true;
+                if (child.name.toLowerCase().includes("print")) {
+                  printMesh = child;
+                  child.material = new THREE.MeshStandardMaterial({
+                    color: 0xffffff,
+                    metalness: 0.01,
+                    roughness: 0.1,
+                    envMapIntensity: 0.1,
+                    map: fabricTexture || null
+                  });
+                } else {
+                  child.material = new THREE.MeshStandardMaterial({
+                    color: 0xffffff,
+                    metalness: 0.01,
+                    roughness: 0.1,
+                    envMapIntensity: 0.1
+                  });
+                }
+              }
+            });
+
+            // إضافة النموذج للمشهد
+            scene.add(model);
+
+            // تعيين عناصر التحكم لتستهدف مركز النموذج
+            controls.target.set(0, model.position.y, 0); // تعديل هدف الكاميرا ليكون مركز النموذج
+            controls.update();
+
+            defaultModel = model.clone();
+          },
+          undefined,
+          (error) => {
+            console.error("خطأ في تحميل النموذج من المجلد", folderName, error);
+          }
+        );
+      }
+
+      // دالة لتوسيط النموذج في المشهد
+      function centerModelInScene() {
+        if (!model) return;
+
+        // مسح التدوير والموضع الأولي
+        model.position.set(0, 0, 0);
+
+        // حساب حجم وأبعاد النموذج
+        const box = new THREE.Box3().setFromObject(model);
+        const size = new THREE.Vector3();
+        const center = new THREE.Vector3();
+
+        box.getSize(size);
+        box.getCenter(center);
+
+        // توسيط النموذج وفقًا للمركز المحسوب
+        model.position.copy(center).multiplyScalar(-1);
+
+        // رفع النموذج للأعلى لتجنب التداخل مع حاوية image-editor-container
+        // نظرًا لأن ارتفاع threejs-container هو 70% والنموذج يجب أن يظهر في منتصفه
+        model.position.y += 1.0; // زيادة قيمة الارتفاع للأعلى
+
+        // تحديث عناصر التحكم
+        controls.target.set(0, model.position.y, 0); // تعديل هدف الكاميرا ليكون مركز النموذج
+        controls.update();
+      }
+
+      // تحميل النموذج الافتراضي من أول عنصر في المصفوفة
+      loadModel("0");
+
+      const skyboxFolders = [
+        "skybox/bologni/",
+        "skybox/Cloudy/",
+        "skybox/DallasW/",
+        "skybox/entrance/",
+        "skybox/FullMoon/",
+        "skybox/farm/",
+        "skybox/hotel/",
+        "skybox/lebombo/",
+        "skybox/Marriott/",
+        "skybox/photostudio/",
+        "skybox/darker/",
+        "skybox/skyboxsun/",
+        "skybox/spruit/",
+        "skybox/sun/",
+        "skybox/SunSet/",
+        "skybox/CloudsWater/",
+        "skybox/Tropical/",
+        "skybox/Vasa/",
+        "skybox/veranda/",
+        "skybox/Stormy/"
+      ];
+      const texturePaths = [
+        "textures/black.jpg",
+        "textures/black1.jpg",
+        "textures/black2.jpg",
+        "textures/wood1.jpg",
+        "textures/wood2.jpg",
+        "textures/wood3.jpg",
+        "textures/wood4.jpg",
+        "textures/wood5.jpg",
+        "textures/silver.jpg",
+        "textures/rock.jpg",
+        "textures/paper.jpg",
+        "textures/textil.jpg",
+        "textures/wood6.jpg",
+        "textures/color.jpg",
+        "textures/marble.jpg",
+        "textures/marble2.jpg",
+        "textures/marble3.jpg",
+        "textures/marble4.jpg",
+        "textures/marble5.jpg",
+        "textures/color.jpg",
+        "textures/marble.jpg",
+        "textures/marble2.jpg",
+        "textures/marble3.jpg",
+        "textures/marble4.jpg",
+        "textures/gold.jpg",
+        "textures/gold1.jpg",
+        "textures/blue.jpg",
+        "textures/blue1.jpg",
+        "textures/blue2.jpg",
+        "textures/blue3.jpg",
+        "textures/gold2.jpg",
+        "textures/gold3.jpg",
+        "textures/gold4.jpg",
+        "textures/gold5.jpg",
+        "textures/gold6.jpg",
+        "textures/blue3.jpg",
+        "textures/gold1.jpg",
+        "textures/marble5.jpg",
+        "textures/marble1.jpg",
+        "textures/marble6.jpg",
+        "textures/reflectiv.jpg",
+        "textures/silver1.jpg",
+        "textures/silver2.jpg",
+        "textures/silver3.jpg",
+        "textures/silver4.jpg",
+        "textures/silver5.jpg",
+        "textures/white1.jpg",
+        "textures/wood.jpg",
+        "textures/wood6.jpg",
+        "textures/silver4.jpg"
+      ];
+      function loadSkybox(folder) {
+        const cubeTextureLoader = new THREE.CubeTextureLoader();
+        cubeTextureLoader.setPath(folder);
+
+        cubeTextureLoader.load(
+          ["px.jpg", "nx.jpg", "py.jpg", "ny.jpg", "pz.jpg", "nz.jpg"],
+          (texture) => {
+            scene.background = texture;
+          },
+          undefined,
+          (error) => {
+            console.error("خطأ في تحميل خلفية السماء:", error);
+            scene.background = new THREE.Color(0x344464);
+          }
+        );
+      }
+
+      function showSkyboxThumbnails() {
+        const thumbnailsContainer = document.querySelector("#skybox-thumbnails .skybox-grid");
+        thumbnailsContainer.innerHTML = "";
+
+        skyboxFolders.forEach((folder, index) => {
+          const img = document.createElement("img");
+          img.src = folder + "px.jpg";
+          img.alt = `خلفية السماء ${index + 1}`;
+          img.onclick = () => {
+            loadSkybox(folder);
+            document.getElementById("skybox-thumbnails").classList.remove("active");
+          };
+          thumbnailsContainer.appendChild(img);
+        });
+
+        document.getElementById("skybox-thumbnails").classList.add("active");
+      }
+
+      function showTextureThumbnails() {
+        const thumbnailsContainer = document.querySelector("#texture-thumbnails .texture-grid");
+        thumbnailsContainer.innerHTML = "";
+
+        texturePaths.forEach((path, index) => {
+          const img = document.createElement("img");
+          img.src = path;
+          img.alt = `القوام ${index + 1}`;
+          img.onclick = () => {
+            applyTexture(path);
+            document.getElementById("texture-thumbnails").classList.remove("active");
+          };
+          thumbnailsContainer.appendChild(img);
+        });
+
+        document.getElementById("texture-thumbnails").classList.add("active");
+      }
+
+      function applyTexture(texturePath) {
+        const texture = loader.load(texturePath);
+        if (selectedPart) {
+          if (!selectedPart.material.isCloned) {
+            selectedPart.material = selectedPart.material.clone();
+            selectedPart.material.isCloned = true;
+          }
+          selectedPart.material.color.set("#ffffff");
+          selectedPart.material.map = texture;
+          selectedPart.material.needsUpdate = true;
+        } else {
+          scene.background = texture;
+        }
+      }
+
+      document.getElementById("show-skybox-thumbnails").addEventListener("click", showSkyboxThumbnails);
+
+      document.getElementById("show-texture-thumbnails").addEventListener("click", showTextureThumbnails);
+
+      function init() {
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x1f2f52);
+
+        // الحصول على أبعاد حاوية threejs-container
+        const container = document.getElementById("threejs-container");
+        const containerWidth = container.clientWidth;
+        const containerHeight = container.clientHeight;
+
+        camera = new THREE.PerspectiveCamera(70, containerWidth / containerHeight, 1, 1000);
+        // تعديل موضع الكاميرا لتكون أعلى وتنظر للأسفل قليلاً
+        camera.position.set(-3, 3, 5);
+
+        renderer = new THREE.WebGLRenderer({
+          antialias: true,
+          canvas: document.getElementById("canvas")
+        });
+        renderer.setSize(containerWidth, containerHeight);
+        renderer.shadowMap.enabled = true;
+        document.body.appendChild(renderer.domElement);
+
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.minDistance = 5;
+        controls.maxDistance = 50;
+
+        controls.minPolarAngle = Math.PI / 8;
+        controls.maxPolarAngle = Math.PI / 2.5;
+        // زاوية قصوى
+        raycaster = new THREE.Raycaster();
+        mouse = new THREE.Vector2();
+
+        const groundGeometry = new THREE.BoxGeometry(10, 10, 0.5);
+        const groundMaterial = new THREE.MeshStandardMaterial({
+          color: 0xe0e5eb
+        });
+        ground = new THREE.Mesh(groundGeometry, groundMaterial);
+        ground.rotation.x = -Math.PI / 2;
+        // رفع الأرضية لتتناسب مع موضع النموذج الجديد
+        ground.position.y = -0.5; // تعديل موضع الأرضية لتكون أعلى
+        ground.receiveShadow = true;
+        scene.add(ground);
+
+        const gridColor = new THREE.Color("#d3a77b");
+        const grid = new THREE.GridHelper(9, 9, gridColor, gridColor);
+        // رفع الشبكة لتتناسب مع موضع النموذج الجديد
+        grid.position.y = -0.5; // تعديل موضع الشبكة لتكون أعلى
+        grid.rotation.y = THREE.MathUtils.degToRad(90);
+        scene.add(grid);
+
+        const toggler = document.getElementById("toggler");
+        const toggleVisibility = document.getElementById("toggleVisibility");
+
+        let isGridSelected = true;
+
+        toggler.addEventListener("click", () => {
+          isGridSelected = !isGridSelected;
+          if (isGridSelected) {
+            toggler.textContent = "ارضية";
+            grid.visible = toggleVisibility.checked;
+            ground.visible = false;
+          } else {
+            toggler.textContent = "شبكة";
+            grid.visible = false;
+            ground.visible = toggleVisibility.checked;
+          }
+        });
+
+        toggleVisibility.addEventListener("change", () => {
+          if (isGridSelected) {
+            grid.visible = toggleVisibility.checked;
+          } else {
+            ground.visible = toggleVisibility.checked;
+          }
+        });
+
+        directionalLight = new THREE.DirectionalLight(0xffffff, 0.45);
+        directionalLight.position.set(5, 5, 5);
+        directionalLight.castShadow = true;
+        scene.add(directionalLight);
+
+        ambientLight = new THREE.AmbientLight(0x969696, 1);
+        scene.add(ambientLight);
+
+        const backLight = new THREE.DirectionalLight(0xcecece, 0.5);
+        backLight.position.set(-1, 1, -1);
+        scene.add(backLight);
+
+        window.addEventListener("resize", onWindowResize);
+        window.addEventListener("dblclick", onDoubleClick);
+
+        setupSidebar();
+        function onWindowResize() {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(window.innerWidth, window.innerHeight);
+
+          // إعادة توسيط النموذج بعد تغيير الحجم
+          if (model) {
+            centerModelInScene();
+          }
+        }
+
+        document.addEventListener("click", function (event) {
+          const controls = document.querySelectorAll(".controls");
+          controls.forEach((control) => {
+            if (!control.contains(event.target)) {
+              control.style.display = "none";
+            }
+          });
+        });
+
+        document.getElementById("reset-model").addEventListener("click", function () {
+          const originalPosition = model.position.clone();
+          const originalRotation = model.rotation.clone();
+          const originalScale = model.scale.clone();
+
+          scene.remove(model);
+
+          model = defaultModel.clone();
+
+          model.position.copy(originalPosition);
+          model.rotation.copy(originalRotation);
+          model.scale.copy(originalScale);
+
+          model.traverse(function (child) {
+            if (child.isMesh) {
+              child.material = new THREE.MeshStandardMaterial({
+                color: 0xffffff,
+                metalness: 0.01,
+                roughness: 0.1,
+                envMapIntensity: 0.1
+              });
+            }
+          });
+
+          scene.add(model);
+
+          controls.update();
+        });
+
+        document.getElementById("reset-ground").addEventListener("click", function () {
+          ground.material.color.set(0xe7ecf3);
+          ground.material.map = null;
+          ground.material.needsUpdate = true;
+        });
+
+        document.getElementById("reset-background").addEventListener("click", function () {
+          scene.background = new THREE.Color(0x182949);
+        });
+      }
+
+      // تحديث حجم المُعرض عند تغيير حجم النافذة
+      function onWindowResize() {
+        const container = document.getElementById("threejs-container");
+        const width = container.clientWidth;
+        const height = container.clientHeight;
+
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height);
+
+        // إعادة توسيط النموذج بعد تغيير الحجم
+        if (model) {
+          centerModelInScene();
+        }
+      }
+      window.addEventListener("resize", onWindowResize, false);
+
+      function onDoubleClick(event) {
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+        raycaster.setFromCamera(mouse, camera);
+
+        const intersects = raycaster.intersectObjects([model, ground], true);
+
+        if (intersects.length > 0) {
+          const selectedObject = intersects[0].object;
+
+          document.querySelectorAll(".controls").forEach((control) => {
+            control.style.display = "none";
+          });
+
+          if (selectedObject === ground) {
+            selectedPart = ground;
+            document.getElementById("ground-controls").style.display = "block";
+            document.getElementById("ground-controls").style.left = `${event.clientX}px`;
+            document.getElementById("ground-controls").style.top = `${event.clientY}px`;
+          } else if (selectedObject === model || isPartOfModel(selectedObject)) {
+            selectedPart = selectedObject;
+            document.getElementById("model-controls").style.display = "block";
+            document.getElementById("model-controls").style.left = `${event.clientX}px`;
+            document.getElementById("model-controls").style.top = `${event.clientY}px`;
+          }
+        } else {
+          document.getElementById("background-controls").style.display = "block";
+          document.getElementById("background-controls").style.left = `${event.clientX}px`;
+          document.getElementById("background-controls").style.top = `${event.clientY}px`;
+        }
+      }
+
+      function isPartOfModel(object) {
+        let parent = object.parent;
+        while (parent !== null) {
+          if (parent === model) {
+            return true;
+          }
+          parent = parent.parent;
+        }
+        return false;
+      }
+
+      function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        if (rotationSpeed !== 0 && model) {
+          model.rotation.y += rotationSpeed;
+        }
+
+        if (fabricTexture) {
+          fabricTexture.needsUpdate = true;
+          if (printMesh) {
+            printMesh.material.map = fabricTexture;
+            printMesh.material.needsUpdate = true;
+          }
+        }
+
+        // تطبيق تأثيرات الحركة
+        if (swing && model) {
+          model.rotation.z = 0.1 * Math.sin(Date.now() * 0.005);
+        }
+        if (hover && model) {
+          model.position.y = 0.2 * Math.sin(Date.now() * 0.005);
+        }
+        if (jump && model) {
+          model.position.y = 0.5 * Math.abs(Math.sin(Date.now() * 0.1));
+        }
+
+        renderer.render(scene, camera);
+        if (capturerCCapture) {
+          capturerCCapture.capture(renderer.domElement);
+        }
+      }
+
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("active");
+      }
+
+      function setupSidebar() {
+        document.getElementById("light-vertical").addEventListener("input", (e) => {
+          directionalLight.position.y = parseFloat(e.target.value);
+        });
+
+        document.getElementById("table-light").addEventListener("input", (e) => {
+          directionalLight.intensity = parseFloat(e.target.value);
+        });
+
+        document.getElementById("fov").addEventListener("input", (e) => {
+          camera.fov = parseFloat(e.target.value) * 100;
+          camera.updateProjectionMatrix();
+        });
+
+        document.getElementById("color").addEventListener("input", (e) => {
+          const color = new THREE.Color(e.target.value);
+          model.traverse((child) => {
+            if (child.isMesh) {
+              child.material.color = color;
+            }
+          });
+        });
+
+        document.getElementById("metalness").addEventListener("input", (e) => {
+          model.traverse((child) => {
+            if (child.isMesh) {
+              child.material.metalness = parseFloat(e.target.value);
+            }
+          });
+        });
+
+        document.getElementById("roughness").addEventListener("input", (e) => {
+          model.traverse((child) => {
+            if (child.isMesh) {
+              child.material.roughness = parseFloat(e.target.value);
+            }
+          });
+        });
+
+        document.getElementById("env-intensity").addEventListener("input", (e) => {
+          model.traverse((child) => {
+            if (child.isMesh) {
+              child.material.envMapIntensity = parseFloat(e.target.value);
+            }
+          });
+        });
+
+        document.getElementById("model-x").addEventListener("input", (e) => {
+          model.position.x = parseFloat(e.target.value);
+        });
+
+        document.getElementById("model-y").addEventListener("input", (e) => {
+          model.position.y = parseFloat(e.target.value);
+        });
+
+        document.getElementById("model-z").addEventListener("input", (e) => {
+          model.position.z = parseFloat(e.target.value);
+        });
+
+        document.getElementById("ground-y").addEventListener("input", (e) => {
+          ground.position.y = parseFloat(e.target.value);
+        });
+
+        document.getElementById("camera-x").addEventListener("input", (e) => {
+          camera.position.x = parseFloat(e.target.value);
+        });
+
+        document.getElementById("camera-y").addEventListener("input", (e) => {
+          camera.position.y = parseFloat(e.target.value);
+        });
+
+        document.getElementById("camera-z").addEventListener("input", (e) => {
+          camera.position.z = parseFloat(e.target.value);
+        });
+      }
+
+      init();
+      animate();
+
+      // استدعاء دالة تغيير الحجم وتوسيط النموذج بعد تحميل الصفحة
+      window.addEventListener("load", function () {
+        onWindowResize();
+
+        // ضمان تحديث النموذج بعد تحميل الصفحة بالكامل
+        setTimeout(function () {
+          if (model) {
+            centerModelInScene();
+          }
+        }, 500);
+      });
+
+      function isPartOfModel(object) {
+        let parent = object.parent;
+        while (parent !== null) {
+          if (parent === model) {
+            return true;
+          }
+          parent = parent.parent;
+        }
+        return false;
+      }
+
+      function hideAllControls() {
+        document.querySelectorAll(".controls").forEach((control) => {
+          control.style.display = "none";
+        });
+      }
+
+      function showControl(controlId, x, y) {
+        hideAllControls();
+        const control = document.getElementById(controlId);
+        control.style.left = x + "px";
+        control.style.top = y + "px";
+        control.style.display = "block";
+      }
+
+      function handleInteraction(clientX, clientY) {
+        mouse.x = (clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(clientY / window.innerHeight) * 2 + 1;
+        raycaster.setFromCamera(mouse, camera);
+
+        const intersects = raycaster.intersectObjects([model, ground], true);
+        if (intersects.length > 0) {
+          const selectedObject = intersects[0].object;
+          hideAllControls();
+          if (selectedObject === ground) {
+            selectedPart = ground;
+            showControl("ground-controls", clientX, clientY);
+          } else if (selectedObject === model || isPartOfModel(selectedObject)) {
+            selectedPart = selectedObject;
+            showControl("model-controls", clientX, clientY);
+          }
+        } else {
+          hideAllControls();
+          showControl("background-controls", clientX, clientY);
+        }
+      }
+
+      function onDoubleClick(event) {
+        handleInteraction(event.clientX, event.clientY);
+      }
+      document.addEventListener("dblclick", onDoubleClick, false);
+
+      const hammer = new Hammer(document.body);
+      hammer.get("doubletap").set({ taps: 2 });
+      hammer.get("press").set({ time: 500 });
+      hammer.on("doubletap press", function (ev) {
+        handleInteraction(ev.center.x, ev.center.y);
+      });
+
+      document.getElementById("model-color-picker").addEventListener("input", function (event) {
+        const color = event.target.value;
+        if (selectedPart) {
+          if (!selectedPart.material.isCloned) {
+            selectedPart.material = selectedPart.material.clone();
+            selectedPart.material.isCloned = true;
+          }
+          selectedPart.material.color.set(color);
+        }
+      });
+
+      document.getElementById("model-texture-picker").addEventListener("click", function () {
+        document.getElementById("model-texture-input").click();
+      });
+
+      document.getElementById("model-texture-input").addEventListener("change", function (event) {
+        const file = event.target.files[0];
+        if (file && selectedPart) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            loader.load(e.target.result, function (texture) {
+              texture.flipY = false;
+              if (!selectedPart.material.isCloned) {
+                selectedPart.material = selectedPart.material.clone();
+                selectedPart.material.isCloned = true;
+              }
+              selectedPart.material.color.set("#ffffff");
+              selectedPart.material.map = texture;
+              selectedPart.material.needsUpdate = true;
+            });
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      const groundColorPicker = document.getElementById("ground-color-picker");
+
+      function updateGroundColor() {
+        const color = groundColorPicker.value;
+        ground.material.color.set(color);
+      }
+
+      groundColorPicker.addEventListener("input", updateGroundColor);
+      groundColorPicker.addEventListener("change", updateGroundColor);
+      groundColorPicker.addEventListener("touchend", function () {
+        setTimeout(updateGroundColor, 100);
+      });
+
+      document.getElementById("ground-texture-picker").addEventListener("click", function () {
+        document.getElementById("ground-texture-input").click();
+      });
+
+      document.getElementById("ground-texture-input").addEventListener("change", function (event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            loader.load(e.target.result, function (texture) {
+              texture.flipY = true;
+              ground.material.map = texture;
+              ground.material.needsUpdate = true;
+            });
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      document.getElementById("background-color-picker").addEventListener("input", function (event) {
+        const color = event.target.value;
+        scene.background = new THREE.Color(color);
+      });
+
+      document.getElementById("background-image-picker").addEventListener("click", function () {
+        document.getElementById("background-image-input").click();
+      });
+
+      document.getElementById("background-image-input").addEventListener("change", function (event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            loader.load(e.target.result, function (texture) {
+              texture.flipY = true;
+              scene.background = texture;
+            });
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      document.getElementById("reset-model").addEventListener("click", function () {
+        const originalPosition = model.position.clone();
+        const originalRotation = model.rotation.clone();
+        const originalScale = model.scale.clone();
+
+        scene.remove(model);
+
+        model = defaultModel.clone();
+
+        model.position.copy(originalPosition);
+        model.rotation.copy(originalRotation);
+        model.scale.copy(originalScale);
+
+        model.traverse(function (child) {
+          if (child.isMesh) {
+            child.material = new THREE.MeshStandardMaterial({
+              color: 0xffffff,
+              metalness: 0.01,
+              roughness: 0.1,
+              envMapIntensity: 0.2
+            });
+          }
+        });
+
+        scene.add(model);
+      });
+
+      document.getElementById("reset-ground").addEventListener("click", function () {
+        ground.material.color.set(0xffffff);
+        ground.material.map = null;
+        ground.material.needsUpdate = true;
+      });
+
+      document.getElementById("reset-background").addEventListener("click", function () {
+        scene.background = new THREE.Color(0x182949);
+      });
+
+      function animate() {
+        requestAnimationFrame(animate);
+        if (model && rotationSpeed !== 0) {
+          model.rotation.y += rotationSpeed;
+        }
+        controls.update();
+        renderer.render(scene, camera);
+        if (capturerCCapture) {
+          capturerCCapture.capture(renderer.domElement);
+        }
+
+        if (fabricTexture) {
+          fabricTexture.needsUpdate = true;
+          if (printMesh) {
+            printMesh.material.map = fabricTexture;
+            printMesh.material.needsUpdate = true;
+          }
+        }
+
+        // تطبيق تأثيرات الحركة
+        if (swing && model) {
+          model.rotation.z = 0.1 * Math.sin(Date.now() * 0.005);
+        }
+        if (hover && model) {
+          model.position.y = 0.2 * Math.sin(Date.now() * 0.005);
+        }
+        if (jump && model) {
+          model.position.y = 0.5 * Math.abs(Math.sin(Date.now() * 0.1));
+        }
+
+        renderer.render(scene, camera);
+        if (capturerCCapture) {
+          capturerCCapture.capture(renderer.domElement);
+        }
+      }
+      animate();
+
+      // =============================
+      // تكامل fabric.js مع الوظائف المطلوبة (النصوص، الصور والفلاتر)
+      // =============================
+      let fabricCanvas;
+
+      let croppingRect = null;
+      let selectedObject = null;
+      let isCropping = false;
+
+      // Set up event listeners
+      document.getElementById("startCrop").addEventListener("click", startCropping);
+      document.getElementById("crop").addEventListener("click", executeCrop);
+
+      function startCropping() {
+        // Get the active object on canvas
+        selectedObject = fabricCanvas.getActiveObject();
+
+        if (!selectedObject) {
+          alert("يرجى تحديد صورة على القماش أولاً");
+          return;
+        }
+
+        if (selectedObject.type !== "image") {
+          alert("يمكن قص الصور فقط");
+          return;
+        }
+
+        isCropping = true;
+
+        // Create cropping rectangle
+        croppingRect = new fabric.Rect({
+          width: selectedObject.width * selectedObject.scaleX,
+          height: selectedObject.height * selectedObject.scaleY,
+          left: selectedObject.left,
+          top: selectedObject.top,
+          fill: "rgba(0,0,0,0.3)",
+          stroke: "#d3a77b",
+          strokeWidth: 2,
+          strokeDashArray: [5, 5],
+          selectable: true,
+          hasControls: true,
+          lockRotation: true
+        });
+
+        fabricCanvas.add(croppingRect);
+        fabricCanvas.setActiveObject(croppingRect);
+        document.getElementById("crop").style.display = "inline-block";
+      }
+
+      function executeCrop() {
+        if (!croppingRect || !selectedObject) return;
+
+        // Calculate crop dimensions
+        const scale = 1 / selectedObject.scaleX;
+        const cropX = (croppingRect.left - selectedObject.left) * scale;
+        const cropY = (croppingRect.top - selectedObject.top) * scale;
+        const cropWidth = croppingRect.width * scale;
+        const cropHeight = croppingRect.height * scale;
+
+        // Create cropped image
+        fabric.Image.fromURL(selectedObject.getSrc(), function (img) {
+          img.set({
+            left: croppingRect.left,
+            top: croppingRect.top,
+            cropX: cropX,
+            cropY: cropY,
+            width: cropWidth,
+            height: cropHeight
+          });
+
+          fabricCanvas.remove(selectedObject);
+          fabricCanvas.remove(croppingRect);
+          fabricCanvas.add(img);
+          fabricCanvas.renderAll();
+
+          // Reset cropping state
+          isCropping = false;
+          croppingRect = null;
+          selectedObject = null;
+          document.getElementById("crop").style.display = "none";
+        });
+      }
+
+      let imageObj; // Track the main image object on the Fabric canvas
+      const stateStack = [];
+      let currentStateIndex = -1;
+
+      function saveState() {
+        if (!fabricCanvas) return;
+        const json = fabricCanvas.toJSON();
+        // Remove any redo history once a new operation is recorded
+        stateStack.splice(currentStateIndex + 1);
+        stateStack.push(json);
+        currentStateIndex++;
+      }
+
+      function loadState(index) {
+        if (index >= 0 && index < stateStack.length) {
+          fabricCanvas.loadFromJSON(stateStack[index], () => {
+            fabricCanvas.renderAll();
+            // update reference to first image object if available
+            imageObj = fabricCanvas.getObjects().find((obj) => obj.type === "image");
+          });
+        }
+      }
+
+      // Automatically keep history whenever objects are added or modified
+      if (typeof fabricCanvas !== "undefined") {
+        fabricCanvas.on("object:modified", saveState);
+        fabricCanvas.on("object:added", saveState);
+      }
+
+      function initFabricCanvas() {
+        if (!fabricCanvas) {
+          const editorContainer = document.getElementById("image-editor-container");
+          const editorHeight = editorContainer.offsetHeight;
+          fabricCanvas = new fabric.Canvas("3dcanvas", {
+            width: window.innerWidth,
+            height: editorHeight,
+            backgroundColor: "rgba(255,255,255,0.8)"
+          });
+          fabricTexture = new THREE.CanvasTexture(fabricCanvas.lowerCanvasEl);
+          fabricTexture.flipY = false;
+          if (printMesh) {
+            printMesh.material.map = fabricTexture;
+            printMesh.material.needsUpdate = true;
+          }
+
+          // Initialize FabricHistory with the canvas
+          if (typeof App !== "undefined" && App.FabricHistory) {
+            App.FabricHistory.init(fabricCanvas);
+
+            // Connect undo/redo buttons
+            const undoBtn = document.getElementById("undoBtn");
+            const redoBtn = document.getElementById("redoBtn");
+
+            if (undoBtn) {
+              undoBtn.addEventListener("click", function () {
+                App.FabricHistory.undo();
+              });
+            }
+
+            if (redoBtn) {
+              redoBtn.addEventListener("click", function () {
+                App.FabricHistory.redo();
+              });
+            }
+
+            // Add keyboard shortcuts
+            document.addEventListener("keydown", function (e) {
+              // Check for Ctrl+Z (undo) or Cmd+Z on Mac
+              if ((e.ctrlKey || e.metaKey) && e.key === "z") {
+                if (e.shiftKey) {
+                  // Ctrl+Shift+Z or Cmd+Shift+Z for redo
+                  App.FabricHistory.redo();
+                } else {
+                  // Ctrl+Z or Cmd+Z for undo
+                  App.FabricHistory.undo();
+                }
+                e.preventDefault();
+              }
+              // Check for Ctrl+Y for redo (Windows/Linux)
+              else if (e.ctrlKey && e.key === "y") {
+                App.FabricHistory.redo();
+                e.preventDefault();
+              }
+            });
+          }
+          fabricCanvas.on("selection:created", function (e) {
+            const activeObject = fabricCanvas.getActiveObject();
+            if (activeObject) {
+              if (activeObject.type === "i-text") {
+                document.getElementById("floating-menu").style.display = "block";
+                document.getElementById("floating-menu").style.display = "none";
+              } else if (activeObject.type === "image") {
+                document.getElementById("floating-menu").style.display = "block";
+                document.getElementById("floating-menu").style.display = "none";
+              }
+            }
+          });
+          fabricCanvas.on("selection:updated", function (e) {
+            const activeObject = fabricCanvas.getActiveObject();
+            if (activeObject) {
+              if (activeObject.type === "i-text") {
+                document.getElementById("floating-menu").style.display = "block";
+                document.getElementById("floating-menu").style.display = "none";
+              } else if (activeObject.type === "image") {
+                document.getElementById("floating-menu").style.display = "block";
+                document.getElementById("floating-menu").style.display = "none";
+              }
+            }
+          });
+          fabricCanvas.on("selection:cleared", function () {
+            document.getElementById("floating-menu").style.display = "none";
+            document.getElementById("floating-menu").style.display = "none";
+          });
+        }
+      }
+
+      function showFabricEditor() {
+        const editorContainer = document.getElementById("image-editor-container");
+        if (editorContainer.style.display !== "block") {
+          editorContainer.style.display = "block";
+          initFabricCanvas();
+        }
+      }
+      // =============================
+      // Fabric.js History Management
+      // =============================
+
+      // Initialize FabricHistory namespace
+      window.App = window.App || {};
+
+      App.FabricHistory = (function () {
+        let canvas;
+        const undoStack = [];
+        const redoStack = [];
+        const maxHistory = 20; // Reduced from 50 to save memory
+
+        // Initialize with fabric canvas
+        function init(fabricCanvas) {
+          canvas = fabricCanvas;
+
+          // Set up event listeners
+          setupEventListeners();
+
+          // Save initial state
+          saveState();
+        }
+
+        // Set up event listeners for canvas changes
+        function setupEventListeners() {
+          if (!canvas) return;
+
+          // Save state on important events
+          canvas.on("object:added", saveState);
+          canvas.on("object:modified", saveState);
+          canvas.on("object:removed", saveState);
+
+          // Save state on object transformations
+          canvas.on("object:moving", saveState);
+          canvas.on("object:scaling", saveState);
+          canvas.on("object:rotating", saveState);
+          canvas.on("object:skewing", saveState);
+        }
+
+        // Save current canvas state
+        function saveState() {
+          if (!canvas) return;
+
+          // Don't save state during undo/redo operations
+          if (window.isUndoRedoInProgress) return;
+
+          try {
+            const json = canvas.toJSON(["selectable", "evented"]);
+            undoStack.push(json);
+
+            // Limit stack size
+            if (undoStack.length > maxHistory) {
+              undoStack.shift();
+            }
+
+            // Clear redo stack when a new action is performed
+            redoStack.length = 0;
+
+            updateButtonStates();
+          } catch (error) {
+            console.error("Error saving canvas state:", error);
+          }
+        }
+
+        // Undo last action
+        function undo() {
+          if (undoStack.length < 2) return; // Need at least 2 states to undo
+
+          try {
+            window.isUndoRedoInProgress = true;
+
+            // Save current state to redo stack
+            const currentState = undoStack.pop();
+            redoStack.push(currentState);
+
+            // Get the previous state
+            const previousState = undoStack[undoStack.length - 1];
+
+            // Apply the previous state
+            if (previousState) {
+              canvas.loadFromJSON(previousState, function () {
+                canvas.renderAll();
+                updateButtonStates();
+                window.isUndoRedoInProgress = false;
+              });
+            }
+          } catch (error) {
+            console.error("Error during undo:", error);
+            window.isUndoRedoInProgress = false;
+          }
+        }
+
+        // Redo last undone action
+        function redo() {
+          if (redoStack.length === 0) return;
+
+          try {
+            window.isUndoRedoInProgress = true;
+
+            // Get the next state
+            const nextState = redoStack.pop();
+
+            // Apply the next state
+            if (nextState) {
+              undoStack.push(nextState);
+              canvas.loadFromJSON(nextState, function () {
+                canvas.renderAll();
+                updateButtonStates();
+                window.isUndoRedoInProgress = false;
+              });
+            }
+          } catch (error) {
+            console.error("Error during redo:", error);
+            window.isUndoRedoInProgress = false;
+          }
+        }
+
+        // Update button states based on stack sizes
+        function updateButtonStates() {
+          const undoBtn = document.getElementById("undoBtn");
+          const redoBtn = document.getElementById("redoBtn");
+
+          if (undoBtn) {
+            undoBtn.disabled = undoStack.length < 2;
+            undoBtn.style.opacity = undoStack.length < 2 ? "0.5" : "1";
+          }
+
+          if (redoBtn) {
+            redoBtn.disabled = redoStack.length === 0;
+            redoBtn.style.opacity = redoStack.length === 0 ? "0.5" : "1";
+          }
+        }
+
+        return {
+          init: init,
+          saveState: saveState,
+          undo: undo,
+          redo: redo
+        };
+      })();
+
+      // Initialize when document is ready
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize FabricHistory with the fabric canvas
+        if (typeof fabricCanvas !== "undefined") {
+          App.FabricHistory.init(fabricCanvas);
+        }
+
+        // Set up keyboard shortcuts
+        document.addEventListener("keydown", function (e) {
+          if (e.ctrlKey && e.key === "z" && !e.shiftKey) {
+            e.preventDefault();
+            App.FabricHistory.undo();
+          } else if ((e.ctrlKey && e.key === "y") || (e.ctrlKey && e.shiftKey && e.key === "Z")) {
+            e.preventDefault();
+            App.FabricHistory.redo();
+          }
+        });
+
+        // Initial button states
+        if (typeof App.FabricHistory.updateButtonStates === "function") {
+          App.FabricHistory.updateButtonStates();
+        }
+      });
+
+      // دالة لتحديث الخط الخاص بكائن النص في لوحة fabric.js
+      function updateFabricTextFont(font) {
+        if (fabricCanvas) {
+          let activeObject = fabricCanvas.getActiveObject();
+          // إذا كان هناك نص نشط بالفعل، نقوم بتحديث خاصية fontFamily
+          if (activeObject && activeObject.type === "i-text") {
+            activeObject.set({ fontFamily: font });
+            fabricCanvas.renderAll();
+          } else {
+            // إذا لم يكن هناك نص نشط، نقوم بإنشاء كائن نص جديد في منتصف اللوحة
+            const textObj = new fabric.IText(sampleText, {
+              left: fabricCanvas.getWidth() * 0.85, // 85% من العرض
+              top: fabricCanvas.getHeight() / 2, // 50% من الارتفاع
+              fontFamily: font,
+              fontSize: 40,
+              originX: "center",
+              originY: "center",
+              fill: "black"
+            });
+            fabricCanvas.add(textObj);
+            fabricCanvas.setActiveObject(textObj);
+            fabricCanvas.renderAll();
+          }
+        }
+      }
+
+      // إضافة وظائف تغيير الخط عند التحويم والنقر على أزرار الخطوط
+      const fontButtons = document.querySelectorAll(".font-btn");
+      fontButtons.forEach((button) => {
+        button.addEventListener("mouseover", function () {
+          const font = this.getAttribute("data-font");
+          updateFabricTextFont(font);
+        });
+        button.addEventListener("click", function () {
+          const font = this.getAttribute("data-font");
+          updateFabricTextFont(font);
+        });
+      });
+
+      // إغلاق القوائم عند النقر خارجها
+
+      document.addEventListener("click", function (e) {
+        const editorContainer = document.getElementById("image-editor-container");
+        const bottomBar = document.getElementById("bottom-bar");
+        const floatingMenu = document.getElementById("floating-menu");
+        const stickersPanel = document.getElementById("stickers-panel");
+        const fontButtonsContainer = document.getElementById("font-buttons-container");
+        const filterButtonsContainer = document.getElementById("filter-buttons-container");
+        const modelListOverlay = document.getElementById("model-list-overlay");
+        if (
+          modelListOverlay.style.display === "block" &&
+          !document.getElementById("model-list-container").contains(e.target)
+        ) {
+          modelListOverlay.style.display = "none";
+        }
+        if (
+          !editorContainer.contains(e.target) &&
+          !bottomBar.contains(e.target) &&
+          !floatingMenu.contains(e.target) &&
+          !stickersPanel.contains(e.target) &&
+          !fontButtonsContainer.contains(e.target) &&
+          !filterButtonsContainer.contains(e.target)
+        ) {
+          editorContainer.style.display = "none";
+          floatingMenu.style.display = "none";
+          stickersPanel.style.display = "none";
+          fontButtonsContainer.style.display = "none";
+          filterButtonsContainer.style.display = "none";
+        }
+      });
+
+      // منع انتشار الحدث داخل القوائم نفسها
+      document.querySelectorAll(".controls, .floating-menu, .panel, .sidebar").forEach((menu) => {
+        menu.addEventListener("click", function (event) {
+          event.stopPropagation();
+        });
+      });
+      // زر "إضافة نصوص"
+      document.getElementById("add-text-btn").addEventListener("click", function (e) {
+        e.stopPropagation();
+        showFabricEditor();
+
+        const textContent = "نص افتراضي";
+        const fabricText = new fabric.IText(textContent, {
+          fill: "#000",
+          fontSize: 50
+        });
+
+        // أضف النص مؤقتًا لحساب أبعاده
+        fabricCanvas.add(fabricText);
+
+        // احسب المركز بناءً على حجم الـ canvas وحجم النص
+        const canvasCenter = {
+          x: fabricCanvas.getWidth() / 2,
+          y: fabricCanvas.getHeight() / 2
+        };
+
+        fabricText.set({
+          left: canvasCenter.x - fabricText.width / 2,
+          top: canvasCenter.y - fabricText.height / 2
+        });
+
+        fabricCanvas.setActiveObject(fabricText);
+        fabricCanvas.renderAll();
+      });
+
+      // زر "إضافة صور" (تحميل عدة // Function to handle the "add images" button click
+      document.getElementById("add-images-btn").addEventListener("click", function (e) {
+        e.stopPropagation(); // Prevent default event propagation
+        showFabricEditor(); // Show fabric editor (function assumed to be defined elsewhere)
+        document.getElementById("upload-btn").click(); // Trigger file upload dialog
+      });
+
+      document.getElementById("upload-btn").addEventListener("change", function (e) {
+        if (!fabricCanvas) return;
+
+        const files = e.target.files;
+        for (let i = 0; i < files.length; i++) {
+          const reader = new FileReader();
+          reader.onload = function (f) {
+            const data = f.target.result;
+
+            fabric.Image.fromURL(
+              data,
+              function (img) {
+                const canvasWidth = fabricCanvas.getWidth();
+                const canvasHeight = fabricCanvas.getHeight();
+
+                const imgOriginalWidth = img.width;
+                const imgOriginalHeight = img.height;
+
+                // ✅ احسب نسبة التصغير للحفاظ على الأبعاد داخل القماش
+                const scaleX = canvasWidth / imgOriginalWidth;
+                const scaleY = canvasHeight / imgOriginalHeight;
+                const scale = Math.min(scaleX, scaleY); // الحفاظ على النسبة
+
+                // ✅ طبق التصغير بدقة
+                img.set({
+                  scaleX: scale,
+                  scaleY: scale,
+                  left: (canvasWidth - imgOriginalWidth * scale) / 2,
+                  top: (canvasHeight - imgOriginalHeight * scale) / 2,
+                  selectable: true, // يمكنك تغييره حسب الحاجة
+                  hasControls: true,
+                  hasBorders: true
+                });
+
+                // ✅ أضف الصورة للقماش
+                fabricCanvas.add(img);
+                fabricCanvas.renderAll();
+              },
+              { crossOrigin: "anonymous" }
+            ); // لتفادي مشاكل CORS عند رفع صور من الإنترنت
+          };
+          reader.readAsDataURL(files[i]);
+        }
+      });
+
+      // زر "عرض القماشة"
+      document.getElementById("toggle-canvas-btn").addEventListener("click", function (e) {
+        e.stopPropagation();
+        const editorContainer = document.getElementById("image-editor-container");
+        if (editorContainer.style.display === "block") {
+          editorContainer.style.display = "none";
+        } else {
+          editorContainer.style.display = "block";
+          initFabricCanvas();
+        }
+      });
+      document.addEventListener("click", function (event) {
+        const container = document.getElementById("image-editor-container");
+
+        // إذا لم يكن الحاوية موجودة، لا تفعل شيء
+        if (!container) return;
+
+        // تحقق هل الضغط تم داخل الحاوية
+        const isClickInside = container.contains(event.target);
+
+        if (!isClickInside) {
+          container.style.display = "none"; // إخفاء الحاوية
+        }
+      });
+      // زر "ستيكرات"
+      document.getElementById("add-stickers-btn").addEventListener("click", function (e) {
+        e.stopPropagation();
+        const stickersPanel = document.getElementById("stickers-panel");
+        stickersPanel.style.display = stickersPanel.style.display === "block" ? "none" : "block";
+      });
+
+      // عند النقر على أي صورة من الستكرات
+      document.querySelectorAll("#stickers-panel .sticker-item").forEach(function (sticker) {
+        sticker.addEventListener("click", function (e) {
+          e.stopPropagation();
+          const stickerUrl = this.src;
+
+          fabric.Image.fromURL(stickerUrl, function (img) {
+            // ضبط مقياس الملصق
+            img.scale(0.1);
+
+            // ضبط نقطة الأصل إلى المركز
+            img.set({
+              originX: "center",
+              originY: "center",
+              left: fabricCanvas.getWidth() * 0.85, // 85% من العرض
+              top: fabricCanvas.getHeight() / 2 // 50% من الارتفاع
+            });
+
+            fabricCanvas.add(img);
+            fabricCanvas.renderAll();
+          });
+        });
+      });
+
+      // وظائف القائمة العائمة للنصوص
+      document.getElementById("btn-bring-front").addEventListener("click", function (e) {
+        e.stopPropagation();
+        const obj = fabricCanvas.getActiveObject();
+        if (obj) {
+          fabricCanvas.bringToFront(obj);
+          fabricCanvas.renderAll();
+        }
+      });
+      document.getElementById("btn-send-back").addEventListener("click", function (e) {
+        e.stopPropagation();
+        const obj = fabricCanvas.getActiveObject();
+        if (obj) {
+          fabricCanvas.sendToBack(obj);
+          fabricCanvas.renderAll();
+        }
+      });
+      document.getElementById("btn-copy").addEventListener("click", function (e) {
+        e.stopPropagation();
+        const obj = fabricCanvas.getActiveObject();
+        if (obj) {
+          obj.clone(function (cloned) {
+            cloned.set({ left: obj.left + 20, top: obj.top + 20 });
+            fabricCanvas.add(cloned);
+            fabricCanvas.setActiveObject(cloned);
+            fabricCanvas.renderAll();
+          });
+        }
+      });
+      document.getElementById("btn-delete").addEventListener("click", function (e) {
+        e.stopPropagation();
+        const obj = fabricCanvas.getActiveObject();
+        if (obj) {
+          fabricCanvas.remove(obj);
+          fabricCanvas.renderAll();
+        }
+      });
+
+      // Handle text color button click
+      document.getElementById("btn-text-color").addEventListener("click", function (e) {
+        e.stopPropagation();
+        const activeObject = fabricCanvas.getActiveObject();
+        if (activeObject && activeObject.type === "i-text") {
+          const picker = document.getElementById("color-picker");
+          const pickerContainer = document.getElementById("color-picker");
+
+          // Toggle picker visibility
+          if (pickerContainer.style.display === "block") {
+            pickerContainer.style.display = "none";
+            return;
+          }
+
+          // Position the picker near the button
+          const btnRect = this.getBoundingClientRect();
+          pickerContainer.style.display = "block";
+          pickerContainer.style.position = "absolute";
+          pickerContainer.style.top = btnRect.bottom + window.scrollY + 5 + "px";
+          pickerContainer.style.left = btnRect.left + window.scrollX + "px";
+
+          // Set current color if exists
+          if (activeObject.fill) {
+            picker.value = activeObject.fill;
+          }
+
+          // Focus the color picker for better UX
+          picker.focus();
+        }
+      });
+
+      // Handle color picker changes
+      document.getElementById("color-picker").addEventListener("input", function (e) {
+        const activeObject = fabricCanvas.getActiveObject();
+        if (activeObject && activeObject.type === "i-text") {
+          activeObject.set({
+            fill: e.target.value,
+            dirty: true
+          });
+          fabricCanvas.renderAll();
+        }
+      });
+
+      // Close color picker when clicking outside
+      document.addEventListener("click", function (e) {
+        const pickerContainer = document.getElementById("color-picker");
+        const colorBtn = document.getElementById("btn-text-color");
+
+        if (
+          pickerContainer &&
+          pickerContainer.style.display === "block" &&
+          e.target !== colorBtn &&
+          !colorBtn.contains(e.target) &&
+          e.target !== pickerContainer &&
+          !pickerContainer.contains(e.target)
+        ) {
+          pickerContainer.style.display = "none";
+        }
+      });
+
+      document.getElementById("btn-font").addEventListener("click", function (e) {
+        e.stopPropagation();
+        const activeObject = fabricCanvas.getActiveObject();
+        if (activeObject && activeObject.type === "i-text") {
+          document.getElementById("font-buttons-container").style.display = "flex";
+        }
+      });
+      document.querySelectorAll("#font-buttons-container .font-btn").forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          const font = this.getAttribute("data-font");
+          const activeObject = fabricCanvas.getActiveObject();
+          if (activeObject && activeObject.type === "i-text") {
+            activeObject.set("fontFamily", font);
+            fabricCanvas.renderAll();
+          }
+          document.getElementById("font-buttons-container").style.display = "none";
+        });
+      });
+
+      // --- وظائف التحكم في النموذج (الجانب الأيمن) ---
+      document.getElementById("btn-model-swing").addEventListener("click", function () {
+        swing = !swing;
+      });
+      document.getElementById("btn-model-hover").addEventListener("click", function () {
+        hover = !hover;
+      });
+      document.getElementById("btn-model-jump").addEventListener("click", function () {
+        jump = true;
+        setTimeout(() => {
+          jump = false;
+        }, 500);
+      });
+      document.getElementById("btn-model-rotate").addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (rotationSpeed === 0) {
+          rotationSpeed = 0.01;
+          this.classList.add("active");
+          // إزالة حالة التنشيط من الأزرار الأخرى
+          document.getElementById("btn-model-reverse").classList.remove("active");
+          document.getElementById("btn-scene-rotate").classList.remove("active");
+          // إيقاف دوران المشهد
+          controls.autoRotate = false;
+        } else {
+          rotationSpeed = 0;
+          this.classList.remove("active");
+        }
+      });
+      document.getElementById("btn-model-reverse").addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (rotationSpeed === 0) {
+          rotationSpeed = -0.01;
+          this.classList.add("active");
+          // إزالة حالة التنشيط من الأزرار الأخرى
+          document.getElementById("btn-model-rotate").classList.remove("active");
+          document.getElementById("btn-scene-rotate").classList.remove("active");
+          // إيقاف دوران المشهد
+          controls.autoRotate = false;
+        } else {
+          rotationSpeed = 0;
+          this.classList.remove("active");
+        }
+      });
+      document.getElementById("btn-scene-rotate").addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (!controls.autoRotate) {
+          // تشغيل دوران المشهد
+          controls.autoRotate = true;
+          controls.autoRotateSpeed = 5;
+          this.classList.add("active");
+          // إزالة حالة التنشيط من الأزرار الأخرى وإيقاف دوران النموذج
+          document.getElementById("btn-model-rotate").classList.remove("active");
+          document.getElementById("btn-model-reverse").classList.remove("active");
+          rotationSpeed = 0;
+        } else {
+          // إيقاف دوران المشهد
+          controls.autoRotate = false;
+          this.classList.remove("active");
+        }
+      });
+
+      // =============================
+      // إضافة وظائف قائمة الفلاتر
+      // =============================
+      // 🧠 قائمة الفلاتر نفسها
+      const filterList = {
+        Grayscale: new fabric.Image.filters.Grayscale(),
+        Invert: new fabric.Image.filters.Invert(),
+        Sepia: new fabric.Image.filters.Sepia(),
+        Brightness: new fabric.Image.filters.Brightness({ brightness: 0.2 }),
+        Contrast: new fabric.Image.filters.Contrast({ contrast: 0.3 }),
+        Saturation: new fabric.Image.filters.Saturation({ saturation: 0.3 }),
+        HueRotation: new fabric.Image.filters.HueRotation({ rotation: 1 }),
+        Noise: new fabric.Image.filters.Noise({ noise: 200 }),
+        Pixelate: new fabric.Image.filters.Pixelate({ blocksize: 10 }),
+        Blur: new fabric.Image.filters.Blur({ blur: 0.5 }),
+        Sharpen: new fabric.Image.filters.Convolute({
+          matrix: [0, -1, 0, -1, 5, -1, 0, -1, 0]
+        }),
+        Emboss: new fabric.Image.filters.Convolute({
+          matrix: [-2, -1, 0, -1, 1, 1, 0, 1, 2]
+        }),
+        Brownie: new fabric.Image.filters.Brownie(),
+        Vintage: new fabric.Image.filters.Vintage(),
+        Technicolor: new fabric.Image.filters.Technicolor(),
+        Kodachrome: new fabric.Image.filters.Kodachrome(),
+        Polaroid: new fabric.Image.filters.Polaroid(),
+        RemoveColor: new fabric.Image.filters.RemoveColor({ color: "#00f" }),
+        BlendColor: new fabric.Image.filters.BlendColor({
+          color: "#f00",
+          mode: "multiply"
+        }),
+        Gamma: new fabric.Image.filters.Gamma({ gamma: [0.9, 0.8, 0.8] })
+      };
+
+      // 🖼️ توليد واجهة مصغرات الفلاتر
+      (function initFilterSliderWithLabels() {
+        const slider = document.getElementById("filterSlider");
+        if (!slider) return;
+        slider.innerHTML = "";
+
+        Object.entries(filterList).forEach(([name, filter]) => {
+          // الغلاف الخارجي
+          const wrapper = document.createElement("div");
+          wrapper.style.display = "flex";
+          wrapper.style.flexDirection = "column";
+          wrapper.style.alignItems = "center";
+          wrapper.style.width = "80px";
+          wrapper.style.textAlign = "center";
+
+          // الصورة المصغرة
+          const img = document.createElement("img");
+          img.src = `img/filters/${name.toLowerCase()}.jpg`;
+          img.alt = name;
+          img.title = `تأثير: ${name}`;
+          img.style.width = "64px";
+          img.style.height = "64px";
+          img.style.borderRadius = "8px";
+          img.style.border = "2px solid transparent";
+          img.style.cursor = "pointer";
+          img.style.transition = "border-color 0.3s ease";
+
+          img.addEventListener("mouseenter", () => {
+            img.style.borderColor = "#d3a77b";
+          });
+          img.addEventListener("mouseleave", () => {
+            img.style.borderColor = "transparent";
+          });
+
+          img.addEventListener("click", () => {
+            const obj = fabricCanvas?.getActiveObject();
+            if (!obj || obj.type !== "image") return;
+            const freshFilter = filter.clone ? filter.clone() : new filter.constructor(filter);
+            obj.filters = [freshFilter];
+            obj.applyFilters();
+            fabricCanvas.renderAll();
+            saveState();
+          });
+
+          // اسم الفلتر
+          const label = document.createElement("div");
+          label.textContent = name;
+          label.style.fontSize = "12px";
+          label.style.color = "#d3a77b"; // اللون المطلوب
+          label.style.marginTop = "6px";
+          label.style.direction = "ltr";
+          label.style.whiteSpace = "nowrap";
+
+          wrapper.appendChild(img);
+          wrapper.appendChild(label);
+          slider.appendChild(wrapper);
+        });
+      })();
+
+      // =============================
+      // إضافة وظائف القص Crop
+      // =============================
+      const startCrop = document.getElementById("startCrop");
+
+      // زر إظهار/إخفاء أشرطة الفلاتر والقص
+      // زر إظهار/إخفاء الشريط
+      const filterToggleBtn = document.getElementById("filterToggle");
+      if (filterToggleBtn) {
+        filterToggleBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          const slider = document.getElementById("filterSlider");
+          if (!slider) return;
+          slider.style.display = slider.style.display === "none" || slider.style.display === "" ? "flex" : "none";
+        });
+      }
+
+      document.querySelectorAll("#filter-buttons-container button").forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          const filterType = this.getAttribute("data-filter");
+          applyFilter(filterType);
+        });
+      });
+
+      // فحص ما إذا كان المستخدم مشتركًا أم لا
+      function checkUserSubscription() {
+        // التحقق من وجود معرف الاشتراك في الكوكيز أو الجلسة
+        const subscriptionId = localStorage.getItem("subscription_id") || sessionStorage.getItem("subscription_id");
+
+        // إذا كان هناك معرف اشتراك، فهذا يعني أن المستخدم مشترك
+        if (subscriptionId && subscriptionId !== "" && !subscriptionId.startsWith("TEST-")) {
+          return true;
+        }
+
+        // إذا كان المستخدم مسجل الدخول، يمكن التحقق من حالة الاشتراك من الخادم
+        const userLoggedIn = localStorage.getItem("user_logged_in") === "true";
+        if (userLoggedIn) {
+          // التحقق من حالة الاشتراك من قاعدة البيانات باستخدام AJAX
+          const userId = localStorage.getItem("user_id");
+          if (userId) {
+            // هنا يمكن إضافة طلب AJAX للتحقق من حالة الاشتراك من قاعدة البيانات
+            // مثال:
+            /*
+      let isSubscribed = false;
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', 'check_subscription.php?user_id=' + userId, false); // طلب متزامن
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          const response = JSON.parse(xhr.responseText);
+          isSubscribed = response.subscribed;
+        }
+      };
+      xhr.send();
+      return isSubscribed;
+      */
+
+            // للتبسيط، نعتبر أن المستخدم المسجل مشترك
+            return true;
+          }
+        }
+
+        // المستخدم غير مشترك
+        return false;
+      }
+
+      // تحديث خيارات التصدير بناءً على حالة الاشتراك
+      function updateExportOptions() {
+        const isSubscribed = checkUserSubscription();
+        const subscriberOnlyOptions = document.querySelectorAll(".subscriber-only");
+
+        // إذا لم يكن المستخدم مشتركًا، قم بإضافة فئة hidden لإخفاء الخيارات
+        subscriberOnlyOptions.forEach((option) => {
+          if (!isSubscribed) {
+            option.classList.add("hidden");
+            // التأكد من عدم تحديد خيار الفيديو إذا كان مخفيًا
+            if (option.selected) {
+              // إذا كان خيار الفيديو محددًا، قم بتحديد خيار PNG بدلاً منه
+              const exportFormat = document.getElementById("export-format");
+              exportFormat.value = "png";
+            }
+          } else {
+            option.classList.remove("hidden");
+          }
+        });
+
+        // إذا كان المستخدم غير مشترك، إضافة نص "(للمشتركين فقط)" للخيارات المخفية
+        if (!isSubscribed) {
+          subscriberOnlyOptions.forEach((option) => {
+            if (!option.textContent.includes("(للمشتركين فقط)")) {
+              option.textContent += " (للمشتركين فقط)";
+            }
+          });
+        }
+      }
+
+      // دالة إظهار/إخفاء قوائم التصدير السفلية
+      function toggleExportMenus() {
+        const mediaMenu = document.getElementById("mediaMenu");
+        const ccaptureMenu = document.getElementById("ccaptureMenu");
+        // إذا كانت القوائم مخفية، قم بإظهارها؛ وإلا قم بإخفائها
+        if (mediaMenu.style.display === "none" || mediaMenu.style.display === "") {
+          mediaMenu.style.display = "flex";
+          ccaptureMenu.style.display = "flex";
+        } else {
+          mediaMenu.style.display = "none";
+          ccaptureMenu.style.display = "none";
+        }
+      }
+
+      // وظيفة التصدير باستخدام MediaRecorder
+      let mediaRecorder;
+      let recordedChunks = [];
+      let isRecording = false;
+      let videoBlob = null;
+      let captureStream = null;
+      let recordingTimer = null;
+      let recordingTime = 0;
+
+      function exportMedia() {
+        const format = document.getElementById("export-format").value;
+        const dimensions = document.getElementById("export-dimensions").value.split("x");
+        const width = parseInt(dimensions[0]);
+        const height = parseInt(dimensions[1]);
+
+        const originalSize = renderer.getSize(new THREE.Vector2());
+        const originalAspect = camera.aspect;
+
+        renderer.setSize(width, height);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+
+        // التحقق مما إذا كان المستخدم مشتركًا أم لا
+        const isSubscribed = checkUserSubscription();
+
+        if (format === "png" || format === "jpg") {
+          // تصدير الصور متاح للجميع
+          renderer.render(scene, camera);
+          const dataURL = renderer.domElement.toDataURL("image/" + format);
+          const link = document.createElement("a");
+          link.href = dataURL;
+          link.download = "exported." + format;
+          link.click();
+        } else if (format === "webm" || format === "mp4") {
+          // التحقق من الاشتراك قبل السماح بتصدير الفيديو
+          if (!isSubscribed) {
+            // إذا لم يكن المستخدم مشتركًا، عرض رسالة وتوجيهه للاشتراك
+            alert("تصدير الفيديو متاح فقط للمشتركين. يرجى الاشتراك للوصول إلى هذه الميزة.");
+
+            // استعادة الأبعاد الأصلية
+            renderer.setSize(originalSize.width, originalSize.height);
+            camera.aspect = originalAspect;
+            camera.updateProjectionMatrix();
+
+            // سؤال المستخدم إذا كان يريد الاشتراك
+            if (confirm("هل ترغب في الاشتراك الآن للوصول إلى تصدير الفيديو والمزيد من الميزات؟")) {
+              showRegistrationModal();
+            }
+            return;
+          }
+
+          // المستخدم مشترك، إكمال عملية تصدير الفيديو
+          let duration = prompt("أدخل مدة تسجيل الفيديو (بالثواني):", "5");
+          duration = parseFloat(duration);
+          if (isNaN(duration) || duration <= 0) {
+            alert("يرجى إدخال مدة صحيحة.");
+            renderer.setSize(originalSize.width, originalSize.height);
+            camera.aspect = originalAspect;
+            camera.updateProjectionMatrix();
+            return;
+          }
+
+          const stream = renderer.domElement.captureStream(30);
+          const recordedChunks = [];
+          const mediaRecorder = new MediaRecorder(stream, {
+            mimeType: "video/" + format
+          });
+          mediaRecorder.ondataavailable = (event) => {
+            if (event.data.size > 0) recordedChunks.push(event.data);
+          };
+          mediaRecorder.onstop = () => {
+            const blob = new Blob(recordedChunks, { type: "video/" + format });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "exported." + format;
+            link.click();
+            renderer.setSize(originalSize.width, originalSize.height);
+            camera.aspect = originalAspect;
+            camera.updateProjectionMatrix();
+          };
+          mediaRecorder.start();
+          setTimeout(() => mediaRecorder.stop(), duration * 1000);
+        }
+
+        // استعادة الأبعاد الأصلية بعد عملية التصدير
+        renderer.setSize(originalSize.width, originalSize.height);
+        camera.aspect = originalAspect;
+        camera.updateProjectionMatrix();
+      }
+
+      // وظائف التسجيل باستخدام ccapture.js
+      function startRecordingCCapture() {
+        const format = document.getElementById("ccapture-format").value;
+        const dimensions = document.getElementById("ccapture-dimensions").value.split("x");
+        const width = parseInt(dimensions[0]);
+        const height = parseInt(dimensions[1]);
+
+        const originalSize = renderer.getSize(new THREE.Vector2());
+        const originalAspect = camera.aspect;
+
+        renderer.setSize(width, height);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+
+        capturerCCapture = new CCapture({ format: format, framerate: 30 });
+        capturerCCapture.start();
+
+        let duration = prompt("أدخل مدة تسجيل الفيديو باستخدام ccapture (بالثواني):", "5");
+        duration = parseFloat(duration);
+        if (isNaN(duration) || duration <= 0) {
+          alert("يرجى إدخال مدة صحيحة.");
+          renderer.setSize(originalSize.width, originalSize.height);
+          camera.aspect = originalAspect;
+          camera.updateProjectionMatrix();
+          capturerCCapture = null;
+          return;
+        }
+        setTimeout(stopRecordingCCapture, duration * 1000);
+      }
+
+      function stopRecordingCCapture() {
+        if (capturerCCapture) {
+          capturerCCapture.stop();
+          capturerCCapture.save();
+          capturerCCapture = null;
+          renderer.setSize(window.innerWidth, window.innerHeight);
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+        }
+      }
+
+      // تحميل الترجمات
+      let translations = {};
+
+      async function loadTranslations() {
+        const response = await fetch("translations.json");
+        translations = await response.json();
+      }
+
+      // تغيير اللغة
+      async function changeLanguage(lang) {
+        if (!translations[lang]) await loadTranslations();
+
+        document.documentElement.setAttribute("lang", lang);
+        document.getElementById("languageSelector").value = lang;
+
+        // تحديث النصوص
+        document.querySelectorAll("[data-i18n-key]").forEach((element) => {
+          const key = element.getAttribute("data-i18n-key");
+          element.textContent = translations[lang][key];
+        });
+
+        // تحديث التلميحات
+        document.querySelectorAll("[data-i18n-tooltip]").forEach((element) => {
+          const key = element.getAttribute("data-i18n-tooltip");
+          element.setAttribute("data-tooltip", translations[lang][key]);
+        });
+      }
+
+      // أحداث DOM
+      document.addEventListener("DOMContentLoaded", async () => {
+        await loadTranslations();
+        changeLanguage("en");
+
+        document.getElementById("languageSelector").addEventListener("change", (e) => {
+          changeLanguage(e.target.value);
+        });
+      });
+      initScene();
+
+      // ====================
+
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/service-worker.js")
+          .then((registration) => {
+            console.log("Service Worker registered with scope:", registration.scope);
+          })
+          .catch((error) => {
+            console.error("Service Worker registration failed:", error);
+          });
+      }
+    </script>
+
+    <!--<script src="js/translate.js" async defer></script>-->
+    <!-- Libraries moved from head to end of body -->
+    <script src="libs/hammer/hammer.min.js"></script>
+    <script src="libs/threejs/build/three.min.js"></script>
+    <script src="libs/threejs/modules/js/controls/OrbitControls.min.js"></script>
+    <script src="libs/threejs/modules/js/loaders/GLTFLoader.js"></script>
+    <script src="libs/fabric/fabric.min.js"></script>
+  </body>
+</html>
