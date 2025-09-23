@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشهد Three.js مع أدوات التسجيل</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+        
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 20px;
+            gap: 20px;
+        }
+        
+        .scene-container {
+            flex: 1;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.2);
+            min-height: 60vh;
+        }
+        
+        #scene {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        
+        .controls-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .toolbar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .icon-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(to bottom, #4A00E0, #8E2DE2);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 10px;
+        }
+        
+        .icon-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .icon-button:active {
+            transform: translateY(0);
+        }
+        
+        .icon-button:disabled {
+            background: #555;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .icon-button i {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .icon-button span {
+            font-size: 12px;
+            text-align: center;
+        }
+        
+        .record-btn {
+            background: linear-gradient(to bottom, #FF416C, #FF4B2B);
+        }
+        
+        .stop-btn {
+            background: linear-gradient(to bottom, #FF5F6D, #FFC371);
+        }
+        
+        .settings-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .setting-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            min-width: 200px;
+        }
+        
+        select {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 1rem;
+        }
+        
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .status {
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 5px;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .recording {
+            background: rgba(255, 0, 0, 0.2);
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        /* نافذة المعاينة */
+        .preview-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .preview-window {
+            background: rgba(30, 30, 50, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .close-btn {
+            background: #ff4757;
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            background: #ff3742;
+            transform: scale(1.1);
+        }
+        
+        #previewVideo {
+            width: 100%;
+            border-radius: 10px;
+            background: #000;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .icon-button {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .icon-button i {
+                font-size: 20px;
+            }
+            
+            .icon-button span {
+                font-size: 10px;
+            }
+            
+            .settings-row {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .setting-group {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>مشهد Three.js مع أدوات التسجيل</h1>
+        <div class="subtitle">تحكم كامل في تسجيل وعرض مشاهد Three.js</div>
+    </header>
+    
+    <div class="main-container">
+        <div class="scene-container">
+            <canvas id="scene"></canvas>
+        </div>
+        
+        <div class="controls-container">
+            <div class="toolbar">
+                <button id="recordBtn" class="icon-button record-btn" title="بدء التسجيل">
+                    <i class="fas fa-record-vinyl"></i>
+                    <span>بدء التسجيل</span>
+                </button>
+                
+                <button id="stopBtn" class="icon-button stop-btn" disabled title="إيقاف التسجيل">
+                    <i class="fas fa-stop"></i>
+                    <span>إيقاف التسجيل</span>
+                </button>
+                
+                <button id="playBtn" class="icon-button" disabled title="تشغيل التسجيل">
+                    <i class="fas fa-play"></i>
+                    <span>تشغيل التسجيل</span>
+                </button>
+                
+                <button id="exportBtn" class="icon-button" disabled title="تصدير التسجيل">
+                    <i class="fas fa-download"></i>
+                    <span>تصدير التسجيل</span>
+                </button>
+                
+                <button id="settingsBtn" class="icon-button" title="الإعدادات">
+                    <i class="fas fa-cog"></i>
+                    <span>الإعدادات</span>
+                </button>
+            </div>
+            
+            <div class="settings-row">
+                <div class="setting-group">
+                    <label for="formatSelect">صيغة الملف:</label>
+                    <select id="formatSelect">
+                        <option value="webm">WebM (فيديو)</option>
+                        <option value="mp4">MP4 (فيديو)</option>
+                        <option value="gif">GIF (صورة متحركة)</option>
+                        <option value="png">PNG (صورة)</option>
+                        <option value="jpg">JPG (صورة)</option>
+                    </select>
+                </div>
+                
+                <div class="setting-group">
+                    <label for="dimensionSelect">أبعاد الملف:</label>
+                    <select id="dimensionSelect">
+                        <option value="1920x1080">1920x1080 (Full HD)</option>
+                        <option value="1280x720">1280x720 (HD)</option>
+                        <option value="1024x768">1024x768</option>
+                        <option value="800x600">800x600</option>
+                        <option value="640x480">640x480</option>
+                        <option value="custom">مخصص</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="status" class="status">جاهز للتسجيل</div>
+        </div>
+    </div>
+    
+    <!-- نافذة معاينة الفيديو -->
+    <div class="preview-overlay" id="previewOverlay">
+        <div class="preview-window">
+            <div class="preview-header">
+                <h2>معاينة التسجيل</h2>
+                <button class="close-btn" id="closePreview">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <video id="previewVideo" controls></video>
+        </div>
+    </div>
+    
+    <footer>
+        <p>تم التطوير باستخدام Three.js و MediaRecorder API</p>
+    </footer>
+
+    <!-- مكتبات Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    
+    <script>
+        // تهيئة المشهد Three.js
+        let scene, camera, renderer, cube, controls;
+        let isRecording = false;
+        let mediaRecorder;
+        let recordedChunks = [];
+        let recordedBlob = null;
+        
+        function init() {
+            // إنشاء المشهد
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x1a1a2e);
+            
+            // إنشاء الكاميرا
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
+            
+            // إنشاء المُصيِّر
+            const canvas = document.getElementById('scene');
+            renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            
+            // إضافة عناصر التحكم OrbitControls
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            
+            // إضافة مكعب
+            const geometry = new THREE.BoxGeometry(2, 2, 2);
+            const materials = [
+                new THREE.MeshBasicMaterial({ color: 0xff0000 }), // أحمر - يمين
+                new THREE.MeshBasicMaterial({ color: 0x00ff00 }), // أخضر - يسار
+                new THREE.MeshBasicMaterial({ color: 0x0000ff }), // أزرق - أعلى
+                new THREE.MeshBasicMaterial({ color: 0xffff00 }), // أصفر - أسفل
+                new THREE.MeshBasicMaterial({ color: 0xff00ff }), // أرجواني - أمام
+                new THREE.MeshBasicMaterial({ color: 0x00ffff })  // سماوي - خلف
+            ];
+            cube = new THREE.Mesh(geometry, materials);
+            scene.add(cube);
+            
+            // إضافة إضاءة
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(5, 5, 5);
+            scene.add(directionalLight);
+            
+            // معالجة تغيير حجم النافذة
+            window.addEventListener('resize', onWindowResize);
+            
+            // بدء دورة التصيير
+            animate();
+        }
+        
+        function onWindowResize() {
+            const canvas = document.getElementById('scene');
+            camera.aspect = canvas.clientWidth / canvas.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+        }
+        
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            // تدوير المكعب
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+            
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        
+        // تهيئة أدوات التسجيل
+        function initRecording() {
+            const canvas = document.getElementById('scene');
+            
+            try {
+                // محاولة الحصول على دفق من canvas (يدعمه Chrome و Firefox)
+                const stream = canvas.captureStream(30); // 30 إطار في الثانية
+                
+                // تحديد نوع الملف بناءً على الاختيار
+                const formatSelect = document.getElementById('formatSelect');
+                const selectedFormat = formatSelect.value;
+                
+                let mimeType = 'video/webm; codecs=vp9';
+                if (selectedFormat === 'mp4') {
+                    mimeType = 'video/mp4; codecs=avc1.42E01E';
+                } else if (selectedFormat === 'gif') {
+                    // GIF ليس مدعومًا مباشرة في MediaRecorder
+                    mimeType = 'video/webm; codecs=vp9';
+                }
+                
+                // إنشاء MediaRecorder
+                mediaRecorder = new MediaRecorder(stream, { mimeType });
+                
+                // معالجة البيانات المسجلة
+                mediaRecorder.ondataavailable = function(event) {
+                    if (event.data.size > 0) {
+                        recordedChunks.push(event.data);
+                    }
+                };
+                
+                // عند إيقاف التسجيل
+                mediaRecorder.onstop = function() {
+                    recordedBlob = new Blob(recordedChunks, { type: mimeType });
+                    const videoUrl = URL.createObjectURL(recordedBlob);
+                    
+                    // تمكين أزرار التشغيل والتصدير
+                    document.getElementById('playBtn').disabled = false;
+                    document.getElementById('exportBtn').disabled = false;
+                    
+                    // إعداد معاينة الفيديو
+                    const previewVideo = document.getElementById('previewVideo');
+                    previewVideo.src = videoUrl;
+                    
+                    // تحديث حالة الواجهة
+                    document.getElementById('status').textContent = 'تم التسجيل بنجاح';
+                    document.getElementById('status').className = 'status';
+                };
+                
+                return true;
+            } catch (e) {
+                console.error('خطأ في تهيئة التسجيل:', e);
+                document.getElementById('status').textContent = 'خطأ: المتصفح لا يدعم تسجيل Canvas';
+                document.getElementById('status').className = 'status';
+                return false;
+            }
+        }
+        
+        // بدء التسجيل
+        function startRecording() {
+            if (initRecording()) {
+                recordedChunks = [];
+                mediaRecorder.start(100); // جمع البيانات كل 100 مللي ثانية
+                isRecording = true;
+                
+                // تحديث حالة الواجهة
+                document.getElementById('recordBtn').disabled = true;
+                document.getElementById('stopBtn').disabled = false;
+                document.getElementById('status').textContent = 'جاري التسجيل...';
+                document.getElementById('status').className = 'status recording';
+            }
+        }
+        
+        // إيقاف التسجيل
+        function stopRecording() {
+            if (mediaRecorder && mediaRecorder.state === 'recording') {
+                mediaRecorder.stop();
+                isRecording = false;
+                
+                // تحديث حالة الواجهة
+                document.getElementById('recordBtn').disabled = false;
+                document.getElementById('stopBtn').disabled = true;
+            }
+        }
+        
+        // تشغيل التسجيل
+        function playRecording() {
+            if (recordedBlob) {
+                // عرض نافذة المعاينة
+                document.getElementById('previewOverlay').style.display = 'flex';
+                const previewVideo = document.getElementById('previewVideo');
+                previewVideo.play();
+            }
+        }
+        
+        // تصدير التسجيل
+        function exportRecording() {
+            if (recordedBlob) {
+                const formatSelect = document.getElementById('formatSelect');
+                const selectedFormat = formatSelect.value;
+                
+                let extension = 'webm';
+                if (selectedFormat === 'mp4') extension = 'mp4';
+                else if (selectedFormat === 'gif') extension = 'gif';
+                else if (selectedFormat === 'png') extension = 'png';
+                else if (selectedFormat === 'jpg') extension = 'jpg';
+                
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(recordedBlob);
+                a.download = `threejs-recording.${extension}`;
+                a.click();
+            }
+        }
+        
+        // إغلاق نافذة المعاينة
+        function closePreview() {
+            document.getElementById('previewOverlay').style.display = 'none';
+            const previewVideo = document.getElementById('previewVideo');
+            previewVideo.pause();
+            previewVideo.currentTime = 0;
+        }
+        
+        // إعداد مستمعي الأحداث للأزرار
+        document.getElementById('recordBtn').addEventListener('click', startRecording);
+        document.getElementById('stopBtn').addEventListener('click', stopRecording);
+        document.getElementById('playBtn').addEventListener('click', playRecording);
+        document.getElementById('exportBtn').addEventListener('click', exportRecording);
+        document.getElementById('closePreview').addEventListener('click', closePreview);
+        document.getElementById('settingsBtn').addEventListener('click', function() {
+            alert('خيارات الإعدادات الإضافية ستظهر هنا في التطوير المستقبلي');
+        });
+        
+        // إغلاق نافذة المعاينة بالنقر خارجها
+        document.getElementById('previewOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePreview();
+            }
+        });
+        
+        // بدء التطبيق
+        init();
+    </script>
+</body>
+</html>
