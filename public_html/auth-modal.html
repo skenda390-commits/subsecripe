@@ -1,0 +1,100 @@
+<!-- public_html/auth-modal.html -->
+
+<div class="modal-content">
+    <button id="close-modal-btn" class="close-modal-btn">&times;</button>
+    <div class="modal-tabs">
+        <button class="tab-link active" onclick="openTab(event, 'login-tab')" data-translate="login_tab">Login</button>
+        <button class="tab-link" onclick="openTab(event, 'register-tab')" data-translate="register_tab">Register</button>
+        <button class="tab-link" onclick="openTab(event, 'plans-tab')" data-translate="plans_tab">Subscription Plans</button>
+    </div>
+
+    <!-- Login Tab -->
+    <div id="login-tab" class="tab-content" style="display: block;">
+        <h3 data-translate="login_title">Login to Your Account</h3>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="login-email" data-translate="email_label">Email</label>
+                <input type="email" id="login-email" required>
+            </div>
+            <div class="form-group">
+                <label for="login-password" data-translate="password_label">Password</label>
+                <input type="password" id="login-password" required>
+            </div>
+            <button type="submit" class="submit-btn" data-translate="login_btn">Login</button>
+            <p id="login-message" class="form-message"></p>
+            <a href="#" id="forgot-password-link" data-translate="forgot_password">Forgot Password?</a>
+        </form>
+    </div>
+
+    <!-- Register Tab -->
+    <div id="register-tab" class="tab-content">
+        <h3 data-translate="register_title">Create a New Account</h3>
+        <form id="register-form">
+            <div class="form-group">
+                <label for="register-email" data-translate="email_label">Email</label>
+                <input type="email" id="register-email" required>
+            </div>
+            <div class="form-group">
+                <label for="register-password" data-translate="password_label">Password</label>
+                <input type="password" id="register-password" required>
+            </div>
+            <button type="submit" class="submit-btn" data-translate="register_btn">Register</button>
+            <p id="register-message" class="form-message"></p>
+        </form>
+    </div>
+
+    <!-- Subscription Plans Tab -->
+    <div id="plans-tab" class="tab-content">
+        <h3 data-translate="plans_title">Choose Your Plan</h3>
+        <div class="plans-container">
+            <!-- Plan cards will be dynamically inserted here -->
+            <div class="plan-card">
+                <h4 data-translate="free_plan_name">Free</h4>
+                <p class="price" data-translate="free_plan_price">$0/month</p>
+                <ul>
+                    <li data-translate="free_plan_f1">5 videos/month</li>
+                    <li data-translate="free_plan_f2">20 images/month</li>
+                    <li data-translate="free_plan_f3">2K Resolution</li>
+                    <li data-translate="free_plan_f4">Ads Enabled</li>
+                </ul>
+                <button class="select-plan-btn" disabled data-translate="current_plan">Current Plan</button>
+            </div>
+            <div class="plan-card">
+                <h4 data-translate="monthly_basic_name">Monthly Basic</h4>
+                <p class="price">$5/month</p>
+                <ul>
+                    <li data-translate="monthly_basic_f1">250 videos/month</li>
+                    <li data-translate="monthly_basic_f2">1000 images/month</li>
+                    <li data-translate="monthly_basic_f3">4K Resolution</li>
+                    <li data-translate="monthly_basic_f4">No Ads</li>
+                </ul>
+                <!-- PayPal button will be here -->
+                <div id="paypal-button-container-P-6ML527490D2009848NAFY5WA"></div>
+            </div>
+             <div class="plan-card">
+                <h4 data-translate="yearly_basic_name">Yearly Basic</h4>
+                <p class="price">$50/year</p>
+                <ul>
+                    <li data-translate="yearly_basic_f1">250 videos/month</li>
+                    <li data-translate="yearly_basic_f2">1000 images/month</li>
+                    <li data-translate="yearly_basic_f3">4K Resolution</li>
+                    <li data-translate="yearly_basic_f4">No Ads</li>
+                </ul>
+                <!-- PayPal button will be here -->
+                 <div id="paypal-button-container-P-6V5326030C814122HNAFZAFI"></div>
+            </div>
+            <div class="plan-card">
+                <h4 data-translate="premium_annual_name">Premium Annual</h4>
+                <p class="price">$100/year</p>
+                <ul>
+                    <li data-translate="premium_annual_f1">1000 videos/month</li>
+                    <li data-translate="premium_annual_f2">5000 images/month</li>
+                    <li data-translate="premium_annual_f3">8K Resolution</li>
+                    <li data-translate="premium_annual_f4">No Ads</li>
+                </ul>
+                <!-- PayPal button will be here -->
+                <div id="paypal-button-container-P-5VS57764X8846254FNCLRMMA"></div>
+            </div>
+        </div>
+    </div>
+</div>

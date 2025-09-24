@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dark-mode">
+
+    <nav class="top-nav">
+        <div class="logo">Admin Panel</div>
+        <div class="nav-controls">
+            <a href="index.html" class="nav-btn">Main Site</a>
+            <button id="logout-btn" class="nav-btn">Logout</button>
+        </div>
+    </nav>
+
+    <main class="admin-container" style="padding: 2rem;">
+        <h1 class="text-3xl font-bold mb-6">Admin Dashboard</h1>
+
+        <div class="admin-tabs">
+            <button class="tab-link active" onclick="openAdminTab(event, 'stats-tab')">Statistics</button>
+            <button class="tab-link" onclick="openAdminTab(event, 'users-tab')">User Management</button>
+            <button class="tab-link" onclick="openAdminTab(event, 'plans-tab')">Plan Management</button>
+            <button class="tab-link" onclick="openAdminTab(event, 'offers-tab')">Offer Management</button>
+        </div>
+
+        <!-- Statistics Tab -->
+        <div id="stats-tab" class="admin-tab-content" style="display: block;">
+            <h2 class="text-2xl font-semibold mb-4 mt-6">Revenue Overview</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="stat-card">
+                    <h3 class="stat-title">Total Revenue</h3>
+                    <p class="stat-value" id="total-revenue">$0.00</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="stat-title">Monthly Revenue</h3>
+                    <p class="stat-value" id="monthly-revenue">$0.00</p>
+                </div>
+                 <div class="stat-card">
+                    <h3 class="stat-title">Total Users</h3>
+                    <p class="stat-value" id="total-users">0</p>
+                </div>
+            </div>
+            <div class="mt-8">
+                 <canvas id="revenue-chart"></canvas>
+            </div>
+        </div>
+
+        <!-- User Management Tab -->
+        <div id="users-tab" class="admin-tab-content">
+            <h2 class="text-2xl font-semibold mb-4 mt-6">User Management</h2>
+            <div class="search-bar mb-4">
+                <input type="text" id="user-search" placeholder="Search by email, IP, or device fingerprint..." class="w-full p-2 bg-gray-700 border border-gray-600 rounded">
+            </div>
+            <div id="user-list" class="user-list-container">
+                <!-- User data will be populated here by JS -->
+            </div>
+        </div>
+
+        <!-- Plan Management Tab -->
+        <div id="plans-tab" class="admin-tab-content">
+             <h2 class="text-2xl font-semibold mb-4 mt-6">Subscription Plan Management</h2>
+             <div id="plan-list">
+                 <!-- Plan data populated here -->
+             </div>
+             <button id="add-plan-btn" class="submit-btn mt-4">Add New Plan</button>
+        </div>
+
+        <!-- Offer Management Tab -->
+        <div id="offers-tab" class="admin-tab-content">
+            <h2 class="text-2xl font-semibold mb-4 mt-6">Offer Management</h2>
+            <div id="offer-list">
+                <!-- Offer data populated here -->
+            </div>
+            <button id="add-offer-btn" class="submit-btn mt-4">Add New Offer</button>
+        </div>
+
+    </main>
+
+    <style>
+        .admin-tab-content { display: none; }
+        .stat-card { background-color: var(--secondary-bg-dark); padding: 1.5rem; border-radius: 8px; text-align: center; }
+        body.light-mode .stat-card { background-color: var(--secondary-bg-light); }
+        .stat-title { font-size: 1rem; opacity: 0.8; }
+        .stat-value { font-size: 2rem; font-weight: bold; color: var(--accent-color-dark); }
+        body.light-mode .stat-value { color: var(--accent-color-light); }
+        .admin-tabs { border-bottom: 1px solid var(--border-color-dark); }
+        body.light-mode .admin-tabs { border-bottom-color: var(--border-color-light); }
+        .tab-link { background: none; border: none; padding: 1rem 1.5rem; cursor: pointer; font-size: 1rem; color: var(--text-color-dark); opacity: 0.7; border-bottom: 3px solid transparent; }
+        body.light-mode .tab-link { color: var(--text-color-light); }
+        .tab-link.active { opacity: 1; border-bottom-color: var(--accent-color-dark); }
+        body.light-mode .tab-link.active { border-bottom-color: var(--accent-color-light); }
+    </style>
+
+    <script src="../assets/js/admin.js"></script>
+</body>
+</html>

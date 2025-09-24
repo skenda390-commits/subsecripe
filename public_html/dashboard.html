@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="dark-mode">
+
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="logo">
+            <a href="index.html" data-translate="logo">3D SaaS</a>
+        </div>
+        <div class="nav-controls">
+            <button id="logout-btn" class="nav-btn">Logout</button>
+            <div class="theme-switcher">
+                <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox">
+                <label for="theme-toggle" class="theme-toggle-label"></label>
+            </div>
+             <select id="lang-switcher" class="lang-switcher">
+                <option value="en">English</option>
+                <option value="ar">العربية</option>
+            </select>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard Content -->
+    <main class="dashboard-container" style="padding: 2rem;">
+        <h1 class="text-3xl font-bold mb-6">User Dashboard</h1>
+
+        <div id="loading-state" class="text-center">
+            <p>Loading user data...</p>
+        </div>
+
+        <div id="dashboard-content" style="display: none;" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Subscription Info -->
+            <div class="dashboard-card">
+                <h2 class="text-xl font-semibold mb-4">Subscription Details</h2>
+                <p><strong>Current Plan:</strong> <span id="plan-name"></span></p>
+                <p><strong>Subscription Ends:</strong> <span id="plan-end-date"></span></p>
+                <button id="upgrade-plan-btn" class="submit-btn mt-4">Upgrade Plan</button>
+            </div>
+
+            <!-- Usage Statistics -->
+            <div class="dashboard-card">
+                <h2 class="text-xl font-semibold mb-4">Monthly Usage</h2>
+                <div>
+                    <p><strong>Images:</strong> <span id="images-used"></span> / <span id="images-limit"></span></p>
+                    <div class="usage-bar">
+                        <div id="images-progress" class="usage-progress"></div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <p><strong>Videos:</strong> <span id="videos-used"></span> / <span id="videos-limit"></span></p>
+                    <div class="usage-bar">
+                        <div id="videos-progress" class="usage-progress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Actions -->
+            <div class="dashboard-card md:col-span-2">
+                <h2 class="text-xl font-semibold mb-4">Account Actions</h2>
+                <button id="change-password-btn" class="submit-btn">Change Password</button>
+            </div>
+        </div>
+    </main>
+
+    <style>
+        .dashboard-card {
+            background-color: var(--secondary-bg-dark);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        body.light-mode .dashboard-card {
+            background-color: var(--secondary-bg-light);
+        }
+        .usage-bar {
+            width: 100%;
+            background-color: var(--primary-bg-dark);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+        body.light-mode .usage-bar {
+            background-color: #e0e0e0;
+        }
+        .usage-progress {
+            height: 20px;
+            background-color: var(--accent-color-dark);
+            width: 0%; /* Set by JS */
+            border-radius: 5px;
+            transition: width 0.5s ease-in-out;
+        }
+         body.light-mode .usage-progress {
+            background-color: var(--accent-color-light);
+        }
+    </style>
+
+    <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS 3D Exporter</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Include Tailwind CSS for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 3D and Capture Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ccapture.js@1.1.0/build/CCapture.all.min.js"></script>
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD&intent=subscription"></script>
+</head>
+<body class="dark-mode">
+
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="logo">
+            <a href="#" data-translate="logo">3D SaaS</a>
+        </div>
+        <div class="nav-controls">
+            <button id="user-btn" class="nav-btn" data-translate="user">User</button>
+            <div class="theme-switcher">
+                <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox">
+                <label for="theme-toggle" class="theme-toggle-label"></label>
+            </div>
+            <select id="lang-switcher" class="lang-switcher">
+                <option value="en">English</option>
+                <option value="ar">العربية</option>
+            </select>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- 3D Scene Container -->
+        <div id="scene-container"></div>
+
+        <!-- AdSense for Free Users -->
+        <div id="ads-container" style="display: none; text-align: center; margin: 20px;">
+            <!-- Google AdSense Code Goes Here -->
+            <p data-translate="ads_placeholder">Advertisement</p>
+        </div>
+
+        <!-- Export Menu -->
+        <div class="bottom-menu media" id="mediaMenu">
+             <select id="export-format">
+                <option value="png">PNG</option>
+                <option value="jpg">JPG</option>
+                <option value="webm">WEBM</option>
+                <option value="mp4">MP4</option>
+            </select>
+            <select id="export-dimensions">
+                <option value="1920x1080">1920x1080 (HD)</option>
+                <option value="1280x720">1280x720 (HD)</option>
+                <option value="1080x1920">1080x1920</option>
+                <option value="1080x1080">1080x1080</option>
+                <option value="1080x1350">1080x1350</option>
+                <option value="1080x566">1080x566</option>
+                <option value="1200x630">1200x630</option>
+                <option value="1600x900">1600x900</option>
+                <option value="1200x627">1200x627</option>
+            </select>
+            <div id="video-duration-container" class="video-duration-container" style="display: none" >
+                <label for="video-duration" data-translate="duration_label">Duration (s):</label>
+                <input type="number" id="video-duration" value="5" min="1" class="w-20 text-center" />
+            </div>
+            <button id="capture-button" class="flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" > <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z" /> </svg>
+            </button>
+            <button id="play-button" style="display: none" class="flex items-center justify-center" title="Preview Video">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" > <path d="M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z" /> </svg>
+            </button>
+            <button id="direct-download-button" style="display: none" class="flex items-center justify-center" title="Direct Download">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" > <path d="M240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Zm240-160L280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200Z" /> </svg>
+            </button>
+        </div>
+        <div id="export-notification" class="export-notification"></div>
+    </main>
+
+    <!-- User Authentication Modal -->
+    <div id="auth-modal" class="modal-container" style="display: none;"></div>
+
+    <!-- Video Player Modal -->
+    <div id="video-player-modal" class="video-player-modal">
+        <!-- Content will be injected by JS -->
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/scene.js"></script>
+</body>
+</html>
