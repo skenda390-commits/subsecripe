@@ -1,0 +1,370 @@
+/* assets/css/style.css */
+
+/* --- CSS Variables for Theming --- */
+:root {
+    --primary-bg-dark: #121212;
+    --secondary-bg-dark: #1e1e1e;
+    --accent-color-dark: #bb86fc;
+    --text-color-dark: #e0e0e0;
+    --border-color-dark: #333;
+
+    --primary-bg-light: #ffffff;
+    --secondary-bg-light: #f4f4f4;
+    --accent-color-light: #6200ee;
+    --text-color-light: #000000;
+    --border-color-light: #ddd;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: var(--primary-bg-dark);
+    color: var(--text-color-dark);
+}
+
+body.light-mode {
+    background-color: var(--primary-bg-light);
+    color: var(--text-color-light);
+}
+
+/* --- Top Navigation --- */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--secondary-bg-dark);
+    border-bottom: 1px solid var(--border-color-dark);
+}
+
+body.light-mode .top-nav {
+    background-color: var(--secondary-bg-light);
+    border-bottom-color: var(--border-color-light);
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-btn {
+    background-color: var(--accent-color-dark);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+body.light-mode .nav-btn {
+    background-color: var(--accent-color-light);
+}
+
+/* --- Theme Switcher --- */
+.theme-switcher {
+    position: relative;
+}
+.theme-toggle-checkbox {
+    display: none;
+}
+.theme-toggle-label {
+    display: block;
+    width: 50px;
+    height: 26px;
+    background-color: #444;
+    border-radius: 13px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s;
+}
+.theme-toggle-label::after {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 22px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s;
+}
+.theme-toggle-checkbox:checked + .theme-toggle-label {
+    background-color: var(--accent-color-light);
+}
+.theme-toggle-checkbox:checked + .theme-toggle-label::after {
+    transform: translateX(24px);
+}
+
+/* --- Language Switcher --- */
+.lang-switcher {
+    background-color: var(--secondary-bg-dark);
+    color: var(--text-color-dark);
+    border: 1px solid var(--border-color-dark);
+    padding: 0.3rem;
+    border-radius: 5px;
+}
+body.light-mode .lang-switcher {
+    background-color: var(--secondary-bg-light);
+    color: var(--text-color-light);
+    border-color: var(--border-color-light);
+}
+
+/* --- Main Content & Scene --- */
+main {
+    position: relative;
+}
+#scene-container {
+    width: 100%;
+    height: calc(100vh - 65px); /* Full height minus nav bar */
+    display: block;
+}
+
+/* --- Export Menu --- */
+.bottom-menu {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(30, 30, 30, 0.8);
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid #333;
+}
+
+body.light-mode .bottom-menu {
+     background-color: rgba(244, 244, 244, 0.8);
+     border-color: #ddd;
+}
+
+.bottom-menu select, .bottom-menu input, .bottom-menu button {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+body.light-mode .bottom-menu select,
+body.light-mode .bottom-menu input,
+body.light-mode .bottom-menu button {
+    background-color: #fff;
+    color: #000;
+    border-color: #ccc;
+}
+
+.bottom-menu button {
+    cursor: pointer;
+}
+.bottom-menu button:hover {
+    background-color: var(--accent-color-dark);
+}
+body.light-mode .bottom-menu button:hover {
+    background-color: var(--accent-color-light);
+}
+
+
+/* --- Modal --- */
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-content {
+    background-color: var(--secondary-bg-dark);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+body.light-mode .modal-content {
+    background-color: var(--secondary-bg-light);
+}
+.close-modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-color-dark);
+    cursor: pointer;
+}
+body.light-mode .close-modal-btn {
+    color: var(--text-color-light);
+}
+
+/* --- Modal Tabs --- */
+.modal-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border-color-dark);
+    margin-bottom: 1rem;
+}
+body.light-mode .modal-tabs {
+    border-bottom-color: var(--border-color-light);
+}
+.tab-link {
+    background: none;
+    border: none;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--text-color-dark);
+    opacity: 0.7;
+    border-bottom: 3px solid transparent;
+}
+body.light-mode .tab-link {
+     color: var(--text-color-light);
+}
+.tab-link.active {
+    opacity: 1;
+    border-bottom-color: var(--accent-color-dark);
+}
+body.light-mode .tab-link.active {
+    border-bottom-color: var(--accent-color-light);
+}
+
+.tab-content {
+    display: none;
+}
+
+/* --- Forms --- */
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: 1px solid var(--border-color-dark);
+    background-color: var(--primary-bg-dark);
+    color: var(--text-color-dark);
+}
+body.light-mode .form-group input {
+    background-color: var(--primary-bg-light);
+    color: var(--text-color-light);
+    border-color: var(--border-color-light);
+}
+.submit-btn {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--accent-color-dark);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+body.light-mode .submit-btn {
+    background-color: var(--accent-color-light);
+}
+.form-message {
+    margin-top: 1rem;
+    text-align: center;
+}
+.form-message.success { color: #4caf50; }
+.form-message.error { color: #f44336; }
+
+/* --- Subscription Plans --- */
+.plans-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+.plan-card {
+    border: 1px solid var(--border-color-dark);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+}
+body.light-mode .plan-card {
+    border-color: var(--border-color-light);
+}
+.plan-card h4 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    color: var(--accent-color-dark);
+}
+body.light-mode .plan-card h4 {
+    color: var(--accent-color-light);
+}
+.plan-card .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+.plan-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+.plan-card li {
+    margin-bottom: 0.5rem;
+}
+.select-plan-btn {
+    width: 100%;
+    padding: 0.5rem;
+}
+#export-notification {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 8px;
+    z-index: 1001;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#export-notification.show {
+    display: block;
+    opacity: 1;
+}
+
+[dir="rtl"] {
+    direction: rtl;
+}
+[dir="rtl"] .top-nav {
+    flex-direction: row-reverse;
+}
+[dir="rtl"] .nav-controls {
+    gap: 1.5rem;
+}
+
+[dir="rtl"] .close-modal-btn {
+    right: auto;
+    left: 15px;
+}
